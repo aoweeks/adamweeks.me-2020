@@ -128,5 +128,10 @@
   "defaultProject": "adamweeks",
   "cli": {
     "analytics": "01a6aeb3-ed11-4069-9d8a-5abf95a63193"
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
   }
 }
