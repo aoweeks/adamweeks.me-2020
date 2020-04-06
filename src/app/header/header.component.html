@@ -1,6 +1,24 @@
-<a>AW</a>
+<div>
+  <a [routerLink]="['/']">AW</a>
+</div>
 
-<a>ART</a>
-<a>CODE</a>
-<a>OTHER</a>
-<a>ABOUT</a>
+<a  class="nav-link"
+    [routerLink]="['/art']"
+    [routerLinkActive]="['link-active']">
+    <span>ART</span>
+</a>
+<a  class="nav-link"
+    [routerLink]="['/code']"
+    [routerLinkActive]="['link-active']">
+    <span>CODE</span>
+</a>
+<a  class="nav-link"
+    [routerLink]="['/other']"
+    [routerLinkActive]="['link-active']">
+    OTHER
+</a>
+<a  class="nav-link"
+    [routerLink]="['/about']"
+    [routerLinkActive]="['link-active']">
+    ABOUT
+</a>
