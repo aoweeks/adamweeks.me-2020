@@ -1,4 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+/* Fonts */
+@font-face {
+  font-family: 'Jaapokki';
+  src: url('./assets/fonts/jaapokki-regular.ttf');
+}
 
-$aw-white: white;
-$aw-accent: orange;
+/* Colours */
+:root{
+  --aw-white: #EEEEEE;
+  --aw-accent: #F2642A;
+}
