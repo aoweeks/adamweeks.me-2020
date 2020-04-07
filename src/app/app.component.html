@@ -1,3 +1,8 @@
-<aw-header></aw-header>
-<router-outlet></router-outlet>
-<aw-home-page></aw-home-page>
+<nav>
+  <aw-header></aw-header>
+</nav>
+<!-- [@routeTransition]="getState(outlet)" -->
+<main [@routeAnimations]="prepareRoute(outlet)"
+  class="content">
+  <router-outlet #outlet="outlet"></router-outlet>
+</main>
