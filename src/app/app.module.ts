@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ArtGalleryComponent } from './pages/art-gallery/art-gallery.component';
+import { BasePageComponent } from './pages/base-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomePageComponent,
-    ArtGalleryComponent
+    ArtGalleryComponent,
+    BasePageComponent
   ],
   imports: [
     BrowserModule,
