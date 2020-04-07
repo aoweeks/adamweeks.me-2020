@@ -62,9 +62,11 @@
   }
 }
 
-
 .nav-link:hover,
-.nav-link:focus,
+.nav-link:focus {
+  color: var(--aw-accent);
+}
+
 .link-active{
 
   color: var(--aw-accent);
