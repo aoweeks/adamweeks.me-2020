@@ -9,6 +9,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ArtGalleryComponent } from './pages/art-gallery/art-gallery.component';
 import { BasePageComponent } from './pages/base-page.component';
 import { CodeGalleryComponent } from './pages/code-gallery/code-gallery.component';
+import { AboutPageComponent } from './pages/about-page/about-page.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CodeGalleryComponent } from './pages/code-gallery/code-gallery.componen
     HomePageComponent,
     ArtGalleryComponent,
     BasePageComponent,
-    CodeGalleryComponent
+    CodeGalleryComponent,
+    AboutPageComponent
   ],
   imports: [
     BrowserModule,
