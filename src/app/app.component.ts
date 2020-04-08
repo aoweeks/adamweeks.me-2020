@@ -14,7 +14,6 @@ export class AppComponent {
 
 
   prepareRoute(outlet: RouterOutlet) {
-    console.log("g");
     return outlet.activatedRouteData.state;
   }
 
