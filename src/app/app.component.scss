@@ -4,13 +4,12 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: #282828;
+  background-image: url('../assets/images/background.png');
   z-index: -1;
 
   .content{
     position: absolute;
     top:70px;
-
     padding: 20px;
 
     color: var(--aw-white);
