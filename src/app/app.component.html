@@ -1,8 +1,11 @@
-<nav>
-  <aw-header></aw-header>
-</nav>
-<!-- [@routeTransition]="getState(outlet)" -->
-<main [@routeAnimations]="prepareRoute(outlet)"
-  class="content">
-  <router-outlet #outlet="outlet"></router-outlet>
-</main>
+<div [@routeAnimations]="prepareRoute(outlet)">
+  <div id="aw-background">
+    <nav>
+      <aw-header></aw-header>
+    </nav>
+    <main
+      class="content">
+      <router-outlet #outlet="outlet"></router-outlet>
+    </main>
+  </div>
+</div>

@@ -7,10 +7,10 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent, data: {animation: 'right'} },
-  { path: 'art', component: ArtGalleryComponent, data: {animation: 'left'}},
-  { path: 'code', component: CodeGalleryComponent, data: {animation: 'right'}},
-  { path: 'about', component: AboutPageComponent, data: {animation: 'right'}}
+  { path: '', component: HomePageComponent, data: {animation: 'home'} },
+  { path: 'art', component: ArtGalleryComponent, data: {animation: 'art'}},
+  { path: 'code', component: CodeGalleryComponent, data: {animation: 'code'}},
+  { path: 'about', component: AboutPageComponent, data: {animation: 'about'}}
 ];
 
 @NgModule({

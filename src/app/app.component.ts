@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-// import { routeTransition } from '../route-animations'
+import { slideLeft } from '../route-animations'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [slideLeft]
 })
 export class AppComponent {
 
@@ -14,7 +15,7 @@ export class AppComponent {
 
 
   prepareRoute(outlet: RouterOutlet) {
-    return outlet.activatedRouteData.state;
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 
   setPageTitle() {
