@@ -1,11 +1,10 @@
 <div [@routeAnimations]="prepareRoute(outlet)">
-  <div id="aw-background">
-    <nav>
-      <aw-header></aw-header>
-    </nav>
-    <main
-      class="content">
-      <router-outlet #outlet="outlet"></router-outlet>
-    </main>
-  </div>
+  <div id="aw-background"></div>
+  <nav>
+    <aw-header></aw-header>
+  </nav>
+  <main
+    class="content">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </main>
 </div>
