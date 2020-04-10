@@ -12,6 +12,7 @@ export class CodeGalleryComponent
   private extraPageTitle = "Code";
 
   ngOnInit(): void {
+    super.ngOnInit();
     this.setPageTitle(this.extraPageTitle);
   }
 

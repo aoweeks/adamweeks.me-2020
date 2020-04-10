@@ -12,6 +12,7 @@ export class ArtGalleryComponent
   extraPageTitle = "Art Gallery";
 
   ngOnInit(): void {
+    super.ngOnInit();
     this.setPageTitle(this.extraPageTitle);
   }
 

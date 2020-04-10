@@ -11,7 +11,10 @@ export class AboutPageComponent
 
   private extraPageTitle = "About";
 
+
+
   ngOnInit(): void {
+    super.ngOnInit();
     this.setPageTitle(this.extraPageTitle);
   }
 

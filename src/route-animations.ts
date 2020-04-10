@@ -81,16 +81,30 @@ import {
       group([
         query(':enter', [
             style({ transform: 'translateX(100%)' }),
-            animate('0.75s ease-in-out', style({ transform: 'translateX(0%)' }))
+            animate(
+              '0.75s ease-in-out',
+              style({ transform: 'translateX(0%)' })
+            )
           ],
           { optional: true }
         ),
         query(':leave', [
-            style({ transform: 'translateX(0%)' }),
-            animate('0.75s ease-in-out', style({ transform: 'translateX(-100%)' }))
+            style({ 'transform': 'translateX(0%)' }),
+            animate(
+              '0.75s ease-in-out',
+              style({ color: 'var(--aw-accent)', transform: 'translateX(-100%)' })
+            )
             // Could maybe use a CSS variable that's set to be slower or faster depending on screen width?
           ],
           { optional: true }),
-      ])
+        query('#aw-background', [
+            animate(
+              '0.75s ease-in-out',
+              style({ 'background-position': '-100%' })
+            )
+
+          ],
+          {optional: true})
+      ]),
     ])
   ]);

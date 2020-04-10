@@ -8,12 +8,83 @@
 :root{
   --aw-white: #EEEEEE;
   --aw-accent: #F2642A;
+  --aw-mid-grey: #282828;
+}
+
+/* Background Tracker */
+:root{
+  --background-offset-tracker-X: 0;
+}
+
+/* Timings */
+
+:root{
+  --t1: 0.6s ease-out;
+  --t2: 0.75s;
 }
 
 
 /* Global Styles
 ===================*/
 
+html{
+  background-color: hsl( 0, 0, 15%);
+}
+
+:root{
+
+  a:focus{
+    outline: none;
+  }
+
+  nav{
+    ::selection{
+      color: inherit;
+      background: none;
+    }
+  }
+  main{
+    ::selection{
+      color: var(--aw-white);
+      background-color: rgba(242, 100, 42, 0.99); //Have to use slightly transpartent RGBA 'cos of weird Chrome issue
+    }
+    a::selection{
+      color: var(--aw-mid-grey) !important;
+    }
+
+
+    a{
+      color: var(--aw-accent);
+      text-decoration: none;
+      position: relative;
+      display: inline-block;
+      z-index: 5;
+    }
+
+    a::before{
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      right: 50%;
+      pointer-events: none;
+      border-bottom: 2px solid var(--aw-accent);
+      width: inherit;
+      content: "";
+      z-index: 3;
+
+      transition: var(--t1);
+    }
+
+    a:hover::before,
+    a:focus::before{
+      content: "";
+      color: transparent;
+      left: 0%;
+      right: 0%;
+      text-decoration: underline;
+    }
+  }
+}
 
 /*Scrollbar*/
 body::-webkit-scrollbar {

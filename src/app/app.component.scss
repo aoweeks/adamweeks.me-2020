@@ -25,19 +25,18 @@ aw-header{
 
 #aw-background{
   position: fixed;
-  top: 0;
+  top: 70px;
   left: 0;
   right: 0;
-  bottom: 0;
-  background-color: #282828;
+  min-height: calc(100vh - 70px);
+  background-image: url('../assets/images/background.svg');
   z-index: -1;
 }
 
 .content{
-  position: absolute;
-  top:70px;
-
-  padding: 20px;
+    position: absolute;
+    top:70px;
+    padding: 20px;
 
   color: var(--aw-white);
 }
