@@ -100,7 +100,7 @@ import {
         query('#aw-background', [
             animate(
               '0.75s ease-in-out',
-              style({ 'background-position': '-100%' })
+              style({ 'background-position': '-100vw' })
             )
 
           ],
