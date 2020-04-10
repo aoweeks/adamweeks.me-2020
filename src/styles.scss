@@ -44,6 +44,14 @@ html{
 
 :root{
 
+  button{
+    background: none;
+    border: none;
+
+  }
+  button:focus{
+    outline: none!important;
+  }
   a:focus{
     outline: none;
   }

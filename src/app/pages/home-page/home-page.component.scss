@@ -1,0 +1,33 @@
+#section-1{
+  height: calc(100vh - 110px);
+
+  display: grid;
+  grid-template-rows: 1fr 2.5rem;
+  grid-template-columns: 1fr;;
+  width: 100%;
+  justify-items: center;
+
+  #splash-screen-container,
+  #arrow-container{
+  }
+
+}
+
+#down-arrow{
+  height: 2.5rem;
+  width: auto;
+
+  cursor: pointer;
+
+  #arrow-path{
+    fill:var(--aw-white);
+  }
+}
+
+#down-arrow:hover{
+
+  #arrow-path{
+    fill: val(--aw-accent);
+  }
+
+}
