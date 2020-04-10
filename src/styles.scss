@@ -19,6 +19,16 @@
 /* Global Styles
 ===================*/
 
+html{
+  background-color: hsl( 0, 0, 15%);
+}
+
+:root{
+  ::selection{
+    color: var(--aw-white);
+    background-color: rgba(242, 100, 42, 0.99); //Have to use slightly transpartent RGBA 'cos of weird Chrome issue
+  }
+}
 
 /*Scrollbar*/
 body::-webkit-scrollbar {

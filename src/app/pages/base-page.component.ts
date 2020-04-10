@@ -11,10 +11,14 @@ export class BasePageComponent{
 
   private basePageTitle = "Adam Weeks | "
 
-  constructor(private title: Title, private bgTracker: BackgroundPositionTrackerService) { }
+  constructor(private title: Title,
+              private bgTracker: BackgroundPositionTrackerService) { }
 
   ngOnInit(): void{
-    this.bgTracker.updateBackgroundPositionX(500);
+    setTimeout(
+      () => {this.bgTracker.updateBackgroundPositionX(500)},
+      750
+    );
   }
 
   setPageTitle(extraPageTitle): void {
