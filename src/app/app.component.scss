@@ -1,17 +1,55 @@
+#header-background,
+aw-header{
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr auto auto auto;
+  align-items: center;
+
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  height: 70px;
+}
+
+#header-background{
+  z-index: 10;
+  background-color: rgb(0.5, 0.5, 0.5);
+}
+
+aw-header{
+  z-index:11;
+}
+
+
 #aw-background{
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  bottom: 0;
   right: 0;
+<<<<<<< HEAD
   background-image: url('../assets/images/background.png');
+=======
+  bottom: 0;
+  background-color: #282828;
+>>>>>>> bb8110a86f33c4dc610b4291d56b820df98aad7c
   z-index: -1;
+}
 
+<<<<<<< HEAD
   .content{
     position: absolute;
     top:70px;
     padding: 20px;
+=======
+.content{
+  position: absolute;
+  top:70px;
 
-    color: var(--aw-white);
-  }
+  padding: 20px;
+>>>>>>> bb8110a86f33c4dc610b4291d56b820df98aad7c
+
+  color: var(--aw-white);
 }
+
