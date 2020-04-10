@@ -13,6 +13,10 @@ export class BasePageComponent{
 
   constructor(private title: Title, private bgTracker: BackgroundPositionTrackerService) { }
 
+  ngOnInit(): void{
+    this.bgTracker.updateBackgroundPositionX(500);
+  }
+
   setPageTitle(extraPageTitle): void {
     this.title.setTitle(this.basePageTitle + extraPageTitle);
   }

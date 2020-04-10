@@ -6,4 +6,8 @@ import { Injectable } from '@angular/core';
 export class BackgroundPositionTrackerService {
 
   constructor() { }
+
+  updateBackgroundPositionX(newPosition: Number): void {
+    console.log('updateBG: ' + newPosition);
+  }
 }

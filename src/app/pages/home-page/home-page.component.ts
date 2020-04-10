@@ -13,6 +13,7 @@ export class HomePageComponent
   private extraPageTitle = "Art + Code";
 
   ngOnInit(): void {
+    super.ngOnInit();
     this.setPageTitle(this.extraPageTitle);
   }
 
