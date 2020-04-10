@@ -25,30 +25,18 @@ aw-header{
 
 #aw-background{
   position: fixed;
-  top: 0;
+  top: 70px;
   left: 0;
   right: 0;
-<<<<<<< HEAD
+  min-height: calc(100vh - 70px);
   background-image: url('../assets/images/background.png');
-=======
-  bottom: 0;
-  background-color: #282828;
->>>>>>> bb8110a86f33c4dc610b4291d56b820df98aad7c
   z-index: -1;
 }
 
-<<<<<<< HEAD
-  .content{
+.content{
     position: absolute;
     top:70px;
     padding: 20px;
-=======
-.content{
-  position: absolute;
-  top:70px;
-
-  padding: 20px;
->>>>>>> bb8110a86f33c4dc610b4291d56b820df98aad7c
 
   color: var(--aw-white);
 }

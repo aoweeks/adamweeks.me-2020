@@ -92,7 +92,7 @@ import {
             style({ 'transform': 'translateX(0%)' }),
             animate(
               '0.75s ease-in-out',
-              style({ transform: 'translateX(-100%)' })
+              style({ color: 'var(--aw-accent)', transform: 'translateX(-100%)' })
             )
             // Could maybe use a CSS variable that's set to be slower or faster depending on screen width?
           ],
