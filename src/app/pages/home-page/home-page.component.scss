@@ -1,33 +1,53 @@
-#section-1{
-  height: calc(100vh - 110px);
+@keyframes bounce{
+	0% {
+		transform: translateY(0rem);
+	}
+	50% {
+		transform: translateY(3rem);
+	}
+	100% {
+		transform: translateY(0rem);
+	}
+}
 
+
+#section-1{
+  height: calc(100vh - 8rem); //fudge
+  width: calc(100vw - 50px); //fudge
   display: grid;
   grid-template-rows: 1fr 2.5rem;
   grid-template-columns: 1fr;;
-  width: 100%;
+
+
   justify-items: center;
 
   #splash-screen-container,
   #arrow-container{
+
   }
 
 }
 
-#down-arrow{
+#arrow-button{
   height: 2.5rem;
   width: auto;
 
-  cursor: pointer;
+  animation: bounce 1.75s ease-in-out infinite;
+	// -webkit-backface-visibility: hidden;
+	cursor: pointer;
+
 
   #arrow-path{
     fill:var(--aw-white);
   }
 }
 
-#down-arrow:hover{
+#arrow-button:hover{
+
+  animation-play-state: paused;
 
   #arrow-path{
-    fill: val(--aw-accent);
+    fill: var(--aw-accent);
   }
 
 }
