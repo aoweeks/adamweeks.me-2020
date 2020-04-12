@@ -1,3 +1,5 @@
+@import "../../variables";
+
 a:nth-child(1) {
   justify-self: start;
   margin-left: 1.25rem;
@@ -135,7 +137,7 @@ a:nth-last-child(1) {
   }
 
   #hamburger-line-1{
-    
+
     transform-origin: 25px 14px;
   }
 
@@ -143,9 +145,9 @@ a:nth-last-child(1) {
     transform-origin: 25px 25px;
   }
   #hamburger-line-3{
-    
+
     transform-origin: 25px 36px;
-    
+
   }
 }
 
@@ -162,13 +164,14 @@ a:nth-last-child(1) {
   // }
 
   // #hamburger-line-1{
-    
+
   //   transform: translateY(11px) rotate(-45deg);
   // }
+}
 
-
+.mobile-menu-active{
   #hamburger-line-1{
-    
+
     transform-origin: 25px 14px;
     transform: matrix(0.71,0.71,-0.71,0.71,0,11);
   }
@@ -178,14 +181,14 @@ a:nth-last-child(1) {
     transform: scaleX(0);
   }
   #hamburger-line-3{
-    
+
     transform-origin: 25px 36px;
     transform:matrix(0.71,-0.71,0.71,0.71,0,-11);
-    
+
   }
 }
 
-@media(max-width: 800px){
+@media(max-width: $mobile-breakpoint){
   .nav-hamburger-menu{
     display: block;
   }

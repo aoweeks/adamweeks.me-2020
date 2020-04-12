@@ -1,3 +1,6 @@
+@import "../variables";
+
+
 #header-background,
 aw-header{
   display: grid;
@@ -10,7 +13,7 @@ aw-header{
   right: 0;
   top: 0;
 
-  height: 70px;
+  height: var(--header-height);
 }
 
 #header-background{
@@ -27,19 +30,50 @@ aw-header{
 
 #aw-background{
   position: fixed;
-  top: 70px;
+  top: var(--header-height);
   left: 0;
   right: 0;
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - var(--header-height) );
   background-image: url('../assets/images/background.svg');
   z-index: -1;
 }
 
 .content{
     position: absolute;
-    top:70px;
+    top: var(--header-height);
     padding: 20px;
 
-  color: var(--aw-white);
+    overflow: hidden;
+    color: var(--aw-white);
+
+    clip-path: inset(0px 0px 0px 0px);
+    transition: all 1s;
+}
+
+/* Mobile Menu */
+@media(max-width: $mobile-breakpoint) {
+
+  #mobile-menu-background{
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 100vw;
+    bottom: 0;
+
+    z-index: 9;
+    background-color: rgba(0, 0, 0, 0.25);
+    transition: all 1s;
+  }
+
+  .mobile-menu-active{
+
+    .content{
+      clip-path: inset(0px 0px 0px 100vw);
+    }
+
+    #mobile-menu-background{
+      right: 0;
+    }
+  }
 }
 

@@ -1,8 +1,10 @@
-<div [@routeAnimations]="prepareRoute(outlet)">
+<div  [@routeAnimations]="prepareRoute(outlet)"
+      [ngClass]="{'mobile-menu-active': isMobileMenuActive()}">
   <div id="header-background"></div>
   <div id="aw-background"></div>
+  <div id="mobile-menu-background"></div>
   <nav >
-    <aw-header></aw-header>
+    <aw-header (mobileMenuStateChange)="toggleMobileMenu($event)"></aw-header>
   </nav>
   <main
     class="content">
