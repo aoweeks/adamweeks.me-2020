@@ -2,7 +2,6 @@
       [ngClass]="{'mobile-menu-active': isMobileMenuActive()}">
   <div id="header-background"></div>
   <div id="aw-background"></div>
-  <div id="mobile-menu-background"></div>
   <nav >
     <aw-header (mobileMenuStateChange)="toggleMobileMenu($event)"></aw-header>
   </nav>
@@ -10,4 +9,26 @@
     class="content">
     <router-outlet #outlet="outlet"></router-outlet>
   </main>
+  <div id="mobile-menu">
+    <a  class="nav-link"
+        [routerLink]="['/art']"
+        [routerLinkActive]="['link-active']">
+        <span>ART</span>
+    </a>
+    <a  class="nav-link"
+        [routerLink]="['/code']"
+        [routerLinkActive]="['link-active']">
+        <span>CODE</span>
+    </a>
+    <!-- <a  class="nav-link"
+        [routerLink]="['/other']"
+        [routerLinkActive]="['link-active']">
+        <span>OTHER</span>
+    </a> -->
+    <a  class="nav-link"
+        [routerLink]="['/about']"
+        [routerLinkActive]="['link-active']">
+        <span>ABOUT</span>
+    </a>
+  </div>
 </div>

@@ -46,14 +46,14 @@ aw-header{
     overflow: hidden;
     color: var(--aw-white);
 
-    clip-path: inset(0px 0px 0px 0px);
+    clip-path: inset(0px 0px 0px 0px);//none for Angular transition?
     transition: all 1s;
 }
 
 /* Mobile Menu */
 @media(max-width: $mobile-breakpoint) {
 
-  #mobile-menu-background{
+  #mobile-menu{
     position: fixed;
     top: var(--header-height);
     left: 0;
@@ -63,6 +63,13 @@ aw-header{
     z-index: 9;
     background-color: rgba(0, 0, 0, 0.25);
     transition: all 1s;
+
+    overflow: hidden;
+
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
   }
 
   .mobile-menu-active{
@@ -71,7 +78,7 @@ aw-header{
       clip-path: inset(0px 0px 0px 100vw);
     }
 
-    #mobile-menu-background{
+    #mobile-menu{
       right: 0;
     }
   }
