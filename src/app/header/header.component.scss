@@ -120,3 +120,22 @@ a:nth-last-child(1) {
 // .link-active:focus{
 //   color: var(--aw-white);
 // }
+
+.nav-hamburger-menu{
+  display: none;
+  color: var(--aw-white);
+
+  stroke: var(--aw-white);
+  stroke-width: 4px;
+}
+
+@media(max-width: 800px){
+  .nav-hamburger-menu{
+    display: block;
+  }
+
+  .nav-link{
+    display: none;
+  }
+}
+
