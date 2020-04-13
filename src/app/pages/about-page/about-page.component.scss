@@ -1,0 +1,54 @@
+:host{
+  // position:fixed;
+  // top: var(--header-height);
+  // bottom: 0;
+
+  display: grid;
+  grid-template-columns: 1fr 200px;
+}
+
+#follow-sidebar{
+  justify-self: center;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-content: center;
+}
+
+@keyframes fly{
+  from{
+    transform: translate(0px, 20px) rotate(37.1deg) scale(1.25, 1.25);
+  } to {
+		transform: translate(0px,-10px) rotate(37.1deg) scale(1.25, 1.25);
+	}
+}
+
+@keyframes flap{
+	from {
+		transform: scale(1, 1);
+	} to {
+		transform: scale(-1, 1);
+  }
+}
+
+#twitter{
+
+  #twitter-wing,
+  #twitter-container{
+    // animation-fill-mode: both;
+  }
+
+  #twitter-container{
+    // animation: fly 0.4s ease-in-out;
+  }
+
+  &:hover{
+
+    #twitter-container{
+      animation: fly 0.4s ease-in-out infinite alternate;
+    }
+    #twitter-wing{
+      animation: flap 0.4s ease-in-out infinite alternate;
+    }
+  }
+}
