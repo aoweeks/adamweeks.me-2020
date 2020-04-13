@@ -13,7 +13,7 @@ export class AppComponent {
 
   constructor(private title: Title) {}
 
-  private mobileMenuActive: Boolean = false;
+  mobileMenuState: Boolean = false;
 
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
@@ -23,13 +23,13 @@ export class AppComponent {
     this.title.setTitle('Adam Weeks');
   }
 
-  /* Mobile Menu */
+  // /* Mobile Menu */
 
-  toggleMobileMenu(newMenuState: Boolean){
-    this.mobileMenuActive = newMenuState;
-  }
+  // toggleMobileMenu(newMenuState: Boolean){
+  //   this.mobileMenuActive = newMenuState;
+  // }
 
-  isMobileMenuActive(): Boolean {
-    return this.mobileMenuActive;
-  }
+  // isMobileMenuActive(): Boolean {
+  //   return this.mobileMenuActive;
+  // }
 }

@@ -17,8 +17,10 @@
 
 <a  class="nav-hamburger-menu"
     role="button"
+    aria-label="menu"
+    [attr.aria-pressed]="mobileMenuActive"
     (click)="toggleMobileMenuActive()"
-    [ngClass]="{'mobile-menu-active': isMobileMenuActive()}">
+    [ngClass]="{'mobile-menu-active': mobileMenuActive}">
       <svg  height="50px" width="50px" viewBox="0 0 50 50" version="1.1"
             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             xml:space="preserve" xmlns:serif="http://www.serif.com/">
