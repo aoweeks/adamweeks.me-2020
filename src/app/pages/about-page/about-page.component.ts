@@ -4,7 +4,7 @@ import { BasePageComponent } from '../base-page.component';
 @Component({
   selector: 'app-about-page',
   templateUrl: './about-page.component.html',
-  styleUrls: ['./about-page.component.sass']
+  styleUrls: ['./about-page.component.scss']
 })
 export class AboutPageComponent
   extends BasePageComponent implements OnInit {

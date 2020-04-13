@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { slideLeft } from '../route-animations'
+
+import { slideLeft } from '../route-animations';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,14 @@ import { slideLeft } from '../route-animations'
 })
 export class AppComponent {
 
-  constructor(private title: Title) {}
+  constructor(private router: Router,
+              private title: Title) {
+
+    //Remove mobile menu when navigation changes
+    router.events.subscribe( () => {
+        this.mobileMenuState = false;
+      })
+  }
 
   mobileMenuState: Boolean = false;
 
