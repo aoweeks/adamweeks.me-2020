@@ -10,6 +10,7 @@ import { ArtGalleryComponent } from './pages/art-gallery/art-gallery.component';
 import { BasePageComponent } from './pages/base-page.component';
 import { CodeGalleryComponent } from './pages/code-gallery/code-gallery.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
+import { FilterPanelComponent } from './ui-components/filter-panel/filter-panel.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
     ArtGalleryComponent,
     BasePageComponent,
     CodeGalleryComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    FilterPanelComponent
   ],
   imports: [
     BrowserModule,
