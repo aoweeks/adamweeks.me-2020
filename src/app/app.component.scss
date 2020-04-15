@@ -15,7 +15,7 @@ aw-header{
 
   height: var(--header-height);
 
-  transition: top 0.2s ease-in;
+  transition: top 0.4s ease-out;
 }
 
 
@@ -33,12 +33,14 @@ aw-header{
 
 #aw-background{
   position: fixed;
-  top: var(--header-height);
+  top: 0;
   left: 0;
   right: 0;
-  min-height: calc(100vh - var(--header-height) );
+  min-height:100vh;
   background-image: url('../assets/images/background.svg');
   z-index: -1;
+
+  transition: background-position-y 0.4s ease-out;
 }
 
 .content{
@@ -49,8 +51,10 @@ aw-header{
     overflow: hidden;
     color: var(--aw-white);
 
+    transition: top 0.4s ease-out;
+
     // clip-path: inset(0px 0px 0px 0px);//none for Angular transition?
-    transition: all 1s;
+    // transition: all 1s;
 }
 
 /* Mobile Menu */
@@ -65,7 +69,7 @@ aw-header{
 
     z-index: 9;
     background-color: var(--aw-darker-background);
-    transition: all 1s;
+    transition: bottom 0.4s ease-out;
 
     overflow: hidden;
 
@@ -78,7 +82,8 @@ aw-header{
   .mobile-menu-active{
 
     .content{
-      clip-path: inset(0px 0px 0px 100vw);
+      // clip-path: inset(0px 0px 0px 100vw);
+      top: 100vh;
     }
 
     #mobile-menu{
