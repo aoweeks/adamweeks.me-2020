@@ -14,7 +14,10 @@ aw-header{
   top: 0;
 
   height: var(--header-height);
+
+  transition: top 0.2s ease-in;
 }
+
 
 #header-background{
   z-index: 10;
@@ -24,7 +27,7 @@ aw-header{
 
 aw-header{
   z-index:11;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: var(--aw-darker-background);
 }
 
 
@@ -46,7 +49,7 @@ aw-header{
     overflow: hidden;
     color: var(--aw-white);
 
-    clip-path: inset(0px 0px 0px 0px);//none for Angular transition?
+    // clip-path: inset(0px 0px 0px 0px);//none for Angular transition?
     transition: all 1s;
 }
 
@@ -55,13 +58,13 @@ aw-header{
 
   #mobile-menu{
     position: fixed;
-    top: var(--header-height);
+    height: calc(100vh - var(--header-height));
     left: 0;
-    right: 100vw;
-    bottom: 0;
+    right: 0;
+    bottom: 100vh;
 
     z-index: 9;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: var(--aw-darker-background);
     transition: all 1s;
 
     overflow: hidden;
@@ -79,7 +82,12 @@ aw-header{
     }
 
     #mobile-menu{
-      right: 0;
+      bottom: var(--header-height);
+    }
+
+    #header-background,
+    aw-header{
+      top: calc(100vh - var(--header-height));
     }
   }
 }
