@@ -77,6 +77,21 @@ aw-header{
     grid-template-rows: 1fr 1fr 1fr;
     align-items: center;
     justify-items: center;
+
+    .nav-link{
+      opacity: 0;
+      font-family: 'Jaapokki';
+      letter-spacing: 0.4rem;
+      text-decoration: none;
+      color: var(--aw-white);
+      // DRY this
+
+      &:hover{
+        color: var(--aw-accent);
+      }
+
+      transition: opacity 4s;
+    }
   }
 
   .mobile-menu-active{
@@ -88,6 +103,10 @@ aw-header{
 
     #mobile-menu{
       height: calc(100vh - var(--header-height));
+
+      .nav-link{
+        opacity: 1;
+      }
     }
 
     

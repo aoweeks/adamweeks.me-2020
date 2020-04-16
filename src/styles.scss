@@ -119,7 +119,7 @@ html{
 
 /*Scrollbar*/
 body::-webkit-scrollbar {
-  width: 11px;
+  width: var(--scrollbar-width);
 }
 body {
   scrollbar-width: thin;

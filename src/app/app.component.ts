@@ -19,7 +19,10 @@ export class AppComponent {
     // Remove mobile menu when navigation changes
     router.events.subscribe( () => {
         this.mobileMenuState = false;
-        this.renderer.setStyle(document.body, 'overflow', 'scroll');
+        setTimeout( () => {
+          // Allow time for menu to revert before applying scrollbars
+          this.renderer.setStyle(document.body, 'overflow', 'scroll');
+        }, 400);
       });
   }
 

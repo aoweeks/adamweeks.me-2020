@@ -16,12 +16,15 @@ export class HeaderComponent{
   toggleMobileMenuActive(): void{
     this.mobileMenuActive = !this.mobileMenuActive;
 
-    if(this.mobileMenuActive === true){
+    if (this.mobileMenuActive === true) {
       this.renderer.setStyle(document.body, 'overflow', 'hidden');
-    } else{
-      this.renderer.setStyle(document.body, 'overflow', 'scroll');
+    } else {
+        // Allow time for menu to revert before applying scrollbars
+        setTimeout( () => {
+          this.renderer.setStyle(document.body, 'overflow', 'scroll');
+        }, 400);
     }
-    
+
     this.mobileMenuActiveChange.emit(this.mobileMenuActive);
   }
 
