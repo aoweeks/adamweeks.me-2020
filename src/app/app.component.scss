@@ -81,6 +81,10 @@ aw-header{
 
   .mobile-menu-active{
 
+    :host-context(body){
+      background-color:red;
+    }
+
     .content{
       // clip-path: inset(0px 0px 0px 100vw);
       top: 100vh;

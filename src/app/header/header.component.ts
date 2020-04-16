@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'aw-header',
@@ -11,10 +11,17 @@ export class HeaderComponent{
   @Input() mobileMenuActive: Boolean;
   @Output() mobileMenuActiveChange: EventEmitter<Boolean> = new EventEmitter<Boolean>();
 
-  constructor() { }
+  constructor(private renderer: Renderer2) { }
 
   toggleMobileMenuActive(): void{
     this.mobileMenuActive = !this.mobileMenuActive;
+
+    if(this.mobileMenuActive === true){
+      this.renderer.setStyle(document.body, 'overflow', 'hidden');
+    } else{
+      this.renderer.setStyle(document.body, 'overflow', 'scroll');
+    }
+    
     this.mobileMenuActiveChange.emit(this.mobileMenuActive);
   }
 

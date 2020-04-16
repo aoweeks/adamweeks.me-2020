@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
@@ -13,18 +13,20 @@ import { slideLeft } from '../route-animations';
 export class AppComponent {
 
   constructor(private router: Router,
-              private title: Title) {
+              private title: Title,
+              private renderer: Renderer2) {
 
-    //Remove mobile menu when navigation changes
+    // Remove mobile menu when navigation changes
     router.events.subscribe( () => {
         this.mobileMenuState = false;
-      })
+        this.renderer.setStyle(document.body, 'overflow', 'scroll');
+      });
   }
 
-  mobileMenuState: Boolean = false;
+  mobileMenuState = false;
 
   prepareRoute(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }
 
   setPageTitle() {
