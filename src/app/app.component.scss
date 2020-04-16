@@ -15,7 +15,7 @@ aw-header{
 
   height: var(--header-height);
 
-  transition: top 0.4s ease-out;
+  transition: height 0.4s ease-out;
 }
 
 
@@ -40,7 +40,7 @@ aw-header{
   background-image: url('../assets/images/background.svg');
   z-index: -1;
 
-  transition: background-position-y 0.4s ease-out;
+  // transition: background-position-y 0.4s ease-out;
 }
 
 .content{
@@ -62,14 +62,14 @@ aw-header{
 
   #mobile-menu{
     position: fixed;
-    height: calc(100vh - var(--header-height));
+    top: var(--header-height);
+    height: 0;
     left: 0;
     right: 0;
-    bottom: 100vh;
 
-    z-index: 9;
+    z-index: 12;
     background-color: var(--aw-darker-background);
-    transition: bottom 0.4s ease-out;
+    transition: height 0.4s ease-out;
 
     overflow: hidden;
 
@@ -81,22 +81,18 @@ aw-header{
 
   .mobile-menu-active{
 
-    :host-context(body){
-      background-color:red;
-    }
-
     .content{
       // clip-path: inset(0px 0px 0px 100vw);
       top: 100vh;
     }
 
     #mobile-menu{
-      bottom: var(--header-height);
+      height: calc(100vh - var(--header-height));
     }
 
-    #header-background,
-    aw-header{
-      top: calc(100vh - var(--header-height));
+    
+    #header-background {
+      height: 100vh;
     }
   }
 }
