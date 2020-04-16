@@ -22,7 +22,7 @@ export class HeaderComponent{
         // Allow time for menu to revert before applying scrollbars
         setTimeout( () => {
           this.renderer.setStyle(document.body, 'overflow', 'scroll');
-        }, 400);
+        }, 1050);
     }
 
     this.mobileMenuActiveChange.emit(this.mobileMenuActive);
