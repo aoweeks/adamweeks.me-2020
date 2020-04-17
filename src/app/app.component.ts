@@ -18,11 +18,7 @@ export class AppComponent {
 
     // Remove mobile menu when navigation changes
     router.events.subscribe( () => {
-        this.mobileMenuState = false;
-        setTimeout( () => {
-          // Allow time for menu to revert before applying scrollbars
-          this.renderer.setStyle(document.body, 'overflow', 'scroll');
-        }, 1050);
+        this.closeMobileMenu();
       });
   }
 
@@ -33,7 +29,15 @@ export class AppComponent {
   }
 
   setPageTitle() {
-    this.title.setTitle('Adam Weeks');
+    this.title.setTitle('Adam Weeks | Art + Code');
+  }
+
+  private closeMobileMenu(){
+    this.mobileMenuState = false;
+    setTimeout( () => {
+      // Allow time for menu to revert before applying scrollbars
+      this.renderer.setStyle(document.body, 'overflow', 'scroll');
+    }, 1050);
   }
 
   // /* Mobile Menu */

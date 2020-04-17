@@ -36,9 +36,9 @@ aw-header {
   top: var(--header-height);
   left: 0;
   right: 0;
-  bottom: calc(100vh - var(--header-height));
+  height: 0;
 
-  transition: bottom 0.4s 0.3s ease-in;
+  transition: height 0.4s 0.3s ease-in;
 
   background-color: var(--aw-darker-background);
 }
@@ -63,7 +63,7 @@ aw-header {
     overflow: hidden;
     color: var(--aw-white);
 
-    transition: top 0.4s 0.3s ease-in;
+    // transition: top 0.4s 0.3s ease-in;
 
     // clip-path: inset(0px 0px 0px 0px);//none for Angular transition?
     // transition: all 1s;
@@ -105,7 +105,8 @@ aw-header {
       
       transition: clip-path 0.3s;
   
-        &:hover{
+        &:hover,
+        &:focus{
           color: var(--aw-accent);
         }
     }
@@ -128,26 +129,30 @@ aw-header {
 
   .mobile-menu-active{
 
-    .content{
-      // clip-path: inset(0px 0px 0px 100vw);
-      top: 100vh;
-      transition: top 0.4s 0.3s ease-in;
-    }
+    // .content{
+    //   // clip-path: inset(0px 0px 0px 100vw);
+    //   top: 100vh;
+    //   transition: top 0.4s 0.3s ease-in;
+    // }
 
     #darken-layer {
-      bottom: 0;
+      height: calc(100vh - var(--header-height));
 
-      transition: bottom 0.4s ease-in;
+      transition: height 0.4s ease-in;
     }
 
-    #mobile-menu{
+    #mobile-menu {
 
-      .nav-link-wrapper{
+      .nav-link-wrapper {
         transform: translateX(0%);
       }
 
-      .nav-link{
+      .nav-link {
         clip-path: inset(0px 0px 0px 0px);
+
+        &.link-active {
+          color: var(--aw-accent);
+        }
       }
 
       :nth-child(1),
