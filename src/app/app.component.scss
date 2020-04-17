@@ -1,4 +1,15 @@
 @import "../variables";
+:host {
+  --padding-amount: 200px;
+}
+
+#aw-container{
+  margin-right: var(--padding-amount);
+
+  &.scrollbar-active {
+    padding-right: calc(var(--padding-amount) - 50);
+  }
+}
 
 
 #header-background,
@@ -58,7 +69,8 @@ aw-header {
 .content{
     position: absolute;
     top: var(--header-height);
-    padding: 20px;
+    padding: --padding-amount;
+    padding-right: 0;
 
     overflow: hidden;
     color: var(--aw-white);
@@ -67,6 +79,11 @@ aw-header {
 
     // clip-path: inset(0px 0px 0px 0px);//none for Angular transition?
     // transition: all 1s;
+}
+
+#invisible-footer{
+  border: 1px solid red;
+  margin-bottom: -var(--padding-amount);
 }
 
 /* Mobile Menu */

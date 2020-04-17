@@ -21,7 +21,7 @@ export class HeaderComponent{
     } else {
         // Allow time for menu to revert before applying scrollbars
         setTimeout( () => {
-          this.renderer.setStyle(document.body, 'overflow', 'scroll');
+          this.renderer.setStyle(document.body, 'overflow', 'initial');
         }, 1050);
     }
 
