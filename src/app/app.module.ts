@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
+import { DeviceDetectorModule } from 'ngx-device-detector';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -21,12 +23,13 @@ import { FilterPanelComponent } from './ui-components/filter-panel/filter-panel.
     BasePageComponent,
     CodeGalleryComponent,
     AboutPageComponent,
-    FilterPanelComponent
+    FilterPanelComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DeviceDetectorModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
