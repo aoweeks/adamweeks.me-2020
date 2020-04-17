@@ -1,4 +1,15 @@
 @import "../variables";
+:host {
+  --padding-amount: 200px;
+}
+
+#aw-container{
+  margin-right: var(--padding-amount);
+
+  &.scrollbar-active {
+    padding-right: calc(var(--padding-amount) - 50);
+  }
+}
 
 
 #header-background,
@@ -14,40 +25,65 @@ aw-header{
   top: 0;
 
   height: var(--header-height);
+
+  transition: height 0.4s 0.3s ease-in;
 }
 
-#header-background{
+
+#header-background {
+  grid-gap: 20px;
   z-index: 10;
   background: url('../assets/images/background.svg');
   background-size: auto;
 }
 
-aw-header{
+aw-header {
   z-index:11;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: var(--aw-darker-background);
 }
 
-
-#aw-background{
+#darken-layer {
   position: fixed;
   top: var(--header-height);
   left: 0;
   right: 0;
-  min-height: calc(100vh - var(--header-height) );
+  height: 0;
+
+  transition: height 0.4s 0.3s ease-in;
+
+  background-color: var(--aw-darker-background);
+}
+
+#aw-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height:100vh;
   background-image: url('../assets/images/background.svg');
   z-index: -1;
+
+  // transition: background-position-y 0.4s ease-out;
 }
 
 .content{
     position: absolute;
     top: var(--header-height);
-    padding: 20px;
+    padding: --padding-amount;
+    padding-right: 0;
 
     overflow: hidden;
     color: var(--aw-white);
 
-    clip-path: inset(0px 0px 0px 0px);//none for Angular transition?
-    transition: all 1s;
+    // transition: top 0.4s 0.3s ease-in;
+
+    // clip-path: inset(0px 0px 0px 0px);//none for Angular transition?
+    // transition: all 1s;
+}
+
+#invisible-footer{
+  border: 1px solid red;
+  margin-bottom: -var(--padding-amount);
 }
 
 /* Mobile Menu */
@@ -56,30 +92,109 @@ aw-header{
   #mobile-menu{
     position: fixed;
     top: var(--header-height);
+    height: calc(100vh - var(--header-height));
     left: 0;
-    right: 100vw;
-    bottom: 0;
+    right: 0;
 
-    z-index: 9;
-    background-color: rgba(0, 0, 0, 0.25);
-    transition: all 1s;
+    z-index: 12;
 
     overflow: hidden;
+    pointer-events: none;
 
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     align-items: center;
     justify-items: center;
+
+    .nav-link-wrapper{
+      transform: translateX(-25%);
+      transition: transform 0.3s;
+    }
+
+    .nav-link{
+      font-family: 'Jaapokki';
+      letter-spacing: 0.4rem;
+      text-decoration: none;
+      color: var(--aw-white);
+      // DRY this
+
+      // transform: translateX(-25%);
+      clip-path: inset(0px 100% 0px 0px);
+      
+      transition: clip-path 0.3s;
+  
+        &:hover,
+        &:focus{
+          color: var(--aw-accent);
+        }
+    }
+
+    --mobile-link-delay: 0.15s;
+    
+    :nth-child(1),
+    :nth-child(1) a{
+      transition-delay: calc(var(--mobile-link-delay) * 3);
+    }
+    :nth-child(2),
+    :nth-child(2) a{
+      transition-delay: calc(var(--mobile-link-delay) * 2);
+    }
+    :nth-child(3),
+    :nth-child(3) a{
+      transition-delay: var(--mobile-link-delay);
+    }
   }
 
   .mobile-menu-active{
 
-    .content{
-      clip-path: inset(0px 0px 0px 100vw);
+    // .content{
+    //   // clip-path: inset(0px 0px 0px 100vw);
+    //   top: 100vh;
+    //   transition: top 0.4s 0.3s ease-in;
+    // }
+
+    #mobile-menu {
+      pointer-events: auto;
     }
 
-    #mobile-menu{
-      right: 0;
+    #darken-layer {
+      height: calc(100vh - var(--header-height));
+
+      transition: height 0.4s ease-in;
+    }
+
+    #mobile-menu {
+
+      .nav-link-wrapper {
+        transform: translateX(0%);
+      }
+
+      .nav-link {
+        clip-path: inset(0px 0px 0px 0px);
+
+        &.link-active {
+          color: var(--aw-accent);
+        }
+      }
+
+      :nth-child(1),
+      :nth-child(1) a{
+        transition-delay: calc(var(--mobile-link-delay) * 2);
+      }
+      :nth-child(2),
+      :nth-child(2) a{
+        transition-delay: calc(var(--mobile-link-delay) * 3);
+      }
+      :nth-child(3),
+      :nth-child(3) a{
+        transition-delay: calc(var(--mobile-link-delay) * 4);
+      }
+    }
+
+    
+    #header-background {
+      height: 100vh;
+      transition: height 0.4s ease-in;
     }
   }
 }

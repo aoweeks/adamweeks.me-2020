@@ -9,7 +9,7 @@ import { BasePageComponent } from '../base-page.component';
 export class CodeGalleryComponent
   extends BasePageComponent implements OnInit {
 
-  private extraPageTitle = "Code";
+  private extraPageTitle = 'Code';
 
   ngOnInit(): void {
     super.ngOnInit();

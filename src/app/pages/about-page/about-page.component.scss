@@ -13,6 +13,10 @@
   display: grid;
   grid-template-rows: 1fr 1fr;
   align-content: center;
+
+  position: sticky;
+  top: var(--header-height);
+  min-height: calc(100vh - var(--header-height));
 }
 
 

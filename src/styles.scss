@@ -19,6 +19,7 @@
   --aw-accent: #F2642A;
   --aw-accent-light: rgb(236, 125, 81);
   --aw-mid-grey: #282828;
+  --aw-darker-background: rgba(1, 1, 1, 0.3);
 }
 
 /* Background Tracker */
@@ -38,6 +39,7 @@
 
 :root{
   --header-height: 3.5rem;
+  --scrollbar-width: 11px;
 }
 
 
@@ -117,7 +119,7 @@ html{
 
 /*Scrollbar*/
 body::-webkit-scrollbar {
-  width: 11px;
+  width: var(--scrollbar-width);
 }
 body {
   scrollbar-width: thin;

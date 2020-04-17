@@ -1,6 +1,9 @@
-<div  [@routeAnimations]="prepareRoute(outlet)"
+<div  id="aw-container"
+      [@routeAnimations]="prepareRoute(outlet)"
       [ngClass]="{'mobile-menu-active': mobileMenuState}">
-  <div id="header-background"></div>
+  <div id="header-background">
+    <div id="darken-layer"></div>
+  </div>
   <div id="aw-background"></div>
   <nav >
     <aw-header [(mobileMenuActive)]="mobileMenuState"></aw-header>
@@ -8,27 +11,32 @@
   <main
     class="content">
     <router-outlet #outlet="outlet"></router-outlet>
+    <div id="invisible-footer"></div>
   </main>
   <div id="mobile-menu">
-    <a  class="nav-link"
-        [routerLink]="['/art']"
-        [routerLinkActive]="['link-active']">
-        <span>ART</span>
-    </a>
-    <a  class="nav-link"
-        [routerLink]="['/code']"
-        [routerLinkActive]="['link-active']">
-        <span>CODE</span>
-    </a>
-    <!-- <a  class="nav-link"
-        [routerLink]="['/other']"
-        [routerLinkActive]="['link-active']">
-        <span>OTHER</span>
-    </a> -->
-    <a  class="nav-link"
-        [routerLink]="['/about']"
-        [routerLinkActive]="['link-active']">
-        <span>ABOUT</span>
-    </a>
+    <span class="nav-link-wrapper">
+      <a  class="nav-link"
+          [routerLink]="['/art']"
+          [routerLinkActive]="['link-active']"
+          (click)="closeMobileMenu()">
+          <span>ART</span>
+      </a>
+    </span>
+    <span class="nav-link-wrapper">
+      <a  class="nav-link"
+          [routerLink]="['/code']"
+          [routerLinkActive]="['link-active']"
+          (click)="closeMobileMenu()">
+          <span>CODE</span>
+      </a>
+    </span>
+    <span class="nav-link-wrapper">
+      <a  class="nav-link"
+          [routerLink]="['/about']"
+          [routerLinkActive]="['link-active']"
+          (click)="closeMobileMenu()">
+          <span>ABOUT</span>
+      </a>
+    </span>
   </div>
 </div>
