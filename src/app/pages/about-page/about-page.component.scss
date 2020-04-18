@@ -7,6 +7,25 @@
   grid-template-columns: 1fr 200px;
 }
 
+#about-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+
+  #who-text,
+  #where-text,
+  #what-text {
+    grid-column: span 2;
+  }
+
+  .www-title{
+    font-family: 'Jaapokki';
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+    line-height: 0.5rem;
+  }
+}
+
 #follow-sidebar{
   justify-self: center;
 

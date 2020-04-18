@@ -8,15 +8,15 @@ import { Component, Input, Output, EventEmitter, Renderer2, ViewChild, ElementRe
 export class HeaderComponent{
 
 
-  @Input() mobileMenuActive: Boolean;
-  @Output() mobileMenuActiveChange: EventEmitter<Boolean> = new EventEmitter<Boolean>();
+  @Input() mobileMenuActive: boolean;
+  @Output() mobileMenuActiveChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
 
   @ViewChild('logo') logo: ElementRef;
 
   constructor(private renderer: Renderer2) { }
 
-  toggleMobileMenuActive(): void{
+  toggleMobileMenuActive(): void {
     this.mobileMenuActive = !this.mobileMenuActive;
 
     if (this.mobileMenuActive === true) {
@@ -30,9 +30,8 @@ export class HeaderComponent{
 
     this.mobileMenuActiveChange.emit(this.mobileMenuActive);
   }
-  
 
-  blurLogo() {
+  blurLogo(): void {
     this.logo.nativeElement.blur();
   }
 
