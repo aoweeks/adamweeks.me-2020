@@ -4,13 +4,13 @@ import { Title } from '@angular/platform-browser';
 
 import { DeviceDetectorService } from 'ngx-device-detector';
 
-import { slideLeft } from '../route-animations';
+// import { slideLeft } from '../route-animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [slideLeft]
+  // animations: [slideLeft]
 })
 export class AppComponent implements OnInit {
 
@@ -50,6 +50,7 @@ export class AppComponent implements OnInit {
 
   closeMobileMenu(): void {
     this.mobileMenuState = false;
+    this.checkIfScrollbarsShow();
     setTimeout( () => {
       // Allow time for menu to revert before applying scrollbars
       this.renderer.setStyle(document.body, 'overflow', 'initial');
@@ -72,8 +73,11 @@ export class AppComponent implements OnInit {
       // Need to sort two way binding of mobile menu in header component
       // console.log(document.getElementById('invisible-footer').offsetTop);
       // console.log(window.innerHeight);
+      console.log("footer height: " +  document.getElementById('invisible-footer').offsetTop);
+      console.log("window height: " + window.innerHeight);
 
-      if (document.getElementById('invisible-footer').offsetTop > window.innerHeight) {
+      if (document.getElementById('invisible-footer') &&
+          document.getElementById('invisible-footer').offsetTop > window.innerHeight) {
         this.renderer.addClass(document.getElementById('aw-container'), 'scrollbar-active')
         //Create a const for aw-container element in ngOnInit
       } else {

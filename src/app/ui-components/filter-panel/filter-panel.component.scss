@@ -11,7 +11,7 @@
 
     z-index: 8;
     background-color: var(--aw-darker-background);
-    
+
     display: grid;
     grid-template-rows: 2rem 1fr;
 
@@ -23,6 +23,25 @@
     #open-close-filter{
         justify-self: end;
         margin-right: 0.5rem;
+
+        #side-arrow-container{
+          width: 1rem;
+          height: auto;
+
+          #side-arrow{
+            fill: var(--aw-white);
+            transform-origin: 50% 50%;
+            transition: transform 0.3s ease-in-out;
+          }
+        }
+
+        &:hover{
+          #side-arrow-container{
+            #side-arrow {
+              fill: var(--aw-accent);
+            }
+          }
+        }
     }
 
     &.filter-menu-active{
@@ -31,7 +50,7 @@
 
     #vertical-filter-label{
         display: block;
-        transform: rotate(90deg);
+        transform: rotate(-90deg);
         position: relative;
         right: 0.666rem;
         top: 1rem;
@@ -41,6 +60,15 @@
         visibility: hidden;
     }
 }
+
+:host.filter-menu-active {
+
+  #side-arrow {
+    fill: var(--aw-accent);
+    transform: rotate(-180deg);
+  }
+}
+
 
 .open-close-filters-label{
     font-family: 'Jaapokki';

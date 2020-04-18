@@ -9,6 +9,10 @@ a:nth-last-child(1) {
   margin-right: 1rem;
 }
 
+:host-context(.scrollbar-active) a:nth-last-child(1) {
+    margin-right: calc(1rem - var(--scrollbar-width));
+}
+
 
 .triangle{
   fill: var(--aw-white);

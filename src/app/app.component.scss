@@ -69,7 +69,7 @@ aw-header {
 .content{
     position: absolute;
     top: var(--header-height);
-    padding: --padding-amount;
+    padding-left: --padding-amount;
     padding-right: 0;
 
     overflow: hidden;
@@ -120,9 +120,9 @@ aw-header {
 
       // transform: translateX(-25%);
       clip-path: inset(0px 100% 0px 0px);
-      
+
       transition: clip-path 0.3s;
-  
+
         &:hover,
         &:focus{
           color: var(--aw-accent);
@@ -130,7 +130,7 @@ aw-header {
     }
 
     --mobile-link-delay: 0.15s;
-    
+
     :nth-child(1),
     :nth-child(1) a{
       transition-delay: calc(var(--mobile-link-delay) * 3);
@@ -191,7 +191,7 @@ aw-header {
       }
     }
 
-    
+
     #header-background {
       height: 100vh;
       transition: height 0.4s ease-in;
