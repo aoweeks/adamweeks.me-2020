@@ -116,6 +116,8 @@ aw-header {
       letter-spacing: 0.4rem;
       text-decoration: none;
       color: var(--aw-white);
+      
+      user-select: none;
       // DRY this
 
       // transform: translateX(-25%);

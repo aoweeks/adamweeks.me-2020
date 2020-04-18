@@ -73,8 +73,8 @@ export class AppComponent implements OnInit {
       // Need to sort two way binding of mobile menu in header component
       // console.log(document.getElementById('invisible-footer').offsetTop);
       // console.log(window.innerHeight);
-      console.log("footer height: " +  document.getElementById('invisible-footer').offsetTop);
-      console.log("window height: " + window.innerHeight);
+      console.log('footer height: ' +  document.getElementById('invisible-footer').offsetTop);
+      console.log('window height: ' + window.innerHeight);
 
       if (document.getElementById('invisible-footer') &&
           document.getElementById('invisible-footer').offsetTop > window.innerHeight) {

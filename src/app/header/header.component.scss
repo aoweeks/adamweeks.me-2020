@@ -55,6 +55,8 @@ a:nth-last-child(1) {
   text-decoration: none;
   color: var(--aw-white);
 
+  user-select: none;
+
   margin-top: 0.15rem; //Fudge! Not sure why this is needed, fix later.
 
   span::before,

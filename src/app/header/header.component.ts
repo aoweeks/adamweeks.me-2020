@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, Renderer2 } from '@angular/core';
+import { Component, Input, Output, EventEmitter, Renderer2, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'aw-header',
@@ -10,6 +10,9 @@ export class HeaderComponent{
 
   @Input() mobileMenuActive: Boolean;
   @Output() mobileMenuActiveChange: EventEmitter<Boolean> = new EventEmitter<Boolean>();
+
+
+  @ViewChild('logo') logo: ElementRef;
 
   constructor(private renderer: Renderer2) { }
 
@@ -26,6 +29,11 @@ export class HeaderComponent{
     }
 
     this.mobileMenuActiveChange.emit(this.mobileMenuActive);
+  }
+  
+
+  blurLogo() {
+    this.logo.nativeElement.blur();
   }
 
 }

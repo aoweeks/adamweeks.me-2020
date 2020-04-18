@@ -47,14 +47,17 @@
     }
   }
 
-  #filter-right-column:hover {
-    cursor: pointer;
-
-    #side-arrow-container #side-arrow{
-      fill: var(--aw-accent);
+  &:not(.filter-menu-active) {
+    
+    #filter-right-column:hover {
+      cursor: pointer;
+      
+      #side-arrow-container #side-arrow{
+        fill: var(--aw-accent);
+      }
     }
+    
   }
-
 
   #vertical-label-container{
 
@@ -130,6 +133,7 @@
     font-size: 0.66rem;
     letter-spacing: 0.1rem;
     white-space: nowrap;
+    user-select: none;
 }
 
 
