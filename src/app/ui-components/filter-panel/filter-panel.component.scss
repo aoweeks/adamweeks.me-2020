@@ -1,84 +1,142 @@
 @import '../../../variables';
 
 :host{
-    position: fixed;
-    top: var(--header-height);
-    left: 0;
-    width: 2rem;
-    bottom: 0;
+  position: fixed;
+  top: var(--header-height);
+  left: -10rem;
+  width: 11.5rem;
+  bottom: 0;
 
-    transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in, left 0.2s ease-in;
 
-    z-index: 8;
-    background-color: var(--aw-darker-background);
+  z-index: 8;
+  background-color: var(--aw-darker-background);
 
+  display: grid;
+  grid-template-columns: 1fr 1.5rem;
+  grid-template-rows: 1.5rem 1fr;
+
+  #filter-right-column{
+    grid-row: span 2;
     display: grid;
-    grid-template-rows: 2rem 1fr;
+    align-items: stretch;
+    grid-auto-rows: 1.5rem 1fr;
+      
+    #side-arrow-container{
 
-    &.right-hand-filter{
-        left: initial;
-        right: 0;
-    }
+      height: 100%;
+      width: 100%;
 
-    #open-close-filter{
-        justify-self: end;
-        margin-right: 0.5rem;
+      display: flex;
+      justify-content: center;
 
-        #side-arrow-container{
-          width: 1rem;
-          height: auto;
+      #side-arrow{
+        fill: var(--aw-white);
+        transform-origin: 50% 50%;
+        transition: transform 0.3s ease-in-out;
 
-          #side-arrow{
-            fill: var(--aw-white);
-            transform-origin: 50% 50%;
-            transition: transform 0.3s ease-in-out;
-          }
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        #side-arrow {
+          fill: var(--aw-accent);
         }
-
-        &:hover{
-          #side-arrow-container{
-            #side-arrow {
-              fill: var(--aw-accent);
-            }
-          }
-        }
+      }
     }
+  }
 
-    &.filter-menu-active{
-        width: 12rem;
+  #filter-right-column:hover {
+    cursor: pointer;
+
+    #side-arrow-container #side-arrow{
+      fill: var(--aw-accent);
     }
+  }
+
+
+  #vertical-label-container{
+
+    display: block;
+    width: 1.5rem;
+    overflow: none;
 
     #vertical-filter-label{
         display: block;
-        transform: rotate(-90deg);
-        position: relative;
-        right: 0.666rem;
-        top: 1rem;
+        transform: rotate(-90deg) translateX(-75%);
+        clip-path: inset(0px -75% 0px 0px);
+        transition: transform 1s, clip-path 1s;
     }
 
-    #horizontal-filter-label{
-        visibility: hidden;
+  }
+  
+  #horizontal-label-container{
+    justify-self: end;
+    align-self: center;
+    
+    overflow: hidden;
+
+    &:hover + #filter-right-column {
+      #side-arrow {
+        fill: var(--aw-accent);      }
     }
-}
+    
+    #horizontal-filter-label {
+      
+      display: block;
+      
+      transform: translateX(0%);
+      transition: transform 1s;
+    }
 
-:host.filter-menu-active {
+    
+  }
+  
+  &.filter-menu-active {
 
-  #side-arrow {
-    fill: var(--aw-accent);
-    transform: rotate(-180deg);
+    left: 0rem;
+
+    #horizontal-label-container{
+      cursor: pointer;
+    }
+    
+    #vertical-label-container #vertical-filter-label{
+      transform: rotate(-90deg) translateX(100%);
+      clip-path: inset(0px 100% 0px 0px);
+    } 
+  }
+  
+  &:not(.filter-menu-active){
+    
+    #side-arrow {
+      transform: rotate(-180deg);
+    }
+    
+    #horizontal-label-container #horizontal-filter-label {
+      transform: translateX(100%);
+    }
+
+    #vertical-label-container{
+      cursor: pointer;
+    }
   }
 }
 
 
+
 .open-close-filters-label{
     font-family: 'Jaapokki';
+    font-size: 0.66rem;
     letter-spacing: 0.1rem;
+    white-space: nowrap;
 }
 
 
 
 @media(max-width: $mobile-breakpoint) {
     :host.filter-menu-active{
+        left: 0;
         width: 100vw;
     }
 }

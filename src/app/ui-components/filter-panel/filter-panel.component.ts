@@ -14,8 +14,13 @@ export class FilterPanelComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toggleFilterMenu(): void{
-    this.filterMenuActive = !this.filterMenuActive;
+  toggleFilterMenu(newState: boolean = null): void {
+
+    if (newState === null) {
+      this.filterMenuActive = !this.filterMenuActive;
+    } else {
+      this.filterMenuActive = newState;
+    }
   }
 
 }
