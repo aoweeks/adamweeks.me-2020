@@ -5,7 +5,7 @@ import { Component, Input, Output, EventEmitter, Renderer2, ViewChild, ElementRe
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent{
+export class HeaderComponent {
 
 
   @Input() mobileMenuActive: boolean;

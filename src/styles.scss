@@ -48,6 +48,8 @@
 
 html{
   background-color: hsl( 0, 0, 15%);
+  background-image: url('./assets/images/background.svg');
+  background-attachment: fixed;
   font-size: 20px;
 }
 
@@ -89,7 +91,6 @@ html{
       text-decoration: none;
       position: relative;
       display: inline-block;
-      z-index: 5;
     }
 
     a::before{
@@ -101,7 +102,6 @@ html{
       border-bottom: 1px solid var(--aw-accent);
       width: inherit;
       content: "";
-      z-index: 3;
 
       transition: var(--t1);
     }
