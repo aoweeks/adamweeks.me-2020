@@ -13,6 +13,7 @@ import { BasePageComponent } from './pages/base-page.component';
 import { CodeGalleryComponent } from './pages/code-gallery/code-gallery.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { FilterPanelComponent } from './ui-components/filter-panel/filter-panel.component';
+import { TooltipComponent } from './ui-components/tooltip/tooltip.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FilterPanelComponent } from './ui-components/filter-panel/filter-panel.
     CodeGalleryComponent,
     AboutPageComponent,
     FilterPanelComponent,
+    TooltipComponent,
   ],
   imports: [
     BrowserModule,
