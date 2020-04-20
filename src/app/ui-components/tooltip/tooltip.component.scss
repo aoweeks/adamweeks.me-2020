@@ -6,16 +6,39 @@
     }
 }
 
+:host{
+    position: relative;
+}
 
-:host {
+.tooltip {
+    display: block;
+    position: absolute;
+    max-height: 0;
+    max-width: 0;
 
-    // opacity: 0;
-    
-    // span{
-    //     clip-path: inset(0% 50% 0% 50%);
-    // }
+    overflow: hidden;
+    white-space: nowrap;
 
-    // & + a:hover{
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
 
-    // }
+    background-color: var(--aw-dark-grey);
+
+
+
+    border: 0.2rem solid var(--aw-accent);
+
+    transition: max-height 1s 0.5s, top 1s 0.5s, max-width 1s;
+
+    .tooltip-text{
+
+    }
+
+}
+
+:host:hover .tooltip{
+    max-height: 1000px;
+    max-width: 1000px;
+    top: 0%;
 }
