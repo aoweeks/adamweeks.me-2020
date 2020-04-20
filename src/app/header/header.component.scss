@@ -115,14 +115,6 @@ a:nth-last-child(1) {
   transition: width 0.3s ease-out,
               height 0.3s ease-out 0.3s,
   }
-
-  span::before{
-    border-width: 0rem 0rem 0.2rem 0.2rem;
-  }
-
-  span::after{
-    border-width: 0.2rem 0.2rem 0rem 0rem;
-  }
 }
 // Add this back in later but need to blur after clicking nav links
 // .link-active:focus{
