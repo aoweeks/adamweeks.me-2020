@@ -1,0 +1,21 @@
+@keyframes draw-border {
+    0% {      
+        border: 1px solid var(--aw-accent);
+    } 100% {
+
+    }
+}
+
+
+:host {
+
+    // opacity: 0;
+    
+    // span{
+    //     clip-path: inset(0% 50% 0% 50%);
+    // }
+
+    // & + a:hover{
+
+    // }
+}
