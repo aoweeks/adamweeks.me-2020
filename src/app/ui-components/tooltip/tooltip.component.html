@@ -1,7 +1,13 @@
-<div class="tooltip" #tooltipBody>
-    <span class="tooltip-text">
-        {{ text }}
-    </span>
+<div class="tooltip-subject">
+    <ng-content></ng-content>
 </div>
-<div class="tooltip-tail"></div>
-<ng-content></ng-content>
+<div class="tooltip-container">
+    <div    #tooltipBody
+            class="tooltip">
+            <!-- [style.left.px]="adjustedLeft"> -->
+        <span class="tooltip-text">
+            {{ text }}
+        </span>
+    </div>
+    <div class="tooltip-tail"></div>
+</div>
