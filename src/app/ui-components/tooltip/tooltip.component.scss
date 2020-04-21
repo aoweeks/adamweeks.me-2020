@@ -175,12 +175,12 @@ $tooltip-border: .2rem solid var(--aw-accent);
 
     &:hover {
         .tooltip {
-            transition: max-height .25s, max-width .75s .125s;
+            transition: max-height .5s, max-width .75s .25s;
         }
 
         .tooltip::before,
         .tooltip::after {
-            transition: height .5s .25s;
+            transition: height .5s .5s;
             height: 50%;
         }
     }
