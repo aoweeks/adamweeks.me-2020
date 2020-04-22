@@ -14,6 +14,7 @@ import { CodeGalleryComponent } from './pages/code-gallery/code-gallery.componen
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { FilterPanelComponent } from './ui-components/filter-panel/filter-panel.component';
 import { TooltipComponent } from './ui-components/tooltip/tooltip.component';
+import { AnimateOnScrollDirective } from './directives/animate-on-scroll.directive';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { TooltipComponent } from './ui-components/tooltip/tooltip.component';
     AboutPageComponent,
     FilterPanelComponent,
     TooltipComponent,
+    AnimateOnScrollDirective,
   ],
   imports: [
     BrowserModule,

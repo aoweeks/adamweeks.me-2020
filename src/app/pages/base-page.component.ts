@@ -7,16 +7,16 @@ import { BackgroundPositionTrackerService } from '../services/background-positio
   template: '',
   styles: ['']
 })
-export class BasePageComponent{
+export class BasePageComponent implements OnInit {
 
-  private basePageTitle = "Adam Weeks | "
+  private basePageTitle = 'Adam Weeks | ';
 
   constructor(private title: Title,
               private bgTracker: BackgroundPositionTrackerService) { }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     setTimeout(
-      () => {this.bgTracker.updateBackgroundPositionX(500)},
+      () => { this.bgTracker.updateBackgroundPositionX(500); },
       750
     );
   }
