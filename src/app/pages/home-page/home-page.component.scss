@@ -8,6 +8,9 @@
 	}
 }
 
+:host {
+  display: block;
+}
 
 #section-1{
   height: calc(100vh - 8rem); //fudge
