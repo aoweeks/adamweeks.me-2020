@@ -74,112 +74,201 @@ import {
 //     ])
 //   ]);
 
-export const slideLeft =
-  trigger('routeAnimations', [
-    transition('* <=> *', [
-      query(':enter, :leave',
-            style({ position: 'fixed', width:'100%' }),
-            { optional: true }),
-      group([
-        query(':enter', [
-            style({ transform: 'translateX(100%)' }),
-            animate(
-              '0.75s ease-in-out',
-              style({ transform: 'translateX(0%)' })
-            )
-          ],
-          { optional: true }
-        ),
-        query(':leave', [
-            style({ 'transform': 'translateX(0%)' }),
-            animate(
-              '0.75s ease-in-out',
-              style({ color: 'var(--aw-accent)', transform: 'translateX(-100%)' })
-            )
-            // Could maybe use a CSS variable that's set to be slower or faster depending on screen width?
-          ],
-          { optional: true }),
-        // query('#aw-background', [
-        //     animate(
-        //       '0.75s ease-in-out',
-        //       style({ 'background-position': '-100vw' })
-        //     )
+// export const slideLeft =
+//   trigger('routeAnimations', [
+//     transition('* <=> *', [
+//       query(':enter, :leave',
+//             style({ position: 'fixed', width:'100%' }),
+//             { optional: true }),
+//       group([
+//         query(':enter', [
+//             style({ transform: 'translateX(100%)' }),
+//             animate(
+//               '0.75s ease-in-out',
+//               style({ transform: 'translateX(0%)' })
+//             )
+//           ],
+//           { optional: true }
+//         ),
+//         query(':leave', [
+//             style({ 'transform': 'translateX(0%)' }),
+//             animate(
+//               '0.75s ease-in-out',
+//               style({ color: 'var(--aw-accent)', transform: 'translateX(-100%)' })
+//             )
+//             // Could maybe use a CSS variable that's set to be slower or faster depending on screen width?
+//           ],
+//           { optional: true }),
+//         // query('#aw-background', [
+//         //     animate(
+//         //       '0.75s ease-in-out',
+//         //       style({ 'background-position': '-100vw' })
+//         //     )
 
-          // ],
-          // {optional: true})
-      ]),
-    ])
-  ]);
+//           // ],
+//           // {optional: true})
+//       ]),
+//     ])
+//   ]);
+
+// export const fadePageInOut =
+//   trigger('routeAnimations', [
+//     transition('* <=> *', [
+//       query(':enter, :leave', [
+//         style({
+//           position: 'absolute',
+//           top: 0,
+//           left: 0,
+//           width: '100%'
+//         }),
+//       ], {optional: true}),
+//       query(':enter', [
+//           style({ left: '-100%'})
+//       ], {optional: true}),
+//       group([
+//         query(':leave', [
+//           animate('600ms ease',
+//             style(
+//               {left: '100%'}
+//             )
+//           )
+//         ], {optional: true}),
+//         query(':enter', [
+//           animate('600ms ease',
+//             style(
+//               {left: '0%'}
+//             )
+//           )
+//         ], {optional: true})
+//       ])
+//     ])
+//   ]);
+const clipPathLeave =
+  query(':leave', [
+    style(
+      {'clip-path': 'inset(0px 0px 0px 0px)'}
+    ),
+    animate('600ms ease',
+      style(
+        {'clip-path': 'inset(0px 100% 0px 0px)'}
+      )
+    )
+  ], {optional: true});
+
+const clipPathEnter =
+  query(':enter', [
+    style(
+      {
+        'clip-path': 'inset(0px 100% 0px 0px)'
+      }
+    ),
+    animate('600ms 600ms ease',
+      style(
+        {
+          'clip-path': 'inset(0px 0px 0px 0px)'
+        }
+      )
+    )
+  ], {optional: true});
+
+//       ])
+//     ])
+//   ]);
+const slideRightLeave=
+  query(':leave', [
+
+    animate('600ms ease',
+      style(
+        {opacity: 0}
+      )
+    )
+  ], {optional: true});
+
+const slideRightEnter =
+  query(':enter', [
+    style(
+      {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: 'calc(100% - 11px)',
+        transform: 'translateX(-100%)'
+      }
+    ),
+    animate('600ms 600ms ease',
+      style(
+        {
+          transform: 'translateX(0%)'
+        }
+      )
+    )
+  ], {optional: true});
+
 
 export const fadePageInOut =
   trigger('routeAnimations', [
     transition('* <=> *', [
-      query(':enter', [
-        style({opacity: 0 }),
-        animate('200ms ease-out',
-          style({ opacity: 1}) )
-      ], {optional: true}),
-      // query(':leave', [
-      //   animate('200ms ease-in',
-      //     style({ opacity: 0}) )
-      // ], {optional: true})
+      group([
+        slideRightLeave,
+        slideRightEnter
+      ])
     ])
   ]);
 
 
-export const fadeFromToRight =
-  trigger('routeAnimations', [
-    transition('* <=> *', [
-      query(':enter .load-fade-from-right', [
-        style({
-          opacity: 0,
-          transform: 'translateX(100px)'
-        }),
-        stagger(50, [
-          animate('200ms ease-out',
-            style({
-              opacity: 1, transform: 'none'
-            })
-          )
-        ])
-      ], {optional: true}),
-      query(':leave .load-fade-from-right', [
-        stagger(50, [
-          animate('200ms ease-out',
-            style({
-              opacity: 0,
-              transform: 'translateX(100px)'
-            })
-          )
-        ])
-      ], {optional: true})
-    ])
-  ]);
+// export const fadeFromToRight =
+//   trigger('routeAnimations', [
+//     transition('* <=> *', [
+//       query(':enter .load-fade-from-right', [
+//         style({
+//           opacity: 0,
+//           transform: 'translateX(100px)'
+//         }),
+//         stagger(50, [
+//           animate('200ms ease-out',
+//             style({
+//               opacity: 1, transform: 'none'
+//             })
+//           )
+//         ])
+//       ], {optional: true}),
+//       query(':leave .load-fade-from-right', [
+//         stagger(50, [
+//           animate('200ms ease-out',
+//             style({
+//               opacity: 0,
+//               transform: 'translateX(100px)'
+//             })
+//           )
+//         ])
+//       ], {optional: true})
+//     ])
+//   ]);
 
-export const fadeFromToBottom =
-  trigger('routeAnimations', [
-    transition('* <=> *', [
-      query(':enter .load-fade-from-bottom', [
-        style({
-          opacity: 0,
-          transform: 'translateY(100px)'
-        }),
-        stagger(50, [
-          animate('200ms ease-out',
-            style({
-              opacity: 1, transform: 'none'
-            })
-          )
-        ])
-      ], {optional: true}),
-      query(':leave .load-fade-from-bottom', [
-        stagger(50, [
-          animate('200ms ease-out',
-            style({
-              opacity: 0, transform: 'translateY(100px)'
-            })
-          )
-        ])
-      ], {optional: true})
-    ])
-  ]);
+// export const fadeFromToBottom =
+//   trigger('routeAnimations', [
+//     transition('* <=> *', [
+//       query(':enter .load-fade-from-bottom', [
+//         style({
+//           opacity: 0,
+//           transform: 'translateY(100px)'
+//         }),
+//         stagger(50, [
+//           animate('200ms ease-out',
+//             style({
+//               opacity: 1, transform: 'none'
+//             })
+//           )
+//         ])
+//       ], {optional: true}),
+//       query(':leave .load-fade-from-bottom', [
+//         stagger(50, [
+//           animate('200ms ease-out',
+//             style({
+//               opacity: 0, transform: 'translateY(100px)'
+//             })
+//           )
+//         ])
+//       ], {optional: true})
+//     ])
+//   ]);

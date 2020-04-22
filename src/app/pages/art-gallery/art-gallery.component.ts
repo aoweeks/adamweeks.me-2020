@@ -19,30 +19,4 @@ export class ArtGalleryComponent
     this.setPageTitle(this.extraPageTitle);
   }
 
-  breakIntoLines() {
-    console.log(this.paragraphs);
-
-    this.paragraphs.forEach(p => {
-      this.splitParagraph(p);
-    });
-  }
-
-  animateLines() {
-
-  }
-
-  splitParagraph(p) {
-
-    const words = p.nativeElement.innerHTML.split(" "); //(/(\s+)/); // any whitespace char
-    console.log(words);
-    let spannedWords: string;
-    
-    words.forEach(word => {
-      spannedWords += `<span class="break-word">${word}</span> `;
-    }); // remove trailing whitespace
-    console.log(spannedWords);
-
-    p.nativeElement.innerHTML = spannedWords;
-    console.log(p);
-  }
 }

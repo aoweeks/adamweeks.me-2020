@@ -1,13 +1,3 @@
-p {
-    clip-path: inset(0px 0px 0px 0px);
-    transition: transform 1s, clip-path 1s;
-}
-
-p:hover{
-    transform: translateY(100%);
-    clip-path: inset(0px 0px 100% 0px);
-}
-
-.break-word {
-    background-color: red;
+:host {
+    display: block;
 }

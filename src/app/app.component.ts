@@ -4,13 +4,14 @@ import { Title } from '@angular/platform-browser';
 
 import { DeviceDetectorService } from 'ngx-device-detector';
 
-import { fadeFromToRight, fadeFromToBottom, fadePageInOut } from '../route-animations';
-
+import {  fadePageInOut } from '../route-animations';
+// fadeFromToRight, fadeFromToBottom,
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [fadePageInOut, fadeFromToRight, fadeFromToBottom]
+  animations: [fadePageInOut]
+  // , fadeFromToRight, fadeFromToBottom]
 })
 export class AppComponent implements OnInit {
 
