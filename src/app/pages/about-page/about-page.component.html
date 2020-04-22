@@ -10,7 +10,7 @@
         And this is my content.
       </aw-tooltip>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eros nibh, euismod vitae egestas eu, ornare nec ipsum. Cras vehicula elit dui, quis eleifend risus auctor id. Suspendisse sit amet diam eu ex viverra ornare at eu urna. Sed quis condimentum nibh, ut condimentum ex. Nulla a risus in libero sollicitudin finibus. Etiam sollicitudin, arcu nec accumsan molestie, nunc arcu finibus velit, nec ornare nisi quam a eros. Sed nec odio et tellus congue molestie. Vivamus odio nunc, porttitor vitae lacinia ac, volutpat quis mi. Aliquam molestie leo sed orci auctor porttitor. Sed et venenatis urna. Sed fringilla enim nisl, in molestie felis posuere a. Nunc viverra eros ac lacus lobortis, rhoncus rutrum nisl fermentum. Phasellus non laoreet purus, ac semper turpis. Phasellus felis orci, iaculis quis nibh ut, placerat scelerisque mauris. Cras maximus sodales dapibus. Mauris aliquet urna id maximus faucibus.</p>
+      <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eros nibh, euismod vitae egestas eu, ornare nec ipsum. Cras vehicula elit dui, quis eleifend risus auctor id. Suspendisse sit amet diam eu ex viverra ornare at eu urna. Sed quis condimentum nibh, ut condimentum ex. Nulla a risus in libero sollicitudin finibus. Etiam sollicitudin, arcu nec accumsan molestie, nunc arcu finibus velit, nec ornare nisi quam a eros. Sed nec odio et tellus congue molestie. Vivamus odio nunc, porttitor vitae lacinia ac, volutpat quis mi. Aliquam molestie leo sed orci auctor porttitor. Sed et venenatis urna. Sed fringilla enim nisl, in molestie felis posuere a. Nunc viverra eros ac lacus lobortis, rhoncus rutrum nisl fermentum. Phasellus non laoreet purus, ac semper turpis. Phasellus felis orci, iaculis quis nibh ut, placerat scelerisque mauris. Cras maximus sodales dapibus. Mauris aliquet urna id maximus faucibus.</span></p>
 
       <p>Praesent ac nisl in felis accumsan cursus sed eget erat. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget erat blandit, mattis sem a, suscipit urna. Phasellus sed efficitur metus. Vestibulum convallis purus vitae nisl pharetra, sed commodo ex condimentum. Praesent odio nunc, vestibulum quis sem quis, convallis porta dui. Quisque mollis orci a tortor aliquam, quis vestibulum nibh aliquam. In ut elit ut libero malesuada pulvinar vitae non nunc. Donec in nibh et erat consectetur tempus eget non sapien. Quisque ut dapibus diam, id malesuada massa. Integer tempus ligula vitae odio sodales varius. Pellentesque leo sapien, consequat quis sem id, tristique gravida diam. Praesent eget justo vel sem consequat pellentesque vulputate eget nunc. Donec libero odio, pretium eu posuere in, tempus nec lectus. Sed at urna consectetur, ullamcorper est ac, finibus dolor.</p>
     
@@ -570,7 +570,7 @@
               <circle class="location" />
               <circle class="location" />
           </g>
-        </svg>
+    </svg>
   </div>
 
   <div id="what-image">
@@ -588,7 +588,9 @@
  </div>
 
 <div id="follow-sidebar">
-  <aw-tooltip [text]="'Twitter'" [ngClass]="{'tt-left': isAboveMobileBreakpoint }">
+  <aw-tooltip [text]="'Twitter'"
+              [ngClass]="{'tt-left load-fade-from-right': isAboveMobileBreakpoint,
+                          'load-fade-from-bottom': !isAboveMobileBreakpoint }">
     <a  id="twitter"
         class="follow-link"
         href="http://twitter.com/aoweeks">
@@ -610,7 +612,9 @@
     </a>
   </aw-tooltip>
 
-  <aw-tooltip [text]="'Dribbble'" [ngClass]="{'tt-left': isAboveMobileBreakpoint }">
+  <aw-tooltip [text]="'Dribbble'"
+              [ngClass]="{'tt-left load-fade-from-right': isAboveMobileBreakpoint,
+              'load-fade-from-bottom': !isAboveMobileBreakpoint }">
     <div  id="dribbble"
           class="follow-link">
       
@@ -630,28 +634,36 @@
     </div>
   </aw-tooltip>
   
-  <aw-tooltip [text]="'Github'" [ngClass]="{'tt-left': isAboveMobileBreakpoint }">
+  <aw-tooltip [text]="'Github'"
+              [ngClass]="{'tt-left load-fade-from-right': isAboveMobileBreakpoint,
+              'load-fade-from-bottom': !isAboveMobileBreakpoint }">
     <div  id="github"
           class="follow-link">
       Github
     </div>
   </aw-tooltip>
 
-  <aw-tooltip [text]="'Instagram'" [ngClass]="{'tt-left': isAboveMobileBreakpoint }">
+  <aw-tooltip [text]="'Instagram'"
+              [ngClass]="{'tt-left load-fade-from-right': isAboveMobileBreakpoint,
+              'load-fade-from-bottom': !isAboveMobileBreakpoint }">
     <div  id="instagram"
           class="follow-link">
       Instagram
     </div>
   </aw-tooltip>
 
-  <aw-tooltip [text]="'Facebook'" [ngClass]="{'tt-left': isAboveMobileBreakpoint }">
+  <aw-tooltip [text]="'Facebook'"            
+               [ngClass]="{'tt-left load-fade-from-right': isAboveMobileBreakpoint,
+              'load-fade-from-bottom': !isAboveMobileBreakpoint }">
     <div  id="facebook"
           class="follow-link">
       Facebook
     </div>
   </aw-tooltip>
 
-  <aw-tooltip [text]="'Email me'" [ngClass]="{'tt-left': isAboveMobileBreakpoint }">
+  <aw-tooltip [text]="'Email me'"
+              [ngClass]="{'tt-left load-fade-from-right': isAboveMobileBreakpoint,
+              'load-fade-from-bottom': !isAboveMobileBreakpoint }">
     <div  id="email"
           class="follow-link">
       Email me

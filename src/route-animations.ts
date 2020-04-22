@@ -47,8 +47,10 @@ import {
   trigger,
   transition,
   style,
+  sequence,
   query,
   group,
+  stagger,
   animate,
 } from '@angular/animations';
 
@@ -72,7 +74,7 @@ import {
 //     ])
 //   ]);
 
-  export const slideLeft =
+export const slideLeft =
   trigger('routeAnimations', [
     transition('* <=> *', [
       query(':enter, :leave',
@@ -97,14 +99,87 @@ import {
             // Could maybe use a CSS variable that's set to be slower or faster depending on screen width?
           ],
           { optional: true }),
-        query('#aw-background', [
-            animate(
-              '0.75s ease-in-out',
-              style({ 'background-position': '-100vw' })
-            )
+        // query('#aw-background', [
+        //     animate(
+        //       '0.75s ease-in-out',
+        //       style({ 'background-position': '-100vw' })
+        //     )
 
-          ],
-          {optional: true})
+          // ],
+          // {optional: true})
       ]),
+    ])
+  ]);
+
+export const fadePageInOut =
+  trigger('routeAnimations', [
+    transition('* <=> *', [
+      query(':enter', [
+        style({opacity: 0 }),
+        animate('200ms ease-out',
+          style({ opacity: 1}) )
+      ], {optional: true}),
+      // query(':leave', [
+      //   animate('200ms ease-in',
+      //     style({ opacity: 0}) )
+      // ], {optional: true})
+    ])
+  ]);
+
+
+export const fadeFromToRight =
+  trigger('routeAnimations', [
+    transition('* <=> *', [
+      query(':enter .load-fade-from-right', [
+        style({
+          opacity: 0,
+          transform: 'translateX(100px)'
+        }),
+        stagger(50, [
+          animate('200ms ease-out',
+            style({
+              opacity: 1, transform: 'none'
+            })
+          )
+        ])
+      ], {optional: true}),
+      query(':leave .load-fade-from-right', [
+        stagger(50, [
+          animate('200ms ease-out',
+            style({
+              opacity: 0,
+              transform: 'translateX(100px)'
+            })
+          )
+        ])
+      ], {optional: true})
+    ])
+  ]);
+
+export const fadeFromToBottom =
+  trigger('routeAnimations', [
+    transition('* <=> *', [
+      query(':enter .load-fade-from-bottom', [
+        style({
+          opacity: 0,
+          transform: 'translateY(100px)'
+        }),
+        stagger(50, [
+          animate('200ms ease-out',
+            style({
+              opacity: 1, transform: 'none'
+            })
+          )
+        ])
+      ], {optional: true}),
+      query(':leave .load-fade-from-bottom', [
+        stagger(50, [
+          animate('200ms ease-out',
+            style({
+              opacity: 0, transform: 'translateY(100px)'
+            })
+          )
+        ])
+      ], {optional: true})
     ])
   ]);

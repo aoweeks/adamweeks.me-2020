@@ -171,11 +171,27 @@ body::-webkit-scrollbar-thumb {
 
 }
 
-.slide-from-right {
-  position: absolute;
-  transition: transform .5s ease-in .5s;
+// .slide-from-right {
+//   position: absolute;
+//   transition: transform .5s ease-in .5s;
 
-  &.waiting-for-scroll {
-    transform: translateX(100%);
-  }
-}
+//   &.waiting-for-scroll {
+//     transform: translateX(100%);
+//   }
+// }
+
+// .load-fade-from-right{
+
+//   transition: all 1s;
+
+//   &:hover {
+//     transform: translateX(5rem);
+//     opacity: 0;
+//   }
+// }
+
+// p { background-color: blue};
+
+// span { background-color: greenyellow;
+// clip-path: inset(0 50% 0 0);
+// box-decoration-break: clone};
