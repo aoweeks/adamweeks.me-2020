@@ -123,8 +123,8 @@ body::-webkit-scrollbar {
   width: var(--scrollbar-width);
 }
 body {
-  scrollbar-width: thin;
-  scrollbar-color: blue green;
+  // scrollbar-width: thin;
+  // scrollbar-color: blue green;
 }
 body::-webkit-scrollbar-track {
   background: #222;
@@ -135,3 +135,47 @@ body::-webkit-scrollbar-thumb {
   border: 3px solid #222;
 }
 
+
+/* Animate on Scroll classes */
+
+.reveal-from-left {
+
+  transition: clip-path .25s ease-out;
+  clip-path: inset(0px 0% -4px 0px);
+
+  &.waiting-for-scroll {
+    clip-path: inset(0px 100% -4px 0px);
+  }
+}
+
+.underline-from-left {
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    position: absolute;
+    border-bottom: 4px solid var(--aw-white);
+    content: "";
+
+    top: 0;
+    left: 0;
+    width: 66%;
+    height: 100%;
+
+    transition: width 0.25s ease-out 0.2s;
+  }
+
+  &.waiting-for-scroll::after{
+      width: 0%;
+  }
+
+}
+
+.slide-from-right {
+  position: absolute;
+  transition: transform .5s ease-in .5s;
+
+  &.waiting-for-scroll {
+    transform: translateX(100%);
+  }
+}

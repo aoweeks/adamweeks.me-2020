@@ -25,6 +25,7 @@ export class AnimateOnScrollDirective implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    console.log(this.el);
     this.elTop = this.el.nativeElement.offsetTop;
     this.triggerPoint = this.calculateTriggerPoint();
 
@@ -46,7 +47,7 @@ export class AnimateOnScrollDirective implements AfterViewInit {
   }
 
   calculateTriggerPoint(): number {
-    return this.elTop - window.innerHeight + 90;
+    return this.elTop - window.innerHeight + 200;
   }
 
 
