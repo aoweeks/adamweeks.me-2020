@@ -75,6 +75,10 @@ aw-header {
 }
 
 /* Mobile Menu */
+#mobile-menu .nav-link{
+  visibility: hidden
+}
+
 @media(max-width: $mobile-breakpoint) {
 
   #mobile-menu{
@@ -100,6 +104,8 @@ aw-header {
     }
 
     .nav-link{
+      visibility: visible;
+
       font-family: 'Jaapokki';
       letter-spacing: 0.4rem;
       text-decoration: none;
