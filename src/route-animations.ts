@@ -53,6 +53,7 @@ import {
   stagger,
   animate,
 } from '@angular/animations';
+import { AbsoluteSourceSpan } from '@angular/compiler';
 
 // export const fader =
 //   trigger('routeAnimations', [
@@ -159,6 +160,10 @@ const clipPathEnter =
   query(':enter', [
     style(
       {
+        position: 'fixed',
+        top: 'var(--header-height)',
+        left: 0,
+        width: '100%',
         'clip-path': 'inset(0px 100% 0px 0px)'
       }
     ),
@@ -174,43 +179,73 @@ const clipPathEnter =
 //       ])
 //     ])
 //   ]);
-const slideRightLeave=
+const fadeLeave =
   query(':leave', [
 
-    animate('600ms ease',
+    animate('125ms ease-out',
       style(
         {opacity: 0}
       )
     )
   ], {optional: true});
 
-const slideRightEnter =
+const fadeEnter =
   query(':enter', [
     style(
       {
         position: 'fixed',
-        top: 0,
-        left: 0,
-        width: 'calc(100% - 11px)',
-        transform: 'translateX(-100%)'
+        top: 70,
+        width: '100%',
+        opacity: 0
       }
     ),
-    animate('600ms 600ms ease',
+    animate('125ms 125ms ease-in',
       style(
         {
-          transform: 'translateX(0%)'
+          opacity: 1
         }
       )
     )
   ], {optional: true});
 
+const slideLeave =
+  query(':leave', [
+    animate('1250ms ease-out',
+      style({
+          transform: 'translateX(100%)'
+      })
+    )], {optional: true});
+
+const slideEnter =
+  query(':enter', [
+    style(
+      {
+        position: 'fixed',
+        top: 'var(--header-height)',
+        width: '100%',
+        left: '-100%'
+      }
+    ),
+    animate('1250ms ease-out',
+      style(
+        {
+          left: 0
+        }
+      )
+    )
+  ], {optional: true});
 
 export const fadePageInOut =
   trigger('routeAnimations', [
     transition('* <=> *', [
       group([
-        slideRightLeave,
-        slideRightEnter
+        // clipPathLeave,
+        // clipPathEnter
+        fadeLeave,
+        fadeEnter,
+        // slideLeave,
+        // slideEnter
+
       ])
     ])
   ]);
