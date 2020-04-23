@@ -52,6 +52,7 @@ import {
   group,
   stagger,
   animate,
+  animateChild,
 } from '@angular/animations';
 import { AbsoluteSourceSpan } from '@angular/compiler';
 
@@ -235,6 +236,9 @@ const slideEnter =
     )
   ], {optional: true});
 
+// read this to revamp transitions later:
+// https://medium.com/@perjansson/angular-dynamic-page-transitions-for-better-ux-8435077c26cc
+
 export const fadePageInOut =
   trigger('routeAnimations', [
     transition('* <=> *', [
@@ -246,27 +250,64 @@ export const fadePageInOut =
         // slideLeave,
         // slideEnter
 
-      ])
+      ]),
+      query(  '@pageLoadAnimations',
+              animateChild(),
+              {optional: true}
+      )
+    ]),
+  ]);
+
+export const fadeFromRightOrBottom =
+  trigger('pageLoadAnimations', [
+    transition(':enter', [
+      query('.load-fade-from-right', [
+        style({
+          opacity: 0,
+          transform: 'translateX(100px)'
+        }),
+        stagger(50, [
+          animate('200ms ease-out',
+            style({
+              opacity: 1, transform: 'none'
+            })
+          )
+        ])
+      ], {optional: true}),
+      query('.load-fade-from-bottom', [
+        style({
+          opacity: 0,
+          transform: 'translateY(100px)'
+        }),
+        stagger(50, [
+          animate('200ms ease-out',
+            style({
+              opacity: 1, transform: 'none'
+            })
+          )
+        ])
+      ], {optional: true}),
     ])
   ]);
+
 
 
 // export const fadeFromToRight =
 //   trigger('routeAnimations', [
 //     transition('* <=> *', [
-//       query(':enter .load-fade-from-right', [
-//         style({
-//           opacity: 0,
-//           transform: 'translateX(100px)'
-//         }),
-//         stagger(50, [
-//           animate('200ms ease-out',
-//             style({
-//               opacity: 1, transform: 'none'
-//             })
-//           )
-//         ])
-//       ], {optional: true}),
+      // query(':enter .load-fade-from-right', [
+      //   style({
+      //     opacity: 0,
+      //     transform: 'translateX(100px)'
+      //   }),
+      //   stagger(50, [
+      //     animate('200ms ease-out',
+      //       style({
+      //         opacity: 1, transform: 'none'
+      //       })
+      //     )
+      //   ])
+      // ], {optional: true}),
 //       query(':leave .load-fade-from-right', [
 //         stagger(50, [
 //           animate('200ms ease-out',

@@ -1,10 +1,13 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { BasePageComponent } from '../base-page.component';
 
+import { fadeFromRightOrBottom } from '../../../route-animations';
+
 @Component({
   selector: 'app-about-page',
   templateUrl: './about-page.component.html',
-  styleUrls: ['./about-page.component.scss']
+  styleUrls: ['./about-page.component.scss'],
+  animations: [fadeFromRightOrBottom]
 })
 export class AboutPageComponent
   extends BasePageComponent implements OnInit {
