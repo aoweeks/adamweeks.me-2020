@@ -13,18 +13,18 @@ export class AboutPageComponent
   extends BasePageComponent implements OnInit {
 
   private extraPageTitle = 'About';
-  isAboveMobileBreakpoint = true;
+  isPortrait: boolean;
 
   @HostListener('window:resize')
   onWindowResize() {
-    this.isAboveMobileBreakpoint = this.checkForPortraitMode();
+    this.isPortrait = this.checkForPortraitMode();
   }
 
 
   ngOnInit(): void {
     super.ngOnInit();
     this.setPageTitle(this.extraPageTitle);
-    this.isAboveMobileBreakpoint = this.checkForPortraitMode();
+    this.isPortrait = this.checkForPortraitMode();
   }
 
   checkForPortraitMode(): boolean {

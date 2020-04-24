@@ -21,7 +21,7 @@
     display: grid;
     align-items: stretch;
     grid-auto-rows: 1.5rem 1fr;
-      
+
     #side-arrow-container{
 
       height: 100%;
@@ -48,15 +48,15 @@
   }
 
   &:not(.filter-menu-active) {
-    
+
     #filter-right-column:hover {
       cursor: pointer;
-      
+
       #side-arrow-container #side-arrow{
         fill: var(--aw-accent);
       }
     }
-    
+
   }
 
   #vertical-label-container{
@@ -73,29 +73,29 @@
     }
 
   }
-  
+
   #horizontal-label-container{
     justify-self: end;
     align-self: center;
-    
+
     overflow: hidden;
 
     &:hover + #filter-right-column {
       #side-arrow {
         fill: var(--aw-accent);      }
     }
-    
+
     #horizontal-filter-label {
-      
+
       display: block;
-      
+
       transform: translateX(0%);
       transition: transform 1s;
     }
 
-    
+
   }
-  
+
   &.filter-menu-active {
 
     left: 0rem;
@@ -103,19 +103,19 @@
     #horizontal-label-container{
       cursor: pointer;
     }
-    
+
     #vertical-label-container #vertical-filter-label{
       transform: rotate(-90deg) translateX(100%);
       clip-path: inset(0px 100% 0px 0px);
-    } 
+    }
   }
-  
+
   &:not(.filter-menu-active){
-    
+
     #side-arrow {
       transform: rotate(-180deg);
     }
-    
+
     #horizontal-label-container #horizontal-filter-label {
       transform: translateX(100%);
     }
@@ -124,8 +124,11 @@
       cursor: pointer;
     }
   }
-}
 
+  #filter-main-container{
+    padding-left: 1.5rem ;
+  }
+}
 
 
 .open-close-filters-label{

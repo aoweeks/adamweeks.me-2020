@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'aw-filter-panel',
@@ -6,12 +6,13 @@ import { Component, OnInit, HostBinding } from '@angular/core';
   styleUrls: ['./filter-panel.component.scss']
 })
 export class FilterPanelComponent implements OnInit {
-
   @HostBinding('class.filter-menu-active') filterMenuActive = false;
+  @Output() filterMenuActivation: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() { }
 
   ngOnInit(): void {
+    this.filterMenuActivation.emit(this.filterMenuActive);
   }
 
   toggleFilterMenu(newState: boolean = null): void {
@@ -21,6 +22,8 @@ export class FilterPanelComponent implements OnInit {
     } else {
       this.filterMenuActive = newState;
     }
+
+    this.filterMenuActivation.emit(this.filterMenuActive);
   }
 
 }

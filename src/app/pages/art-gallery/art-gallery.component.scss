@@ -1,3 +1,57 @@
 :host {
-    display: block;
+    display: grid;
+    margin-left: 1.5rem;
+    padding-left: 1rem;
+    grid-template-columns: 1fr;
+
+    transition: margin-left 0.2s ease-in;
+
+    &.filter-menu-activated {
+      margin-left: 11.5rem;
+    }
 }
+
+/* Filter Menu */
+
+h2,h3 {
+  font-family: 'Jaapokki';
+  text-transform: uppercase;
+
+  position: relative;
+  display: inline-block;
+}
+
+h2 {
+  font-size: 0.75rem;
+
+  clip-path: inset( 0px 0px -2px 0px);
+
+  &::after {
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 66%;
+    height: 100%;
+
+    border-bottom: 2px solid var(--aw-white);
+  }
+}
+
+h3 {
+  font-size: .5rem;
+  clip-path: inset( 0px );
+}
+
+hr {
+  border: 1px solid var(--aw-white);
+  width: 80%;
+
+  clip-path: inset( 0px );
+}
+
+
+
+
+/*  */
