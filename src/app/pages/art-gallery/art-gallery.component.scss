@@ -12,45 +12,52 @@
 }
 
 /* Filter Menu */
+aw-filter-panel{
 
-h2,h3 {
   font-family: 'Jaapokki';
-  text-transform: uppercase;
 
-  position: relative;
-  display: inline-block;
-}
+  p {
+    font-size: 0.75rem;
+  }
 
-h2 {
-  font-size: 0.75rem;
 
-  clip-path: inset( 0px 0px -2px 0px);
+  h2,h3 {
+    text-transform: uppercase;
 
-  &::after {
+    position: relative;
+    display: inline-block;
+  }
 
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 66%;
-    height: 100%;
+  h2 {
+    font-size: 0.75rem;
 
-    border-bottom: 2px solid var(--aw-white);
+    clip-path: inset( 0px 0px -2px 0px);
+
+    &::after {
+
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 66%;
+      height: 100%;
+
+      border-bottom: 2px solid var(--aw-white);
+    }
+  }
+
+  h3 {
+    font-size: .5rem;
+    clip-path: inset( 0px );
+  }
+
+  hr {
+    border: 1px solid var(--aw-white);
+    width: 80%;
+
+    clip-path: inset( 0px );
   }
 }
-
-h3 {
-  font-size: .5rem;
-  clip-path: inset( 0px );
-}
-
-hr {
-  border: 1px solid var(--aw-white);
-  width: 80%;
-
-  clip-path: inset( 0px );
-}
-
 
 
 
