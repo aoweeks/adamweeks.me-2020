@@ -17,18 +17,18 @@ export class AboutPageComponent
 
   @HostListener('window:resize')
   onWindowResize() {
-    this.isAboveMobileBreakpoint = this.checkForMobileBreakpoint();
+    this.isAboveMobileBreakpoint = this.checkForPortraitMode();
   }
 
 
   ngOnInit(): void {
     super.ngOnInit();
     this.setPageTitle(this.extraPageTitle);
-    this.isAboveMobileBreakpoint = this.checkForMobileBreakpoint();
+    this.isAboveMobileBreakpoint = this.checkForPortraitMode();
   }
 
-  checkForMobileBreakpoint(): boolean {
-      return  window.innerWidth > 800 ? true : false;
+  checkForPortraitMode(): boolean {
+      return  window.innerWidth <= window.innerHeight ? true : false;
   }
 
 }

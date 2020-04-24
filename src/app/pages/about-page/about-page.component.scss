@@ -118,9 +118,9 @@
 
 
 
-/* Mobile screens */
+/* Portrait screens */
 
-@media(max-width: $mobile-breakpoint){
+@media(orientation: portrait){
 
 
   #about-main {
