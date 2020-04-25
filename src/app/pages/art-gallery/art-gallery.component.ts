@@ -29,9 +29,9 @@ import { trigger, transition, query, animate, style, stagger } from '@angular/an
 })
 export class ArtGalleryComponent
   extends BasePageComponent implements OnInit {
-  @HostBinding('class.filter-menu-activated') filterMenuActivated: boolean;
+  @HostBinding('class.filter-menu-activated') filterMenuActivated = false;
 
-  extraPageTitle = "Art Gallery";
+  extraPageTitle = 'Art Gallery';
 
   ngOnInit(): void {
     super.ngOnInit();
