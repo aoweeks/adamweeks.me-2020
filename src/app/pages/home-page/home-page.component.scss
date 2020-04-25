@@ -12,6 +12,15 @@
   display: block;
 }
 
+// :host{
+//   display: grid;
+//   grid-template-columns: 1fr;
+//   grid-template-rows: 1fr;
+//   place-items: center;
+//   width: 100%;
+//   height: calc(100vh - var(--header-height) );
+// }
+
 #section-1{
   height: calc(100vh - 8rem); //fudge
   width: calc(100vw - 50px); //fudge
