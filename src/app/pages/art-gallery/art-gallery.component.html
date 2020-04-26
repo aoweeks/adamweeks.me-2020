@@ -5,23 +5,42 @@
 
   <div class="filter-collection open-reveal-from-left">
 
-    <span>AZ</span>
-    <!-- <svg class="filter-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 174.833 100" enable-background="new 0 0 174.833 100" xml:space="preserve">
-        <g transform="translate(139.171,38.257)"> 
-            <polygon class="triangle" fill="none" stroke-width="7.5" stroke-miterlimit="10" points="-17.754,29.872 17.742,29.872 
-            0,-6.385 "/>
-        </g>
-        <circle fill="none" stroke-width="10" stroke-miterlimit="10" cx="59" cy="50" r="40.5"/>
-        <g transform="translate(59,50)">
-            <g class="hand">
-                <circle cx="0" cy="0" r="5"/>
-                <line fill="none" stroke-width="10" stroke-miterlimit="10" x1="0" y1="0" x2="0" y2="-28"/>
+    <aw-tooltip [text]="'Sort alphabetically'">
+        <svg    class="filter-icon" xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 174.833 100" enable-background="new 0 0 174.833 100" xml:space="preserve">
+            <g transform="translate(139.171,38.257)"> 
+                <polygon class="triangle" fill="none" stroke-width="7.5" stroke-miterlimit="10" points="-17.754,29.872 17.742,29.872 
+                0,-6.385 "/>
             </g>
-            <g class="hand" id="hour-hand">
-                <line fill="none" stroke-width="10" stroke-miterlimit="10" x1="0" y1="0" x2="15.129" y2="12.694"/>
+            <path fill="none" stroke-width="5" stroke-miterlimit="10" d="M73.167,64.331"/>
+            <g id="A">
+                <text transform="matrix(1 0 0 1 8 55.1045)" font-family="'Jaapokki'" font-size="68">A</text>
             </g>
-        </g>
-    </svg> -->
+            <g id="Z">
+                <text transform="matrix(1 0 0 1 58.3799 93.2139)" font-family="'Jaapokki'" font-size="68">Z</text>
+            </g>
+        </svg>
+</aw-tooltip>
+    
+    <aw-tooltip [text]="'Sort chronologically'">
+        <svg    class="filter-icon" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 174.833 100" enable-background="new 0 0 174.833 100" xml:space="preserve">
+            <g transform="translate(139.171,38.257)"> 
+                <polygon class="triangle" fill="none" stroke-width="7.5" stroke-miterlimit="10" points="-17.754,29.872 17.742,29.872 
+                0,-6.385 "/>
+            </g>
+            <circle fill="none" stroke-width="10" stroke-miterlimit="10" cx="59" cy="50" r="40.5"/>
+            <g transform="translate(59,50)">
+                <g class="hand">
+                    <circle cx="0" cy="0" r="5"/>
+                    <line fill="none" stroke-width="10" stroke-miterlimit="10" x1="0" y1="0" x2="0" y2="-28"/>
+                </g>
+                <g class="hand" id="hour-hand">
+                    <line fill="none" stroke-width="10" stroke-miterlimit="10" x1="0" y1="0" x2="15.129" y2="12.694"/>
+                </g>
+            </g>
+        </svg>
+    </aw-tooltip>
   </div>
 
     <hr class="open-reveal-from-left">

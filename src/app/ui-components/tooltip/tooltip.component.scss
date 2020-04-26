@@ -28,6 +28,7 @@ $tooltip-border: .2rem solid var(--aw-accent);
 
 :host{
     position: relative;
+    display: inline-block;
 }
 
 .tooltip {

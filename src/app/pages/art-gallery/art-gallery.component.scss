@@ -67,6 +67,17 @@ aw-filter-panel {
     color: var(--aw-accent);
     font-size: 0.5rem;
   }
+
+  .filter-icon {
+    height: 1.25rem;
+    width: auto;
+
+    stroke: var(--aw-white);
+    color: var(--aw-white);
+    padding-right: 1rem;
+
+    position: relative;
+  }
 }
 
 
