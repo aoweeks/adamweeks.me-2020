@@ -16,6 +16,7 @@ import { FilterPanelComponent } from './ui-components/filter-panel/filter-panel.
 import { TooltipComponent } from './ui-components/tooltip/tooltip.component';
 import { AnimateOnScrollDirective } from './directives/animate-on-scroll.directive';
 import { ResourceMissingPageComponent } from './pages/resource-missing-page/resource-missing-page.component';
+import { CheckboxComponent } from './ui-components/checkbox/checkbox.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ResourceMissingPageComponent } from './pages/resource-missing-page/reso
     TooltipComponent,
     AnimateOnScrollDirective,
     ResourceMissingPageComponent,
+    CheckboxComponent,
   ],
   imports: [
     BrowserModule,
