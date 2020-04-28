@@ -119,22 +119,68 @@
 
 /* Email */
 
+@keyframes open-envelope {
+  0% {
+    transform: rotateX(0deg);
+  } 50% {
+    transform: rotateX(180deg);
+  } 100% {
+    transform: rotateX(180deg);
+  }
+}
+
+
 #email {
 
-  #flap {
-    transition: transform 1s;
+  #flap, #inner-flap {
+
     transform-origin: 2305.61px 1250px;
+    animation-fill-mode: forwards;
   }
+
+  #outer-flap {
+    transition: opacity 0s;
+  }
+
+
+
+  #letter {
+    transition: transform 0s;
+  }
+
+
 
   .email-primary {
     fill: var(--aw-accent);
+  }
+
+  .email-secondary {
+    fill: var(--aw-accent-dark);
+  }
+
+  .email-tertiary {
+    fill: var(--aw-accent-light);
   }
 }
 
 #email:hover{
 
-  #flap {
-    transform: rotateX(180deg);
+  #flap, #inner-flap {
+    animation: open-envelope 2s ease-out;
+
+  }
+
+  #outer-flap {
+
+    opacity: 0;
+    transition: opacity 1s .01s;
+  }
+
+
+  #letter {
+    transform: translateY(-750px);
+
+    transition: transform .5s ease-in .75s;
   }
 }
 
