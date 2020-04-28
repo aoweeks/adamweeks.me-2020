@@ -1,0 +1,82 @@
+label {
+
+    font-family: 'Jaapokki', sans-serif;
+    font-size: .66rem;
+    height: .66rem;
+
+    position: relative;
+    display: block;
+    max-width: 100%;
+    padding-bottom: .66rem;
+    cursor: pointer;
+
+    .filter-name {
+        position: absolute;
+        top: 0;
+        left: 1.2rem;
+    }
+
+    svg {
+        height: .66rem;
+        position: absolute;
+        top: 0.1rem;
+        left: 0.1rem;
+    }
+}
+
+// .unselected{
+//     color: #555 !important;
+// }
+
+label:hover{
+    color: var(--aw-accent);
+}
+
+label::before {
+    content: '';
+    border: 0.1rem solid var(--aw-white);
+}
+
+input[type="checkbox"]{
+    opacity: 0;
+    display: inline-block;
+    vertical-align: top;
+    z-index: 100;
+}
+
+input[type="checkbox"],
+label::before,
+.cb-cross
+{
+    width: .66rem;
+    height: .66rem;
+    left: 0;
+    position: absolute;
+    cursor: pointer;
+}
+
+.checkbox-line{
+    stroke: var(--aw-white);
+    stroke-width:10;
+}
+
+.checkbox-line-1{
+
+    transition: 0.3s ease-out;
+}
+
+.checkbox-line-2{
+
+    transition: 0.3s ease-out 0.5s;
+}
+
+input[type="checkbox"]:checked + svg{
+
+    .checkbox-line-1{
+        transform: translate(100px, 100px);
+    }
+
+    .checkbox-line-2{
+        transform: translate(-100px, 100px);
+    }
+}

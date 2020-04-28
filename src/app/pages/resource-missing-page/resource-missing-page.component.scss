@@ -1,0 +1,30 @@
+:host{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    place-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+div{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    place-items: center;
+    width: 22rem;
+    text-align: center;
+}
+
+h1{
+    font-family: 'Jaapokki';
+    font-size: 4rem;
+    margin-bottom: -2rem;
+}
+
+p {
+    font-size: 2rem;
+}

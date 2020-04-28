@@ -14,7 +14,7 @@ import { trigger, transition, query, animate, style, stagger } from '@angular/an
           style({
             'clip-path': 'inset(0px 100% 2px 0px)'
           }),
-          stagger('75ms', [
+          stagger('50ms', [
             animate(
               '100ms 200ms ease-in',
               style({
@@ -29,9 +29,9 @@ import { trigger, transition, query, animate, style, stagger } from '@angular/an
 })
 export class ArtGalleryComponent
   extends BasePageComponent implements OnInit {
-  @HostBinding('class.filter-menu-activated') filterMenuActivated: boolean;
+  @HostBinding('class.filter-menu-activated') filterMenuActivated = false;
 
-  extraPageTitle = "Art Gallery";
+  extraPageTitle = 'Art Gallery';
 
   ngOnInit(): void {
     super.ngOnInit();

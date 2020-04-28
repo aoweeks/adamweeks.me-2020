@@ -12,7 +12,7 @@
 }
 
 /* Filter Menu */
-aw-filter-panel{
+aw-filter-panel {
 
   font-family: 'Jaapokki';
 
@@ -29,9 +29,7 @@ aw-filter-panel{
   }
 
   h2 {
-    font-size: 0.75rem;
-
-    clip-path: inset( 0px 0px -2px 0px);
+    font-size: 0.875rem;
 
     &::after {
 
@@ -47,15 +45,38 @@ aw-filter-panel{
   }
 
   h3 {
-    font-size: .5rem;
-    clip-path: inset( 0px );
+    font-size: .66rem;
+    margin-bottom: 1rem;
   }
 
   hr {
     border: 1px solid var(--aw-white);
-    width: 80%;
+    width: 75%;
+  }
 
-    clip-path: inset( 0px );
+  .filter-title-block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: -.66rem;
+  }
+
+  .set-all-filters {
+    text-transform: uppercase;
+    color: var(--aw-accent);
+    font-size: 0.5rem;
+  }
+
+  .filter-icon {
+    height: 1.25rem;
+    width: auto;
+
+    stroke: var(--aw-white);
+    color: var(--aw-white);
+    padding-right: 1rem;
+
+    position: relative;
   }
 }
 

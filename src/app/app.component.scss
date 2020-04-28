@@ -60,6 +60,9 @@ aw-header {
     padding-left: --padding-amount;
     padding-right: 0;
 
+    width: calc(100% - 11px);
+    min-height: calc(100% - var(--header-height) );
+
     overflow: hidden;
     color: var(--aw-white);
 

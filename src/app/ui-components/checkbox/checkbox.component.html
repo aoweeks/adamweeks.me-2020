@@ -1,0 +1,11 @@
+<label class="open-reveal-from-left"> 
+ <!-- [class.unselected]="!artListService.getFilterValue('types', type)"> -->
+    <input  type="checkbox" />
+             <!-- [checked]="artListService.getFilterValue('types', type)"
+             (change)="artListService.setFilterValue('types', type)" /> -->
+    <svg class="checkbox-cross" x="0px" y="0px" viewBox="0 0 100 100">
+        <line class="checkbox-line checkbox-line-1" x1="-100" y1="-100" x2="0" y2="0"/>
+        <line class="checkbox-line checkbox-line-2" x1="200" y1="-100" x2="100" y2="0"/>
+    </svg>
+    <span class="filter-name">{{ filterName }}</span>
+</label> 
