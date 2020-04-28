@@ -117,6 +117,27 @@
 }
 
 
+/* Email */
+
+#email {
+
+  #flap {
+    transition: transform 1s;
+    transform-origin: 2305.61px 1250px;
+  }
+
+  .email-primary {
+    fill: var(--aw-accent);
+  }
+}
+
+#email:hover{
+
+  #flap {
+    transform: rotateX(180deg);
+  }
+}
+
 
 /* Portrait screens */
 
