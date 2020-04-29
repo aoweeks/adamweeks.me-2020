@@ -119,33 +119,29 @@
 
 /* Email */
 
-@keyframes open-envelope {
-  0% {
-    transform: rotateX(0deg);
-  } 50% {
-    transform: rotateX(180deg);
-  } 100% {
-    transform: rotateX(180deg);
-  }
-}
 
 
 #email {
 
   #flap, #inner-flap {
 
+    transition: transform 1s .5s;
     transform-origin: 2305.61px 1250px;
-    animation-fill-mode: forwards;
   }
 
   #outer-flap {
-    transition: opacity 0s;
+    transition: opacity 1s .5s;
   }
 
 
 
   #letter {
-    transition: transform 0s;
+    transition: transform .5s ease-in;
+
+    .letter-text {
+      stroke: var(--aw-accent-dark);
+      stroke-width: 25px;
+    }
   }
 
 
@@ -166,12 +162,11 @@
 #email:hover{
 
   #flap, #inner-flap {
-    animation: open-envelope 2s ease-out;
-
+    transform: rotateX(180deg);
+    transition: transform 1s;
   }
 
   #outer-flap {
-
     opacity: 0;
     transition: opacity 1s .01s;
   }
@@ -179,7 +174,6 @@
 
   #letter {
     transform: translateY(-750px);
-
     transition: transform .5s ease-in .75s;
   }
 }
