@@ -97,29 +97,45 @@
 
 @keyframes bounce{
 	0% {
-    transform:  translate(50px, 100px)
-                scale(1, 1);
-	} 82% {
-    transform:  translate(50px, 180px)
-                scale(1, 1);
+    transform:  translateY(-25px);
+	} 70% {
+    transform: translateY(20px);
   } 100% {
-    transform:  translate(50px, 180px)
-                scale(1.25, 0.75);
+    transform: translateY(25px);
   }
 }
 
-#dribbble:hover{
+@keyframes squish {
 
-  #ball{
-    animation: bounce 0.5s ease-in infinite alternate;
+  0%, 50%{
+    transform: none;
+  }100% {
+    transform: scale(1.15, 0.85)
   }
+}
 
+#dribbble {
+
+
+  &:hover{
+
+    #bounce {
+
+      animation: bounce .325s ease-in infinite alternate;
+
+      #ball {
+
+        animation: squish .325s ease-in infinite alternate;
+        transform-origin: 50px 75px;
+
+      }
+
+    }
+  }
 }
 
 
 /* Email */
-
-
 
 #email {
 
