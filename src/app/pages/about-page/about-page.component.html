@@ -5,14 +5,14 @@
   </div>
   <div id="who-text">
       <h2 class="www-title">WHO?</h2>
-
+<!-- 
       <aw-tooltip [text]="'This is my tooltip Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eros nibh, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eros nibh, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eros nibh, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eros nibh, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eros nibh, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eros nibh, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eros nibh, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eros nibh, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eros nibh, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eros nibh, '">
         And this is my content.
-      </aw-tooltip>
+      </aw-tooltip> -->
 
-      <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eros nibh, euismod vitae egestas eu, ornare nec ipsum. Cras vehicula elit dui, quis eleifend risus auctor id. Suspendisse sit amet diam eu ex viverra ornare at eu urna. Sed quis condimentum nibh, ut condimentum ex. Nulla a risus in libero sollicitudin finibus. Etiam sollicitudin, arcu nec accumsan molestie, nunc arcu finibus velit, nec ornare nisi quam a eros. Sed nec odio et tellus congue molestie. Vivamus odio nunc, porttitor vitae lacinia ac, volutpat quis mi. Aliquam molestie leo sed orci auctor porttitor. Sed et venenatis urna. Sed fringilla enim nisl, in molestie felis posuere a. Nunc viverra eros ac lacus lobortis, rhoncus rutrum nisl fermentum. Phasellus non laoreet purus, ac semper turpis. Phasellus felis orci, iaculis quis nibh ut, placerat scelerisque mauris. Cras maximus sodales dapibus. Mauris aliquet urna id maximus faucibus.</span></p>
+      <p id="test" #test>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eros nibh, euismod vitae egestas eu, ornare nec ipsum. Cras vehicula elit dui, quis eleifend risus auctor id. Suspendisse sit amet diam eu ex viverra ornare at eu urna. Sed quis condimentum nibh, ut condimentum ex. Nulla a risus in libero sollicitudin finibus. Etiam sollicitudin, arcu nec accumsan molestie, nunc arcu finibus velit, nec ornare nisi quam a eros. Sed nec odio et tellus congue molestie. Vivamus odio nunc, porttitor vitae lacinia ac, volutpat quis mi. Aliquam molestie leo sed orci auctor porttitor. Sed et venenatis urna. Sed fringilla enim nisl, in molestie felis posuere a. Nunc viverra eros ac lacus lobortis, rhoncus rutrum nisl fermentum. Phasellus non laoreet purus, ac semper turpis. Phasellus felis orci, iaculis quis nibh ut, placerat scelerisque mauris. Cras maximus sodales dapibus. Mauris aliquet urna id maximus faucibus.</p>
 
-      <p>Praesent ac nisl in felis accumsan cursus sed eget erat. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget erat blandit, mattis sem a, suscipit urna. Phasellus sed efficitur metus. Vestibulum convallis purus vitae nisl pharetra, sed commodo ex condimentum. Praesent odio nunc, vestibulum quis sem quis, convallis porta dui. Quisque mollis orci a tortor aliquam, quis vestibulum nibh aliquam. In ut elit ut libero malesuada pulvinar vitae non nunc. Donec in nibh et erat consectetur tempus eget non sapien. Quisque ut dapibus diam, id malesuada massa. Integer tempus ligula vitae odio sodales varius. Pellentesque leo sapien, consequat quis sem id, tristique gravida diam. Praesent eget justo vel sem consequat pellentesque vulputate eget nunc. Donec libero odio, pretium eu posuere in, tempus nec lectus. Sed at urna consectetur, ullamcorper est ac, finibus dolor.</p>
+      <p id="test2" [innerHTML]="test">Praesent ac nisl in felis accumsan cursus sed eget erat. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget erat blandit, mattis sem a, suscipit urna. Phasellus sed efficitur metus. Vestibulum convallis purus vitae nisl pharetra, sed commodo ex condimentum. Praesent odio nunc, vestibulum quis sem quis, convallis porta dui. Quisque mollis orci a tortor aliquam, quis vestibulum nibh aliquam. In ut elit ut libero malesuada pulvinar vitae non nunc. Donec in nibh et erat consectetur tempus eget non sapien. Quisque ut dapibus diam, id malesuada massa. Integer tempus ligula vitae odio sodales varius. Pellentesque leo sapien, consequat quis sem id, tristique gravida diam. Praesent eget justo vel sem consequat pellentesque vulputate eget nunc. Donec libero odio, pretium eu posuere in, tempus nec lectus. Sed at urna consectetur, ullamcorper est ac, finibus dolor.</p>
 
       <p animateOnScroll>Duis elementum non magna non porta. Quisque ut velit at metus tempus malesuada a placerat erat. Aliquam id sagittis massa, porttitor malesuada nisl. Nulla nec suscipit metus. Quisque ut ultrices nisl. Nullam id malesuada massa, non efficitur augue. Vivamus rhoncus, nisl nec euismod dapibus, felis odio lobortis purus, non venenatis nibh sem vitae lectus. Phasellus id ex vel velit tincidunt lobortis. Suspendisse vulputate felis nec posuere laoreet. Sed pharetra nibh nisi, sed venenatis ante finibus nec. Proin et mattis felis, sit amet viverra erat. Aenean efficitur ullamcorper arcu sit amet lacinia. Nunc congue justo vulputate, iaculis ligula eget, cursus arcu. Vestibulum vel justo sapien. Donec imperdiet, diam ac sodales elementum, metus nulla ultricies diam, sed imperdiet nulla risus non libero. Sed sed nunc molestie, bibendum leo vitae, suscipit nisi.</p>
 
@@ -598,7 +598,6 @@
         target="_blank">
       <svg  id="twitter-logo"
             class="social-logo"
-            width="100px" height="100px"
             viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
         <g  id="twitter-container"
             transform="translate(200 200) rotate(37.1)">
@@ -624,7 +623,6 @@
 
       <svg  id="dribbble-logo"
             class="social-logo"
-            width="100px" height="100px"
             viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
         <g id="bounce">
           <g id="ball">
@@ -688,7 +686,8 @@
         class="follow-link"
         href="mailto:aoweeks@gmail.com"
         target="_blank">
-      <svg width="100px" height="100px" viewBox="0 0 4167 4167" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
+      <svg  class="social-logo"
+            viewBox="0 0 4167 4167" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
           <rect id="back" x="930.53" y="1200.06" width="2305.61" height="1666.67" class="email-primary"/>
 
           <g id="inner-flap">

@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 import { BasePageComponent } from '../base-page.component';
 
 import { fadeFromRightOrBottom } from '../../../route-animations';
@@ -10,10 +10,12 @@ import { fadeFromRightOrBottom } from '../../../route-animations';
   animations: [fadeFromRightOrBottom]
 })
 export class AboutPageComponent
-  extends BasePageComponent implements OnInit {
+  extends BasePageComponent implements OnInit, AfterViewInit {
 
   private extraPageTitle = 'About';
   isPortrait: boolean;
+
+  @ViewChild('test') test: ElementRef;
 
   @HostListener('window:resize')
   onWindowResize() {
@@ -27,8 +29,20 @@ export class AboutPageComponent
     this.isPortrait = this.checkForPortraitMode();
   }
 
+
+
+  ngAfterViewInit(): void {
+
+    const words = this.test.nativeElement.innerHTML.split(' ');
+    let sentence = '';
+    words.forEach(word => {
+      sentence += `<span class="word">${word} </span>`;
+    });
+    this.test.nativeElement.innerHTML = this.sanitizeHTML(sentence);
+  }
+
   checkForPortraitMode(): boolean {
-      return  window.innerWidth <= window.innerHeight ? true : false;
+      return window.innerWidth <= window.innerHeight ? true : false;
   }
 
 }

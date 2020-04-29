@@ -55,6 +55,11 @@
   a:hover::before {
     border: none;
   }
+
+  .social-logo {
+    height: 100px;
+    width: 100px;
+  }
 }
 
 #follow-footer-background{
@@ -121,11 +126,11 @@
 
     #bounce {
 
-      animation: bounce .325s ease-in infinite alternate;
+      animation: bounce .4s ease-in infinite alternate;
 
       #ball {
 
-        animation: squish .325s ease-in infinite alternate;
+        animation: squish .4s ease-in infinite alternate;
         transform-origin: 50px 75px;
 
       }
@@ -199,6 +204,13 @@
 
 @media(orientation: portrait) {
 
+  #follow-sidebar {
+
+    .social-logo {
+      height: 70px;
+      width: 70px;
+    }
+  }
 
   #about-main {
     padding-bottom: calc(var(--header-height) + 1rem);
@@ -233,5 +245,28 @@
 
     visibility: visible;
     // background-image: url('../../../assets/images/background.svg');
+  }
+}
+
+
+/* Temp stuff */
+#test2{
+  
+  transition-duration: 0.2s;
+
+  .word {
+    clip-path: inset(0);
+    transition-duration: 0.2s;
+
+    background: red;
+  }
+}
+
+#test2:hover{
+
+  transform: translateY(20px);
+
+  .word{
+    clip-path: inset(0px 0px 100% 0px);
   }
 }
