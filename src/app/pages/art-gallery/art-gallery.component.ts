@@ -88,3 +88,33 @@ export class ArtGalleryComponent
   }
 }
 
+/*
+
+conSize = containerSize - margins
+imageSizes[] = n*{height, width};
+
+makeRow() {
+  const startingHeight = 400;
+  const minHeight = 200;
+
+  newRow[0] = imageSizes[next];
+
+  if newRow(0).isLandscape {
+    if newRow(0).width > conSize.width {
+      newRow(0).width = conSizeWidth;
+      newRow(0).height = auto;
+    }
+  else{
+    newRow[0].height = startingHeight;
+    newRow[0].width = auto;
+  }
+
+  rowHeight = newRow[0].height;
+
+
+  ratio = rowHeight / imageSizes[next].height;
+  if newRow[0].width + newRow[1].width =
+
+
+}
+*/
