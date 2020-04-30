@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Title, DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-base-page',
@@ -10,8 +10,9 @@ export class BasePageComponent implements OnInit {
 
   private basePageTitle = 'Adam Weeks | ';
 
-  constructor(private title: Title,
-              private sanitizer: DomSanitizer) { }
+  constructor(private title: Title,){}
+
+              // private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
 
@@ -21,8 +22,8 @@ export class BasePageComponent implements OnInit {
     this.title.setTitle(this.basePageTitle + extraPageTitle);
   }
 
-  sanitizeHTML(dirtyHTML: string): SafeHtml {
-    return this.sanitizer.bypassSecurityTrustHtml(dirtyHTML);
-  }
+  // sanitizeHTML(dirtyHTML: string): SafeHtml {
+  //   return this.sanitizer.bypassSecurityTrustHtml(dirtyHTML);
+  // }
 
 }

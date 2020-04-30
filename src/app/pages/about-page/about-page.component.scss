@@ -210,6 +210,10 @@
       height: 70px;
       width: 70px;
     }
+
+    #twitter-logo{
+      transform: translateY(10%);
+    }
   }
 
   #about-main {
@@ -250,23 +254,27 @@
 
 
 /* Temp stuff */
-#test2{
+// #test2{
   
-  transition-duration: 0.2s;
+//   transition-duration: 0.2s;
 
-  .word {
-    clip-path: inset(0);
-    transition-duration: 0.2s;
+//   font-size: 28px;
 
-    background: red;
-  }
-}
+//   ::ng-deep .word {
+//     clip-path: inset(0);
+//     transition-duration: 0.2s;
 
-#test2:hover{
+//     background: red;
 
-  transform: translateY(20px);
+//     font-size: 24px;
+//   }
+// }
 
-  .word{
-    clip-path: inset(0px 0px 100% 0px);
-  }
-}
+// #test2:hover{
+
+//   transform: translateY(20px);
+
+//   ::ng-deep .word{
+//     clip-path: inset(0px 0px 100% 0px);
+//   }
+// }

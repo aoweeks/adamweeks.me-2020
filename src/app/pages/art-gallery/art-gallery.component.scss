@@ -77,6 +77,11 @@ aw-filter-panel {
     padding-right: 1rem;
 
     position: relative;
+
+    text {
+      fill: var(--aw-white);
+      stroke: none;
+    }
   }
 }
 
