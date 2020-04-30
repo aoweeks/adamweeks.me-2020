@@ -6,10 +6,10 @@
   <div class="filter-collection open-reveal-from-left">
 
     <aw-tooltip [text]="'Sort alphabetically'">
-        <svg    class="filter-icon" xmlns="http://www.w3.org/2000/svg" 
+        <svg    class="filter-icon" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 174.833 100" enable-background="new 0 0 174.833 100" xml:space="preserve">
-            <g transform="translate(139.171,38.257)"> 
-                <polygon class="triangle" fill="none" stroke-width="7.5" stroke-miterlimit="10" points="-17.754,29.872 17.742,29.872 
+            <g transform="translate(139.171,38.257)">
+                <polygon class="triangle" fill="none" stroke-width="7.5" stroke-miterlimit="10" points="-17.754,29.872 17.742,29.872
                 0,-6.385 "/>
             </g>
             <path fill="none" stroke-width="5" stroke-miterlimit="10" d="M73.167,64.331"/>
@@ -21,12 +21,12 @@
             </g>
         </svg>
 </aw-tooltip>
-    
+
     <aw-tooltip [text]="'Sort chronologically'">
         <svg    class="filter-icon" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 174.833 100" enable-background="new 0 0 174.833 100" xml:space="preserve">
-            <g transform="translate(139.171,38.257)"> 
-                <polygon class="triangle" fill="none" stroke-width="7.5" stroke-miterlimit="10" points="-17.754,29.872 17.742,29.872 
+            <g transform="translate(139.171,38.257)">
+                <polygon class="triangle" fill="none" stroke-width="7.5" stroke-miterlimit="10" points="-17.754,29.872 17.742,29.872
                 0,-6.385 "/>
             </g>
             <circle fill="none" stroke-width="10" stroke-miterlimit="10" cx="59" cy="50" r="40.5"/>
@@ -44,7 +44,7 @@
   </div>
 
     <hr class="open-reveal-from-left">
-  
+
     <h2 class="open-reveal-from-left">Filter</h2>
 
     <div class="filter-title-block">
@@ -87,13 +87,26 @@
     </svg> -->
 </aw-filter-panel>
 
-<div>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem earum adipisci distinctio illum veritatis fugit excepturi unde vero rerum pariatur incidunt, architecto facilis officiis culpa animi commodi perferendis nisi veniam.</p>
+<div id="gallery">
+  <div  class="image-wrapper"
+        *ngFor="let image of imagesArray; let i = index"
+        [style.height]="image.height + 'px'"
+        [style.width]="image.width+'px'">
+  <div  class="image"
+        [style.background-color]="'rgb(' + image.red + ',' + image.green + ',' + image.blue + ')'"
+        (click)="divClicked($event.target, image.height, image.width)"></div>
+  <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem earum adipisci distinctio illum veritatis fugit excepturi unde vero rerum pariatur incidunt, architecto facilis officiis culpa animi commodi perferendis nisi veniam.</p>
   <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam accusamus atque aspernatur ab et magni nisi inventore nesciunt possimus, perferendis explicabo eaque, dolore hic repudiandae ad deleniti. Cum, esse sapiente?</p>
   <p>
+
+            [style.height]="image.height + 'px'"
+        [style.width]="image.width+'px'"
+
+
       <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi consectetur laborum, distinctio quos ex consequuntur doloremque voluptatum, at perferendis fugiat blanditiis corrupti atque assumenda pariatur aspernatur culpa. Dolores, debitis perspiciatis.</span>
       <span>Libero commodi vero at ducimus adipisci, harum, praesentium provident ullam aperiam inventore impedit debitis tempore! Unde, vel. Rem officia provident id enim possimus nemo voluptate consequuntur dolorum odio? Modi, perferendis!</span>
       <span>Atque quos voluptas, hic odio sit rerum commodi delectus beatae cum repellendus laboriosam! Obcaecati ullam dolore nihil assumenda, nobis repellat tenetur ipsum et debitis quam, atque, doloribus eaque cupiditate odio.</span>
       <span>Animi rerum facilis nesciunt placeat earum quasi neque, asperiores in quo ut temporibus nulla itaque eos rem aspernatur dolores laudantium tenetur repellat ab quidem vitae possimus odio! Perferendis, amet enim?</span>
-  </p>
+  </p> -->
+  </div>
 </div>

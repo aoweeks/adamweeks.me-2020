@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2} from '@angular/core';
 import { Title, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
@@ -11,7 +11,8 @@ export class BasePageComponent implements OnInit {
   private basePageTitle = 'Adam Weeks | ';
 
   constructor(private title: Title,
-              private sanitizer: DomSanitizer) { }
+              private sanitizer: DomSanitizer,
+              public renderer: Renderer2) { }
 
   ngOnInit(): void {
 
