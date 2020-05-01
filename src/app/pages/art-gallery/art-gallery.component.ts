@@ -32,14 +32,16 @@ export class ArtGalleryComponent
 
   @ViewChild('imageGallery') imageGallery: ElementRef;
   @HostBinding('class.filter-menu-activated') filterMenuActivated = false;
-  @HostListener('window:resize')
-  onWindowResize() {
-    clearTimeout(this.windowFinishResize);
-    this.windowFinishResize = setTimeout(this.windowFinishedResizing, 100);
-  }
+  // @HostListener('window:resize')
+  // onWindowResize() {
+  //   clearTimeout(this.windowFinishResize);
+  //   this.windowFinishResize = setTimeout(this.windowFinishedResizing, 100);
+  // }
 
-  windowFinishResize; //typeof setTimeout
+  // windowFinishResize; //typeof setTimeout
   extraPageTitle = 'Art Gallery';
+  selectedImage: HTMLElement;
+  selectedImageWrapper: HTMLElement;
 
   ngOnInit(): void {
     super.ngOnInit();
@@ -52,9 +54,9 @@ export class ArtGalleryComponent
     this.filterMenuActivated = isFilterActivated;
   }
 
-  windowFinishedResizing() {
-    console.log('finished resizing');
-  }
+  // windowFinishedResizing() {
+  //   console.log('finished resizing');
+  // }
 
 
   /* Temp stuff */
@@ -64,41 +66,62 @@ export class ArtGalleryComponent
   createImageArray() {
 
     for (let i=0; i <= 40; i++) {
-      let imageObject: any = {};
 
-      imageObject.width = Math.floor(Math.random() * 400 + 200);
-      imageObject.height =  Math.floor(Math.random() * 400 + 200);
-      imageObject.red =  Math.floor(Math.random() * 255);
-      imageObject.blue =  Math.floor(Math.random() * 255);
-      imageObject.green =  Math.floor(Math.random() * 255);
-
-      this.imagesArray.push(imageObject);
+      const randomFileNum = Math.floor(Math.random() * 8);
+      this.imagesArray.push(`../../../assets/images/temp/${randomFileNum}.png`);
     }
-    // this.imArray.forEach( (obj) => {
-
-    //   newElement: ElementRef<div> =  new ElementRef<div>;
-
-    // });
-
-    // console.log(this.imageArray);
   }
 
+  /* Add styles to fix image in place for transition to image modal */
+  imageClicked(el: HTMLElement, elWrapper: HTMLElement) {
 
-  divClicked(el: HTMLElement, height: number, width: number) {
-    // console.log(el.clientHeight, height, el.clientWidth, width, el.offsetTop, el.offsetLeft);
+    if(this.selectedImageWrapper && this.selectedImage) {
+      this.resetSelectedImageStyles(this.selectedImage, this.selectedImageWrapper);
+    }
+
+    this.selectedImage = el;
+    this.selectedImageWrapper = elWrapper;
+
     const elDimensions = {
       height: `${el.clientHeight}px`,
       width: `${el.clientWidth}px`,
-      top: el.offsetTop,
-      left: el.offsetLeft,
+      top: `${el.offsetTop - window.scrollY + 55}px`,
+      left: `${el.offsetLeft + 7.5}px`,
     }
+
+    this.renderer.setStyle(elWrapper, 'height', elWrapper.clientHeight + 'px');
+    this.renderer.setStyle(elWrapper, 'background', 'none');
+
+    this.renderer.setStyle(el, 'opacity', 1);
     this.renderer.setStyle(el, 'position', 'fixed');
     this.renderer.setStyle(el, 'height', elDimensions.height);
     this.renderer.setStyle(el, 'width', elDimensions.width);
     this.renderer.setStyle(el, 'top', elDimensions.top);
     this.renderer.setStyle(el, 'left', elDimensions.left);
 
-    // console.log(this.imageGallery.nativeElement.offsetWidth);
+    setTimeout(() => {this.renderer.addClass(el, 'transition-setter');}, 1);
+    setTimeout(() => {
+      this.renderer.addClass(el, 'selected-image');
+    }, 200);
+
+
+  }
+
+  /* Clear styles that are added for transition to image modal */
+  resetSelectedImageStyles(image: HTMLElement, imageWrapper: HTMLElement): void {
+
+    this.renderer.removeStyle(image, 'opacity');
+    this.renderer.removeStyle(image, 'position');
+    this.renderer.removeStyle(image, 'height');
+    this.renderer.removeStyle(image, 'width');
+    this.renderer.removeStyle(image, 'top');
+    this.renderer.removeStyle(image, 'left');
+
+    this.renderer.removeClass(image, 'transition-setter');
+    this.renderer.removeClass(image, 'selected-image');
+
+    this.renderer.removeStyle(imageWrapper, 'height');
+    this.renderer.removeStyle(imageWrapper, 'background');
   }
 
   calculateImageGridLayout() {
