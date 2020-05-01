@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding, ElementRef, } from '@angular/core';
+import { Component, OnInit, HostBinding, ElementRef, HostListener, ViewChild, } from '@angular/core';
 import { BasePageComponent} from '../base-page.component';
 
 import { trigger, transition, query, animate, style, stagger } from '@angular/animations';
@@ -29,8 +29,16 @@ import { trigger, transition, query, animate, style, stagger } from '@angular/an
 })
 export class ArtGalleryComponent
   extends BasePageComponent implements OnInit {
-  @HostBinding('class.filter-menu-activated') filterMenuActivated = false;
 
+  @ViewChild('imageGallery') imageGallery: ElementRef;
+  @HostBinding('class.filter-menu-activated') filterMenuActivated = false;
+  @HostListener('window:resize')
+  onWindowResize() {
+    clearTimeout(this.windowFinishResize);
+    this.windowFinishResize = setTimeout(this.windowFinishedResizing, 100);
+  }
+
+  windowFinishResize; //typeof setTimeout
   extraPageTitle = 'Art Gallery';
 
   ngOnInit(): void {
@@ -42,6 +50,10 @@ export class ArtGalleryComponent
 
   filterMenuActivation(isFilterActivated): void {
     this.filterMenuActivated = isFilterActivated;
+  }
+
+  windowFinishedResizing() {
+    console.log('finished resizing');
   }
 
 
@@ -73,7 +85,7 @@ export class ArtGalleryComponent
 
 
   divClicked(el: HTMLElement, height: number, width: number) {
-    console.log(el.clientHeight, height, el.clientWidth, width, el.offsetTop, el.offsetLeft);
+    // console.log(el.clientHeight, height, el.clientWidth, width, el.offsetTop, el.offsetLeft);
     const elDimensions = {
       height: `${el.clientHeight}px`,
       width: `${el.clientWidth}px`,
@@ -85,12 +97,20 @@ export class ArtGalleryComponent
     this.renderer.setStyle(el, 'width', elDimensions.width);
     this.renderer.setStyle(el, 'top', elDimensions.top);
     this.renderer.setStyle(el, 'left', elDimensions.left);
+
+    // console.log(this.imageGallery.nativeElement.offsetWidth);
+  }
+
+  calculateImageGridLayout() {
+
+    const containerWidth = this.imageGallery.nativeElement.offsetWidth;
+
   }
 }
 
 /*
 
-conSize = containerSize - margins
+const conWidth = container.width;
 imageSizes[] = n*{height, width};
 
 makeRow() {
@@ -100,8 +120,8 @@ makeRow() {
   newRow[0] = imageSizes[next];
 
   if newRow(0).isLandscape {
-    if newRow(0).width > conSize.width {
-      newRow(0).width = conSizeWidth;
+    if newRow(0).width > conWidth {
+      newRow(0).width = conWidth;
       newRow(0).height = auto;
     }
   else{
@@ -113,8 +133,17 @@ makeRow() {
 
 
   ratio = rowHeight / imageSizes[next].height;
-  if newRow[0].width + newRow[1].width =
-
+  const withoutNewImageWidth = newRow[0].width;
+  const withNewImageWidth = newRow[0].width + (newRow[1].width * ratio);
+  if (withNewImageWidth < conWidth)
+    addNewImage
+  else {
+    if ( conWidth - withoutNew >= withNew - conWidth )
+      scale down
+    else
+      scrap new image and scale up
+    start new row
+  }
 
 }
 */

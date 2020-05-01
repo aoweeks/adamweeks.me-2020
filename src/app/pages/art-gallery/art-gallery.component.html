@@ -87,7 +87,7 @@
     </svg> -->
 </aw-filter-panel>
 
-<div id="gallery">
+<div id="image-gallery" #imageGallery>
   <div  class="image-wrapper"
         *ngFor="let image of imagesArray; let i = index"
         [style.height]="image.height + 'px'"
