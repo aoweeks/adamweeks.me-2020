@@ -73,7 +73,7 @@ export class ArtGalleryComponent
   }
 
   /* Add styles to fix image in place for transition to image modal */
-  imageClicked(el: HTMLElement, elWrapper: HTMLElement) {
+  imageClicked(el: HTMLElement, elWrapper: HTMLElement): void {
 
     if(this.selectedImageWrapper && this.selectedImage) {
       this.resetSelectedImageStyles(this.selectedImage, this.selectedImageWrapper);
@@ -124,10 +124,8 @@ export class ArtGalleryComponent
     this.renderer.removeStyle(imageWrapper, 'background');
   }
 
-  calculateImageGridLayout() {
-
-    const containerWidth = this.imageGallery.nativeElement.offsetWidth;
-
+  thumbnailLoaded(imageWrapper: HTMLElement): void {
+    this.renderer.addClass(imageWrapper, 'image-loaded');
   }
 }
 

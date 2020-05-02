@@ -90,6 +90,14 @@ aw-filter-panel {
 
 /* Image Gallery */
 
+@keyframes pulse-fade {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 0.2;
+  }
+}
+
 #image-gallery{
   font-size: 0;
   line-height: 0;
@@ -101,22 +109,41 @@ aw-filter-panel {
   margin-right: 1rem;
 }
 
-.image-wrapper{
+.image-wrapper {
   display: inline-block;
   width: 100%;
   height: auto;
-  background-color: var(--aw-white);
   margin-top: .75rem;
-}
-.image {
-  width: 100%;
-  height: auto;
+
+  background-color: var(--aw-white);
+  animation: pulse-fade 1s ease-in infinite alternate;
 
 
-  &:hover{
-    cursor: pointer;
-    opacity: 0.6;
+  .image {
+    width: 100%;
+    height: auto;
+
+    opacity: 0;
+
+    transition: opacity 0.3s;
+
   }
+
+  &.image-loaded {
+
+    animation: none;
+
+    .image {
+      opacity: 1;
+      transition: none;
+
+      &:hover{
+        cursor: pointer;
+        opacity: 0.6;
+      }
+    }
+  }
+
 }
 
 .transition-setter{
