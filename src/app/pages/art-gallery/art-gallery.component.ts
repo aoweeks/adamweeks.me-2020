@@ -105,7 +105,6 @@ export class ArtGalleryComponent
       this.renderer.addClass(el, 'selected-image');
     }, 200);
 
-
   }
 
   /* Clear styles that are added for transition to image modal */

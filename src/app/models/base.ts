@@ -1,5 +1,3 @@
-import { Title } from '@angular/platform-browser';
-
 export class Base {
   private title: string;
   private createdDate: Date;
