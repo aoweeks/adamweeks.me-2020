@@ -40,7 +40,8 @@ export class ArtGalleryComponent
 
   // windowFinishResize; //typeof setTimeout
   extraPageTitle = 'Art Gallery';
-  selectedImage: HTMLElement;
+  selectedImage;
+  selectedImageElement: HTMLElement;
   selectedImageWrapper: HTMLElement;
 
   ngOnInit(): void {
@@ -75,11 +76,11 @@ export class ArtGalleryComponent
   /* Add styles to fix image in place for transition to image modal */
   imageClicked(el: HTMLElement, elWrapper: HTMLElement): void {
 
-    if(this.selectedImageWrapper && this.selectedImage) {
-      this.resetSelectedImageStyles(this.selectedImage, this.selectedImageWrapper);
+    if(this.selectedImageWrapper && this.selectedImageElement) {
+      this.resetSelectedImageStyles(this.selectedImageElement, this.selectedImageWrapper);
     }
 
-    this.selectedImage = el;
+    this.selectedImageElement = el;
     this.selectedImageWrapper = elWrapper;
 
     const elDimensions = {
