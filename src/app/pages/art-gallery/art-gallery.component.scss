@@ -147,7 +147,7 @@ aw-filter-panel {
 }
 
 .transition-setter{
-  transition: all .375s ease-in;
+  transition: all .375s ease-in !important;
 }
 
 .selected-image {
@@ -156,6 +156,8 @@ aw-filter-panel {
   top: 200px !important;
   height: 500px !important;
   width: auto !important;
+
+  z-index: 81;
 }
 
 @media(max-width: 1200px) {
@@ -181,6 +183,22 @@ aw-filter-panel {
 
 /* Image Modal */
 
-#image-modal{
-  visibility: hidden;
+#image-modal {
+  // visibility: hidden;
+  position: fixed;
+  bottom: 0;
+  height: 0vh;
+  left: 0;
+  width: 100vw;
+
+  background-image: url('../../../assets/images/background.svg');
+  z-index: 80;
+
+  .darken-layer{
+    height: 100%;
+    width: 100%;
+    margin: none;
+    padding: none;
+    background-color: var(--aw-darker-background);
+  }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, HostBinding, ElementRef, HostListener, ViewChild, } from '@angular/core';
 import { BasePageComponent} from '../base-page.component';
 
-import { trigger, transition, query, animate, style, stagger } from '@angular/animations';
+import { trigger, transition, query, animate, style, state, stagger } from '@angular/animations';
 
 @Component({
   selector: 'app-art-gallery',
@@ -23,6 +23,20 @@ import { trigger, transition, query, animate, style, stagger } from '@angular/an
             )
           ])
         ], { optional: true })
+      ])
+    ]),
+
+    trigger('imageSelected', [
+      state('true', style({
+        height: 'calc(100vh - var(--header-height))'
+      })),
+      transition( 'false => true', [
+        animate(
+          '500ms 400ms ease-out',
+          style({
+            height: 'calc(100vh - var(--header-height))'
+          })
+        )
       ])
     ])
   ]
@@ -76,44 +90,53 @@ export class ArtGalleryComponent
   /* Add styles to fix image in place for transition to image modal */
   imageClicked(el: HTMLElement, elWrapper: HTMLElement): void {
 
+    console.log(el);
+
+    if(this.selectedImageElement === el) {
+      return;
+    }
+
     if(this.selectedImageWrapper && this.selectedImageElement) {
       this.resetSelectedImageStyles(this.selectedImageElement, this.selectedImageWrapper);
     }
 
+    this.selectedImage = "something";
     this.selectedImageElement = el;
     this.selectedImageWrapper = elWrapper;
 
     const elDimensions = {
       height: `${el.clientHeight}px`,
       width: `${el.clientWidth}px`,
-      top: `${el.offsetTop - window.scrollY + 55}px`,
+      top: `${el.offsetTop - window.scrollY + 70}px`,
       left: `${el.offsetLeft + 7.5}px`,
     }
 
     this.renderer.setStyle(elWrapper, 'height', elWrapper.clientHeight + 'px');
     this.renderer.setStyle(elWrapper, 'background', 'none');
 
-    this.renderer.setStyle(el, 'opacity', 1);
-    this.renderer.setStyle(el, 'position', 'fixed');
     this.renderer.setStyle(el, 'height', elDimensions.height);
     this.renderer.setStyle(el, 'width', elDimensions.width);
+    this.renderer.setStyle(el, 'opacity', 1);
+    this.renderer.setStyle(el, 'position', 'fixed');
     this.renderer.setStyle(el, 'top', elDimensions.top);
     this.renderer.setStyle(el, 'left', elDimensions.left);
 
-    setTimeout(() => {this.renderer.addClass(el, 'transition-setter');}, 1);
+    setTimeout(() => {
+      this.renderer.addClass(el, 'transition-setter');
+    }, 1);
     setTimeout(() => {
       this.renderer.addClass(el, 'selected-image');
-    }, 200);
+    }, 50);
 
   }
 
   /* Clear styles that are added for transition to image modal */
   resetSelectedImageStyles(image: HTMLElement, imageWrapper: HTMLElement): void {
 
-    this.renderer.removeStyle(image, 'opacity');
-    this.renderer.removeStyle(image, 'position');
     this.renderer.removeStyle(image, 'height');
     this.renderer.removeStyle(image, 'width');
+    this.renderer.removeStyle(image, 'opacity');
+    this.renderer.removeStyle(image, 'position');
     this.renderer.removeStyle(image, 'top');
     this.renderer.removeStyle(image, 'left');
 
