@@ -112,4 +112,39 @@
 
 <div id="image-modal" [@imageSelected]="selectedImage ? true : false">
   <div class="darken-layer"></div>
+
+  <div  id="previous-image"
+        class="nav-image-panel">
+    <svg  id="prev-image-arrow"
+          class="nav-image-arrow"
+          viewBox="0 0 80 92.4"
+          version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+      <path id="next-arrow" d="M0,46.2l80,-46.187l0,92.374l-80,-46.187Zm67.999,-25.403l-43.999,25.403l44.002,25.403l-0.003,-50.806Z"/>
+    </svg>
+  </div>
+  <div id="selected-image-main">
+
+  </div>
+  <div  id="next-image-panel"
+        class="nav-image-panel">
+    <div  id="back-to-gallery"
+          (click)="clearSelectedImage()">
+      <svg  id="gallery-image-arrow"
+            class="nav-image-arrow"
+            viewBox="0 0 80 92.4"
+            version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+        <path d="M0,46.2l80,-46.187l0,92.374l-80,-46.187Zm67.999,-25.403l-43.999,25.403l44.002,25.403l-0.003,-50.806Z"/>
+      </svg>
+      <span id="gallery-text">
+        Back to
+        <br>gallery
+      </span>
+    </div>
+    <svg  id="next-image-arrow"
+          class="nav-image-arrow"
+          viewBox="0 0 80 92.4"
+          version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+      <path d="M0,46.2l80,-46.187l0,92.374l-80,-46.187Zm67.999,-25.403l-43.999,25.403l44.002,25.403l-0.003,-50.806Z"/>
+    </svg>
+  </div>
 </div>

@@ -15,6 +15,7 @@
 aw-filter-panel {
 
   font-family: 'Jaapokki';
+  user-select: none;
 
   p {
     font-size: 0.75rem;
@@ -118,6 +119,8 @@ aw-filter-panel {
   background-color: var(--aw-white);
   animation: pulse-fade 1s ease-in infinite alternate;
 
+  user-select: none;
+
 
   .image {
     width: 100%;
@@ -194,11 +197,75 @@ aw-filter-panel {
   background-image: url('../../../assets/images/background.svg');
   z-index: 80;
 
+  display: grid;
+  grid-template-columns: 0 5rem 1fr 5rem;
+
   .darken-layer{
     height: 100%;
     width: 100%;
     margin: none;
     padding: none;
     background-color: var(--aw-darker-background);
+
+    z-index: 819;
+  }
+
+  .nav-image-panel {
+    height: calc(100vh - var(--header-height));
+    display: grid;
+    place-items: center;
+  }
+
+  .nav-image-arrow {
+    width: 3rem;
+
+    fill: var(--aw-white);
+    cursor: pointer;
+
+    &:hover{
+      fill: var(--aw-accent);
+    }
+  }
+
+  #back-to-gallery {
+
+    display: grid;
+    grid-template-columns: 2.275rem 1fr;
+    align-items: center;
+
+    position: fixed;
+    white-space: nowrap;
+    cursor: pointer;
+
+    font-family: 'Jaapokki';
+    text-transform: lowercase;
+
+    user-select: none;
+
+    transform:  rotate(90deg)
+                translateX( var(--header-height) )
+                translateY(50%);
+
+    #gallery-image-arrow {
+      width: 1.5rem;
+    }
+
+    #gallery-text {
+      display: inline-block;
+      line-height: 1rem;
+    }
+
+    &:hover{
+      #gallery-image-arrow {
+        fill: var(--aw-accent);
+      }
+    }
+  }
+}
+
+#next-image-panel {
+  #next-image-arrow{
+    transform-origin: 50% 50%;
+    transform: rotate(180deg);
   }
 }

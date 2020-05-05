@@ -32,9 +32,17 @@ import { trigger, transition, query, animate, style, state, stagger } from '@ang
       })),
       transition( 'false => true', [
         animate(
-          '500ms 400ms ease-out',
+          '300ms 400ms ease-out',
           style({
             height: 'calc(100vh - var(--header-height))'
+          })
+        )
+      ]),
+      transition( 'true => false', [
+        animate(
+          '300ms 400ms ease-in',
+          style({
+            height: 0
           })
         )
       ])
@@ -150,8 +158,16 @@ export class ArtGalleryComponent
   thumbnailLoaded(imageWrapper: HTMLElement): void {
     this.renderer.addClass(imageWrapper, 'image-loaded');
   }
-}
 
+  clearSelectedImage(): void {
+    this.resetSelectedImageStyles(this.selectedImageElement, this.selectedImageWrapper);
+
+    this.selectedImage = '';
+    this.selectedImageElement = null;
+    this.selectedImageWrapper = null;
+  }
+
+}
 /*
 
 const conWidth = container.width;
