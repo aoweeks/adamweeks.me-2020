@@ -187,10 +187,11 @@ aw-filter-panel {
 /* Image Modal */
 
 #image-modal {
-  // visibility: hidden;
+  visibility: hidden;
+
   position: fixed;
   bottom: 0;
-  height: 0vh;
+  height: calc(100vh - var(--header-height));
   left: 0;
   width: 100vw;
 
@@ -267,5 +268,24 @@ aw-filter-panel {
   #next-image-arrow{
     transform-origin: 50% 50%;
     transform: rotate(180deg);
+  }
+}
+
+
+#selected-image-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  #image-panel {
+
+    height: calc( 100vh - var(--header-height) - 2rem);
+    width: 100%;
+
+    margin-top: 1rem;
+
+    #selected-image {
+      width: auto;
+      height: 100%;
+    }
   }
 }

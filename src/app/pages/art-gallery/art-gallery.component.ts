@@ -28,9 +28,14 @@ import { trigger, transition, query, animate, style, state, stagger } from '@ang
 
     trigger('imageSelected', [
       state('true', style({
-        height: 'calc(100vh - var(--header-height))'
+        height: 'calc(100vh - var(--header-height))',
+        visibility: 'visible'
       })),
       transition( 'false => true', [
+        style({
+          height: 0,
+          visibility: 'visible'
+        }),
         animate(
           '300ms 400ms ease-out',
           style({
@@ -53,6 +58,7 @@ export class ArtGalleryComponent
   extends BasePageComponent implements OnInit {
 
   @ViewChild('imageGallery') imageGallery: ElementRef;
+  @ViewChild('selectedImageFrame') selectedImageFrame: ElementRef;
   @HostBinding('class.filter-menu-activated') filterMenuActivated = false;
   // @HostListener('window:resize')
   // onWindowResize() {
