@@ -104,7 +104,6 @@ export class ArtGalleryComponent
   /* Add styles to fix image in place for transition to image modal */
   imageClicked(el: HTMLElement, elWrapper: HTMLElement): void {
 
-    console.log(el);
 
     if(this.selectedImageElement === el) {
       return;
@@ -139,7 +138,16 @@ export class ArtGalleryComponent
       this.renderer.addClass(el, 'transition-setter');
     }, 1);
     setTimeout(() => {
-      this.renderer.addClass(el, 'selected-image');
+
+      const imageFrame = this.selectedImageFrame.nativeElement;
+
+      this.renderer.setStyle(el, 'left', imageFrame.offsetLeft + 7.5 + 'px');
+      this.renderer.setStyle(el, 'top', imageFrame.offsetTop + 70 + 'px');
+      this.renderer.setStyle(el, 'height', imageFrame.height + 'px');
+      this.renderer.setStyle(el, 'width', imageFrame.width + 'px');
+
+      this.renderer.setStyle(el, 'z-index', 81);
+        // }
     }, 50);
 
   }
@@ -153,9 +161,9 @@ export class ArtGalleryComponent
     this.renderer.removeStyle(image, 'position');
     this.renderer.removeStyle(image, 'top');
     this.renderer.removeStyle(image, 'left');
+    this.renderer.removeStyle(image, 'z-index');
 
     this.renderer.removeClass(image, 'transition-setter');
-    this.renderer.removeClass(image, 'selected-image');
 
     this.renderer.removeStyle(imageWrapper, 'height');
     this.renderer.removeStyle(imageWrapper, 'background');
