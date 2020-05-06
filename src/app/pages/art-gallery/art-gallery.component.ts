@@ -41,7 +41,20 @@ import { trigger, transition, query, animate, style, state, stagger } from '@ang
           style({
             height: 'calc(100vh - var(--header-height))'
           })
-        )
+        ),
+        query('.slide-up', [
+          style({
+            opacity: 0
+          }),
+          stagger('50ms', [
+            animate(
+              '300ms 400ms ease-out',
+              style({
+                opacity: 1
+              })
+            )
+          ])
+        ])
       ]),
       transition( 'true => false', [
         animate(
@@ -57,14 +70,23 @@ import { trigger, transition, query, animate, style, state, stagger } from '@ang
 export class ArtGalleryComponent
   extends BasePageComponent implements OnInit {
 
+
   @ViewChild('imageGallery') imageGallery: ElementRef;
   @ViewChild('selectedImageFrame') selectedImageFrame: ElementRef;
   @HostBinding('class.filter-menu-activated') filterMenuActivated = false;
-  // @HostListener('window:resize')
-  // onWindowResize() {
-  //   clearTimeout(this.windowFinishResize);
-  //   this.windowFinishResize = setTimeout(this.windowFinishedResizing, 100);
-  // }
+  @HostListener('window:resize')
+  onWindowResize() {
+    const el = this.selectedImageElement;
+    const imageFrame = this.selectedImageFrame.nativeElement;
+
+    if(el) {
+
+      this.renderer.setStyle(el, 'left', imageFrame.offsetLeft + 7.5 + 'px');
+      this.renderer.setStyle(el, 'top', imageFrame.offsetTop + 70 + 'px');
+      this.renderer.setStyle(el, 'height', imageFrame.height + 'px');
+      this.renderer.setStyle(el, 'width', imageFrame.width + 'px');
+    }
+  }
 
   // windowFinishResize; //typeof setTimeout
   extraPageTitle = 'Art Gallery';
@@ -91,6 +113,7 @@ export class ArtGalleryComponent
   /* Temp stuff */
 
   imagesArray = [];
+
 
   createImageArray() {
 
@@ -147,13 +170,15 @@ export class ArtGalleryComponent
       this.renderer.setStyle(el, 'width', imageFrame.width + 'px');
 
       this.renderer.setStyle(el, 'z-index', 81);
-        // }
+      setTimeout(() => {
+        this.renderer.removeClass(el, 'transition-setter');
+      }, 376);
     }, 50);
 
   }
 
   /* Clear styles that are added for transition to image modal */
-  resetSelectedImageStyles(image: HTMLElement, imageWrapper: HTMLElement): void {
+  resetSelectedImageStyles(image: HTMLElement, imageWrapper: HTMLElement = null): void {
 
     this.renderer.removeStyle(image, 'height');
     this.renderer.removeStyle(image, 'width');
@@ -162,6 +187,9 @@ export class ArtGalleryComponent
     this.renderer.removeStyle(image, 'top');
     this.renderer.removeStyle(image, 'left');
     this.renderer.removeStyle(image, 'z-index');
+    this.renderer.removeStyle(image, 'transition');
+    this.renderer.removeStyle(image, 'clip-path');
+    this.renderer.removeStyle(image, 'transform');
 
     this.renderer.removeClass(image, 'transition-setter');
 
@@ -174,11 +202,21 @@ export class ArtGalleryComponent
   }
 
   clearSelectedImage(): void {
-    this.resetSelectedImageStyles(this.selectedImageElement, this.selectedImageWrapper);
 
-    this.selectedImage = '';
-    this.selectedImageElement = null;
-    this.selectedImageWrapper = null;
+    this.renderer.setStyle(this.selectedImageElement, 'clip-path', 'inset(0)');
+    this.renderer.setStyle(this.selectedImageElement, 'transform', 'translateY(85%)');
+    this.renderer.setStyle(this.selectedImageElement, 'transition', 'all 0.5s ease-in');
+    setTimeout(()=> {
+      this.renderer.setStyle(this.selectedImageElement, 'clip-path', 'inset(0% 0% 100% 0%)');
+
+      setTimeout( () => {
+        this.resetSelectedImageStyles(this.selectedImageElement, this.selectedImageWrapper);
+        this.selectedImage = '';
+        this.selectedImageElement = null;
+        this.selectedImageWrapper = null;
+      }, 501);
+
+    }, 1);
   }
 
 }

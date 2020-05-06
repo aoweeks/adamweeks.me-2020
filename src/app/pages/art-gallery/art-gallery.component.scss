@@ -129,7 +129,7 @@ aw-filter-panel {
     opacity: 0;
 
     transition: opacity 0.3s;
-    clip-path: 0;
+    // clip-path: inset(0);
 
   }
 
@@ -247,6 +247,7 @@ aw-filter-panel {
     text-transform: lowercase;
 
     user-select: none;
+    align-self: start;
 
     transform:  rotate(90deg)
                 translateX( var(--header-height) )
@@ -281,31 +282,38 @@ aw-filter-panel {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
+  width: 100%;
 
   #image-panel {
-    justify-self: left;
+
+    display: flex;
+    justify-content: flex-end;
 
     height: calc( 100vh - var(--header-height) - 2rem);
     width: 100%;
 
     margin-top: 1rem;
-    margin-right: 2rem;
 
     #selected-image {
       width: auto;
       height: 100%;
 
       opacity: 0;
+
+      padding-right: 2rem;
     }
   }
 }
 
 #info-panel {
-  justify-self: left;
+  justify-self: flex-start;
 
   z-index: 81;
 
-  width: clamp(200px, 80%, 600px);
+
+  max-height: 100%;
+  width: clamp(300px, 80%, 600px);
+  padding-left: clamp(2rem, 10%, 10rem);
 
 
   h1 {
@@ -318,4 +326,9 @@ aw-filter-panel {
     font-family: 'Jaapokki';
     text-transform: uppercase;
   }
+}
+
+
+.slide-up {
+  opacity: 0;
 }
