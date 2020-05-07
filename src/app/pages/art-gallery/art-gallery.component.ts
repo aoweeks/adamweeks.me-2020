@@ -1,7 +1,7 @@
 import { Component, OnInit, HostBinding, ElementRef, HostListener, ViewChild, } from '@angular/core';
 import { BasePageComponent} from '../base-page.component';
 
-import { trigger, transition, query, animate, style, state, stagger } from '@angular/animations';
+import { trigger, transition, query, animate, style, state, stagger, animateChild, sequence, group } from '@angular/animations';
 
 @Component({
   selector: 'app-art-gallery',
@@ -42,28 +42,60 @@ import { trigger, transition, query, animate, style, state, stagger } from '@ang
             height: 'calc(100vh - var(--header-height))'
           })
         ),
-        query('.slide-up', [
-          style({
-            opacity: 0
-          }),
-          stagger('50ms', [
-            animate(
-              '300ms 400ms ease-out',
-              style({
-                opacity: 1
-              })
-            )
-          ])
+        query('@slideUp', [
+          stagger('100ms', animateChild())
         ])
       ]),
       transition( 'true => false', [
-        animate(
-          '300ms 400ms ease-in',
-          style({
-            height: 0
-          })
-        )
+        sequence([
+          query('@slideUp', [
+             animateChild()
+          ]),
+          animate(
+            '300ms 100ms ease-in',
+            style({
+              height: 0
+            })
+          ),
+        ])
       ])
+    ]),
+    trigger('slideUp', [
+      state('false', style({
+        'clip-path': 'inset(0 0 100% 0)',
+        'transform': 'translateY(200%)'
+      })),
+      state('true', style({
+        'clip-path': 'inset(0)',
+        'transform': 'translateY(0%)'
+      })),
+      transition('false => true', [
+        style({
+          'clip-path': 'inset(0 0 100% 0)',
+          'transform': 'translateY(200%)'
+        }),
+        animate(
+          '500ms ease-out',
+          style({
+            'clip-path': 'inset(0)',
+            'transform': 'translateY(0%)'
+          })
+        ),
+      ]),
+      transition('true => false', [
+        style({
+          'clip-path': 'inset(0)',
+          'transform': 'translateY(0%)'
+        }),
+        animate(
+          '500ms ease-out',
+          style({
+            'clip-path': 'inset(0 0 100% 0)',
+            'transform': 'translateY(200%)'
+          })
+        ),
+      ]),
+
     ])
   ]
 })
