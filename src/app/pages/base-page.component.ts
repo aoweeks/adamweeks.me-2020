@@ -1,5 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Title,  } from '@angular/platform-browser';
+import { ArtService } from '../services/art.service';
 
 @Component({
   selector: 'app-base-page',
@@ -11,7 +12,8 @@ export class BasePageComponent implements OnInit {
   private basePageTitle = 'Adam Weeks | ';
 
   constructor(private title: Title,
-              public renderer: Renderer2) { }
+              public renderer: Renderer2,
+              public artService: ArtService) { }
 
   ngOnInit(): void {
 

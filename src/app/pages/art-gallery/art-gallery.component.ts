@@ -1,7 +1,9 @@
-import { Component, OnInit, HostBinding, ElementRef, HostListener, ViewChild, } from '@angular/core';
+import { Component, OnInit, HostBinding, ElementRef, HostListener, ViewChild, Renderer2, } from '@angular/core';
 import { BasePageComponent} from '../base-page.component';
 
 import { trigger, transition, query, animate, style, state, stagger, animateChild, sequence, group } from '@angular/animations';
+import { ArtService } from 'src/app/services/art.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-art-gallery',
@@ -43,7 +45,7 @@ import { trigger, transition, query, animate, style, state, stagger, animateChil
           })
         ),
         query('@slideUp', [
-          stagger('100ms', animateChild())
+          stagger('50ms', animateChild())
         ])
       ]),
       transition( 'true => false', [
@@ -125,6 +127,7 @@ export class ArtGalleryComponent
   selectedImage;
   selectedImageElement: HTMLElement;
   selectedImageWrapper: HTMLElement;
+
 
   ngOnInit(): void {
     super.ngOnInit();
