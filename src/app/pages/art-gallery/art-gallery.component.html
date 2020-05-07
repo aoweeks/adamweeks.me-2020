@@ -91,7 +91,7 @@
   <div  class="image-wrapper"
         *ngFor="let image of imagesArray; let i = index" #imageWrapper>
     <img  class="image"
-          [src]="imagesArray[i]"
+          [src]="imagesArray[i].getImageURL()"
           (click)="imageClicked($event.target, imageWrapper)"
           (load)="thumbnailLoaded(imageWrapper)"/>
   <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem earum adipisci distinctio illum veritatis fugit excepturi unde vero rerum pariatur incidunt, architecto facilis officiis culpa animi commodi perferendis nisi veniam.</p>

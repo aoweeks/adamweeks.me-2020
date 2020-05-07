@@ -20,6 +20,7 @@ export class Image extends Base {
     this.height = height;
     this.width = width;
 
+    //IMPLEMENT BODY TEXT AND TITLE ETC
 
   }
 

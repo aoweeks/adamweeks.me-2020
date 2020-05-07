@@ -4,6 +4,7 @@ import { BasePageComponent} from '../base-page.component';
 import { trigger, transition, query, animate, style, state, stagger, animateChild, sequence, group } from '@angular/animations';
 import { ArtService } from 'src/app/services/art.service';
 import { Title } from '@angular/platform-browser';
+import { Artwork } from 'src/app/models/artwork';
 
 @Component({
   selector: 'app-art-gallery',
@@ -153,9 +154,7 @@ export class ArtGalleryComponent
   createImageArray() {
 
     for (let i=0; i <= 40; i++) {
-
-      const randomFileNum = Math.floor(Math.random() * 8);
-      this.imagesArray.push(`../../../assets/images/temp/${randomFileNum}.png`);
+      this.imagesArray.push(new Artwork('A title', new Date(), 'png', 12, 90));
     }
   }
 
