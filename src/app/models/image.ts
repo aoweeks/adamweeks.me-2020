@@ -6,19 +6,21 @@ export class Image extends Base {
   private height: number;
   private width: number;
 
-  constructor(title: string,
-              createdDate: Date,
-              fileType: string,
-              height: number,
-              width: number) {
+
+  constructor(params) {
     // TEMP
     const randomFileNum = Math.floor(Math.random() * 8);
-    title = (`../../../assets/images/temp/${randomFileNum}`);
+    params.title  = (`../../../assets/images/temp/${randomFileNum}`);
 
-    super(title, createdDate);
-    this.fileType = fileType;
-    this.height = height;
-    this.width = width;
+    super({ title: params.title,
+            createdDate: params.createdDate,
+            bodyText: params.bodyText
+          });
+
+    this.fileType = params.fileType;
+    this.height = params.height;
+    this.width = params.width;
+
 
     //IMPLEMENT BODY TEXT AND TITLE ETC
 

@@ -133,8 +133,6 @@ export class ArtGalleryComponent
   ngOnInit(): void {
     super.ngOnInit();
     this.setPageTitle(this.extraPageTitle);
-
-    this.createImageArray();
   }
 
   filterMenuActivation(isFilterActivated): void {
@@ -146,21 +144,12 @@ export class ArtGalleryComponent
   // }
 
 
-  /* Temp stuff */
 
-  imagesArray = [];
-
-
-  createImageArray() {
-
-    for (let i=0; i <= 40; i++) {
-      this.imagesArray.push(new Artwork('A title', new Date(), 'png', 12, 90));
-    }
-  }
 
   /* Add styles to fix image in place for transition to image modal */
-  imageClicked(el: HTMLElement, elWrapper: HTMLElement): void {
-
+  imageClicked( el: HTMLElement,
+                elWrapper: HTMLElement,
+                selectedImageIndex: number): void {
 
     if(this.selectedImageElement === el) {
       return;
@@ -170,7 +159,7 @@ export class ArtGalleryComponent
       this.resetSelectedImageStyles(this.selectedImageElement, this.selectedImageWrapper);
     }
 
-    this.selectedImage = "something";
+    this.selectedImage = this.artService.getArtList()[selectedImageIndex];
     this.selectedImageElement = el;
     this.selectedImageWrapper = elWrapper;
 
@@ -251,6 +240,11 @@ export class ArtGalleryComponent
       }, 501);
 
     }, 1);
+  }
+
+
+  nextImage(){
+
   }
 
 }

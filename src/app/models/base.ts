@@ -2,13 +2,14 @@ export class Base {
   private title: string;
   private createdDate: Date;
   private url: string;
+  private bodyText: string;
 
-  constructor(title: string,
-              createdDate: Date) {
+  constructor(params) {
 
-    this.title = title;
-    this.createdDate = createdDate;
-    this.url = this.createURL(title);
+    this.title = params.title;
+    this.createdDate = params.createdDate;
+    this.url = this.createURL(params.title);
+    this.bodyText = params.bodyText;
   }
 
   getTitle(): string {
@@ -27,5 +28,9 @@ export class Base {
     const parsedTitle = title.replace(/\s+/g, '').toLowerCase();
     const parsedURL = encodeURI(parsedTitle);
     return parsedURL;
+  }
+
+  getBodyText(): string {
+    return this.bodyText;
   }
 }

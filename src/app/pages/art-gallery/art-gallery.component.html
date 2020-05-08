@@ -89,10 +89,10 @@
 
 <div id="image-gallery" #imageGallery>
   <div  class="image-wrapper"
-        *ngFor="let image of imagesArray; let i = index" #imageWrapper>
+        *ngFor="let image of artService.getArtList(); let i = index" #imageWrapper>
     <img  class="image"
-          [src]="imagesArray[i].getImageURL()"
-          (click)="imageClicked($event.target, imageWrapper)"
+          [src]="artService.getArtList()[i].getImageURL()"
+          (click)="imageClicked($event.target, imageWrapper, i)"
           (load)="thumbnailLoaded(imageWrapper)"/>
   <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem earum adipisci distinctio illum veritatis fugit excepturi unde vero rerum pariatur incidunt, architecto facilis officiis culpa animi commodi perferendis nisi veniam.</p>
   <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam accusamus atque aspernatur ab et magni nisi inventore nesciunt possimus, perferendis explicabo eaque, dolore hic repudiandae ad deleniti. Cum, esse sapiente?</p>
@@ -130,19 +130,21 @@
             #selectedImageFrame>
     </div>
     <div id="info-panel">
-      <h1 class="slide-up" [@slideUp]="selectedImage ? true : false">Title Goes Here</h1>
+      <h1 class="slide-up" [@slideUp]="selectedImage ? true : false">
+        {{ selectedImage?.getTitle() }}
+      </h1>
       <div  class="slide-up"
             id="share-panel"
             [@slideUp]="selectedImage ? true : false">
         <span id="share-title">share</span>
       </div>
-      <div  id="image-body-text">
-        <p class="slide-up" [@slideUp]="selectedImage ? true : false">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione molestias iste repudiandae ipsam quisquam debitis provident, harum nulla autem, odio recusandae doloribus aspernatur corporis pariatur praesentium tempora, unde deserunt. Nulla?</p>
+      <div  id="image-body-text" [innerHTML]="selectedImage?.getBodyText()">
+        <!-- <p class="slide-up" [@slideUp]="selectedImage ? true : false">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione molestias iste repudiandae ipsam quisquam debitis provident, harum nulla autem, odio recusandae doloribus aspernatur corporis pariatur praesentium tempora, unde deserunt. Nulla?</p>
         <p class="slide-up" [@slideUp]="selectedImage ? true : false">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, possimus. Iure omnis, alias odit ea numquam repudiandae quisquam harum accusamus veniam perspiciatis eligendi libero. Voluptas itaque voluptatibus cupiditate repudiandae hic.</p>
         <p class="slide-up" [@slideUp]="selectedImage ? true : false">Enim quis reprehenderit unde, aliquid assumenda excepturi. Architecto omnis aperiam delectus sunt impedit eaque eveniet facilis dolores unde repellendus fugit autem, nostrum ea praesentium debitis aliquid alias commodi quis distinctio.</p>
         <p class="slide-up" [@slideUp]="selectedImage ? true : false">Ut, possimus modi laudantium labore eum nihil asperiores exercitationem, temporibus soluta autem saepe et perspiciatis ea sint! Hic fuga ratione veritatis commodi maxime eveniet dolore quo ullam enim dolorum! Dicta?</p>
         <p class="slide-up" [@slideUp]="selectedImage ? true : false">Est, debitis a. Quas distinctio quos, quisquam blanditiis saepe placeat eveniet enim! Blanditiis distinctio, assumenda harum illo totam sint doloremque reiciendis odit ipsa maiores architecto cum, vero laborum quaerat itaque!</p>
-        <p class="slide-up" [@slideUp]="selectedImage ? true : false">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione molestias iste repudiandae ipsam quisquam debitis provident, harum nulla autem, odio recusandae doloribus aspernatur corporis pariatur praesentium tempora, unde deserunt. Nulla?</p>
+        <p class="slide-up" [@slideUp]="selectedImage ? true : false">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione molestias iste repudiandae ipsam quisquam debitis provident, harum nulla autem, odio recusandae doloribus aspernatur corporis pariatur praesentium tempora, unde deserunt. Nulla?</p> -->
      </div>
     </div>
   </div>
