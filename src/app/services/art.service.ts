@@ -20,7 +20,7 @@ export class ArtService {
                                         fileType: 'png',
                                         height: 12,
                                         width: 90,
-                                        bodyText: 'This is some body text. <span>And this is inside a span.</span>'
+                                        bodyText: `${Math.random()} This is some body text. <span>And this is inside a span.</span>`
                                       }));
       }
   }
@@ -33,7 +33,18 @@ export class ArtService {
     return this.currentSelectedImage;
   }
 
+  getSelectedImage(): Artwork {
+    return this.artList[this.currentSelectedImage];
+  }
+
   setSelectedImageIndex(artListIndex: number): void {
+
+    if(artListIndex >= this.artList.length) {
+      artListIndex = 0;
+    } else if (artListIndex < 0) {
+      artListIndex = this.artList.length - 1;
+    }
+
     this.currentSelectedImage = artListIndex;
   }
 
