@@ -8,7 +8,7 @@ import { Artwork } from '../models/artwork';
 export class ArtService {
 
   private artList: Artwork[] = [];
-  private currentSelectedImage = 0;
+  private currentSelectedImage = null;
 
 
   constructor() {
@@ -30,6 +30,7 @@ export class ArtService {
   }
 
   getSelectedImageIndex(): number {
+    console.log(this.currentSelectedImage);
     return this.currentSelectedImage;
   }
 
@@ -37,14 +38,13 @@ export class ArtService {
     return this.artList[this.currentSelectedImage];
   }
 
-  setSelectedImageIndex(artListIndex: number): void {
+  setSelectedImageIndex(artListIndex: number = null): void {
 
     if(artListIndex >= this.artList.length) {
       artListIndex = 0;
     } else if (artListIndex < 0) {
       artListIndex = this.artList.length - 1;
     }
-
     this.currentSelectedImage = artListIndex;
   }
 

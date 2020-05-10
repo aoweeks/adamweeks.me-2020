@@ -91,7 +91,7 @@
   <div  class="image-wrapper"
         *ngFor="let image of artService.getArtList(); let i = index" #imageWrapper>
     <img  class="image"
-          [src]="artService.getArtList()[i].getImageURL()"
+          [src]="image.getImageURL()"
           (click)="imageClicked($event.target, imageWrapper, i)"
           (load)="thumbnailLoaded(imageWrapper)"/>
   <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem earum adipisci distinctio illum veritatis fugit excepturi unde vero rerum pariatur incidunt, architecto facilis officiis culpa animi commodi perferendis nisi veniam.</p>
@@ -111,14 +111,14 @@
 </div>
 
 <div  id="image-modal"
-      [@imageSelected]="selectedImage ? true : false">
+      [@imageSelected]="artService.getSelectedImageIndex() != null ? true : false">
   <div class="darken-layer"></div>
 
   <div  id="previous-image-panel"
         class="nav-image-panel">
     <svg  id="prev-image-arrow"
           class="nav-image-arrow"
-          (click)="artService.setSelectedImageIndex(artService.getSelectedImageIndex() - 1)"
+          (click)="nextOrPrevImage(-1)"
           viewBox="0 0 80 92.4"
           version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
       <path id="next-arrow" d="M0,46.2l80,-46.187l0,92.374l-80,-46.187Zm67.999,-25.403l-43.999,25.403l44.002,25.403l-0.003,-50.806Z"/>
@@ -127,19 +127,19 @@
   <div id="selected-image-main">
     <div id="image-panel">
       <img  id="selected-image"
-            src="../../../assets/images/temp/0.png"
+            [src]="artService.getSelectedImage()?.getImageURL()"
             #selectedImageFrame>
     </div>
     <div id="info-panel">
-      <h1 class="slide-up" [@slideUp]="selectedImage ? true : false">
-        {{ selectedImage?.getTitle() }}
+      <h1 class="slide-up" [@slideUp]="artService.getSelectedImage() ? true : false">
+        {{ artService.getSelectedImage()?.getTitle() }}
       </h1>
       <div  class="slide-up"
             id="share-panel"
-            [@slideUp]="selectedImage ? true : false">
+            [@slideUp]="artService.getSelectedImage() ? true : false">
         <span id="share-title">share</span>
       </div>
-      <div  id="image-body-text" [innerHTML]="selectedImage?.getBodyText()">
+      <div  id="image-body-text" [innerHTML]="artService.getSelectedImage()?.getBodyText()">
         <!-- <p class="slide-up" [@slideUp]="selectedImage ? true : false">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione molestias iste repudiandae ipsam quisquam debitis provident, harum nulla autem, odio recusandae doloribus aspernatur corporis pariatur praesentium tempora, unde deserunt. Nulla?</p>
         <p class="slide-up" [@slideUp]="selectedImage ? true : false">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, possimus. Iure omnis, alias odit ea numquam repudiandae quisquam harum accusamus veniam perspiciatis eligendi libero. Voluptas itaque voluptatibus cupiditate repudiandae hic.</p>
         <p class="slide-up" [@slideUp]="selectedImage ? true : false">Enim quis reprehenderit unde, aliquid assumenda excepturi. Architecto omnis aperiam delectus sunt impedit eaque eveniet facilis dolores unde repellendus fugit autem, nostrum ea praesentium debitis aliquid alias commodi quis distinctio.</p>
@@ -166,7 +166,7 @@
     </div>
     <svg  id="next-image-arrow"
           class="nav-image-arrow"
-          (click)="artService.setSelectedImageIndex(artService.getSelectedImageIndex() + 1)"
+          (click)="nextOrPrevImage(1)"
           viewBox="0 0 80 92.4"
           version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
       <path d="M0,46.2l80,-46.187l0,92.374l-80,-46.187Zm67.999,-25.403l-43.999,25.403l44.002,25.403l-0.003,-50.806Z"/>

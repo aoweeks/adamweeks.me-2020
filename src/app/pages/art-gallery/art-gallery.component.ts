@@ -125,7 +125,6 @@ export class ArtGalleryComponent
 
   // windowFinishResize; //typeof setTimeout
   extraPageTitle = 'Art Gallery';
-  selectedImage;
   selectedImageElement: HTMLElement;
   selectedImageWrapper: HTMLElement;
 
@@ -159,7 +158,7 @@ export class ArtGalleryComponent
       this.resetSelectedImageStyles(this.selectedImageElement, this.selectedImageWrapper);
     }
 
-    this.selectedImage = this.artService.getArtList()[selectedImageIndex];
+    this.artService.setSelectedImageIndex(selectedImageIndex);
     this.selectedImageElement = el;
     this.selectedImageWrapper = elWrapper;
 
@@ -234,7 +233,7 @@ export class ArtGalleryComponent
 
       setTimeout( () => {
         this.resetSelectedImageStyles(this.selectedImageElement, this.selectedImageWrapper);
-        this.selectedImage = '';
+        this.artService.setSelectedImageIndex();
         this.selectedImageElement = null;
         this.selectedImageWrapper = null;
       }, 501);
@@ -243,8 +242,9 @@ export class ArtGalleryComponent
   }
 
 
-  nextImage(){
-
+  nextOrPrevImage(increment: number): void {
+    this.artService.setSelectedImageIndex(this.artService.getSelectedImageIndex() + increment);
+    this.onWindowResize();
   }
 
 }
