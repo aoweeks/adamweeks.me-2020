@@ -26,6 +26,14 @@ export class Image extends Base {
 
   }
 
+  getHeight(): number {
+    return this.height;
+  }
+
+  getWidth(): number {
+    return this.width;
+  }
+
   getHeightInPx(): string {
     return this.height + 'px';
   }

@@ -9,6 +9,7 @@ export class ArtService {
 
   private artList: Artwork[] = [];
   private currentSelectedImage = null;
+  private selectedImageIsLandscape: boolean;
 
 
   constructor() {
@@ -45,6 +46,13 @@ export class ArtService {
       artListIndex = this.artList.length - 1;
     }
     this.currentSelectedImage = artListIndex;
+
+    this.selectedImageIsLandscape = this.calculateIfLandscape(this.getSelectedImage());
+    console.log(this.selectedImageIsLandscape);
+  }
+
+  private calculateIfLandscape(artwork): boolean {
+    return artwork.getHeight() < artwork.getWidth() ? true : false;
   }
 
 }
