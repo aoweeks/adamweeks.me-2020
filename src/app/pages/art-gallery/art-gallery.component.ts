@@ -127,6 +127,7 @@ export class ArtGalleryComponent
   extraPageTitle = 'Art Gallery';
   selectedImageElement: HTMLElement;
   selectedImageWrapper: HTMLElement;
+  notInitialImage: boolean = false;
 
 
   ngOnInit(): void {
@@ -217,6 +218,8 @@ export class ArtGalleryComponent
 
     this.renderer.removeStyle(imageWrapper, 'height');
     this.renderer.removeStyle(imageWrapper, 'background');
+
+    //Remove styles and add new ones when changing images
   }
 
   thumbnailLoaded(imageWrapper: HTMLElement): void {
@@ -236,6 +239,7 @@ export class ArtGalleryComponent
         this.artService.setSelectedImageIndex();
         this.selectedImageElement = null;
         this.selectedImageWrapper = null;
+        this.notInitialImage = false;
       }, 501);
 
     }, 1);
@@ -244,7 +248,9 @@ export class ArtGalleryComponent
 
   nextOrPrevImage(increment: number): void {
     this.artService.setSelectedImageIndex(this.artService.getSelectedImageIndex() + increment);
-    this.onWindowResize();
+    this.notInitialImage = true;
+    console.log(this.notInitialImage);
+    this.resetSelectedImageStyles(this.selectedImageElement, this.selectedImageWrapper);
   }
 
 }

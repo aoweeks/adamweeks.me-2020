@@ -30,7 +30,6 @@ export class ArtService {
   }
 
   getSelectedImageIndex(): number {
-    console.log(this.currentSelectedImage);
     return this.currentSelectedImage;
   }
 

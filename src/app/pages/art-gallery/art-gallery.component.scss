@@ -301,6 +301,12 @@ aw-filter-panel {
       opacity: 0;
 
       padding-right: 2rem;
+      user-select: none;
+    }
+
+    #selected-image.not-initial-image {
+      opacity: 1;
+      z-index: 81;
     }
   }
 }
