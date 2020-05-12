@@ -139,6 +139,27 @@
             id="share-panel"
             [@slideUp]="artService.getSelectedImage() ? true : false">
         <span id="share-title">share</span>
+        <aw-tooltip [text]="'Share on Twitter'">
+          <a  id="twitter"
+            class="share-icon"
+            href="https://twitter.com/aoweeks"
+            target="_blank">
+            <svg  id="twitter-logo"
+                  class="social-logo"
+                  viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+              <g  id="twitter-container"
+                  transform="translate(200 200) rotate(37.1)">
+                  <path id="twitter-body"
+                        d="M2.833,88.268C78.055,31.332 72.027,-62.13 31.121,-116.174C29.781,-117.945 28.448,-119.707 27,-121.37C30.622,-133.218 32.106,-145.616 31.381,-157.984C26.42,-149.027 20.144,-140.865 12.762,-133.77C17.429,-145.34 17.735,-158.222 13.62,-170C9.198,-159.16 2.956,-149.155 -4.836,-140.416C-18.793,-142.786 -33.126,-139.281 -44.414,-130.737C-66.871,-113.739 -71.363,-81.273 -54.366,-58.816C-52.007,-55.701 -49.301,-52.865 -46.3,-50.363C-7.976,-14.281 -26.05,54.527 -26.064,54.581C-31.93,76.919 -45.148,96.646 -63.578,110.566C-66.837,113.023 -70.237,115.287 -73.76,117.345C-45.976,115.192 -19.39,105.084 2.808,88.236"
+                        style="fill: var(--aw-accent)"/>
+                  <path id="twitter-wing"
+                        transform="scale(1, 1)"
+                        d="M0.272,1.27C-0.395,-24.052 -49.301,-52.865 -46.3,-50.363C-80.414,-27.134 -122.845,-19.469 -162.93,-29.296C-159.66,-2.544 -135.849,17.308 -108.946,15.715C-115.6,20.448 -123.296,23.512 -131.383,24.646C-116.776,43.944 -89.81,50.997 -67.835,40.42C-72.613,46.62 -78.749,51.642 -85.77,55.1C-67.847,67.673 -43.766,67.464 -26.064,54.581"
+                        style="fill: var(--aw-accent);"/>
+              </g>
+            </svg>
+          </a>
+        </aw-tooltip>
       </div>
       <div  id="image-body-text" [innerHTML]="artService.getSelectedImage()?.getBodyText()">
         <!-- <p class="slide-up" [@slideUp]="selectedImage ? true : false">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione molestias iste repudiandae ipsam quisquam debitis provident, harum nulla autem, odio recusandae doloribus aspernatur corporis pariatur praesentium tempora, unde deserunt. Nulla?</p>
