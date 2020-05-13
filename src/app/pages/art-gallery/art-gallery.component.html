@@ -160,6 +160,24 @@
             </svg>
           </a>
         </aw-tooltip>
+
+        <aw-tooltip [text]="'Instagram'">
+          <a  id="instagram"
+            class="follow-link"
+            href="https://instagram.com/adammakesstuff"
+            target="_blank">
+          Instagram
+          </a>
+        </aw-tooltip>
+
+        <aw-tooltip [text]="'Facebook'">
+          <a  id="facebook"
+            class="follow-link"
+            href="https://facebook.com/adamweeksart"
+            target="_blank">
+          Facebook
+          </a>
+        </aw-tooltip>
       </div>
       <div  id="image-body-text" [innerHTML]="artService.getSelectedImage()?.getBodyText()">
         <!-- <p class="slide-up" [@slideUp]="selectedImage ? true : false">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione molestias iste repudiandae ipsam quisquam debitis provident, harum nulla autem, odio recusandae doloribus aspernatur corporis pariatur praesentium tempora, unde deserunt. Nulla?</p>
