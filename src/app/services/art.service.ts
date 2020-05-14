@@ -16,11 +16,14 @@ export class ArtService {
 
     //TEMP
       for (let i=0; i <= 40; i++) {
+
+        const height = Math.floor(Math.random() * 100);
+        const width = Math.floor(Math.random() * 100);
         this.artList.push(new Artwork({ title: 'A title',
                                         createdDate: new Date(),
                                         fileType: 'png',
-                                        height: 12,
-                                        width: 90,
+                                        height: height,
+                                        width: width,
                                         bodyText: `${Math.random()} This is some body text. <span>And this is inside a span.</span>`
                                       }));
       }
