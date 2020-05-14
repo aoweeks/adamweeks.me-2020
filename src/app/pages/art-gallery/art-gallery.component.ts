@@ -202,7 +202,7 @@ export class ArtGalleryComponent
   }
 
   isViewportLandscape(): boolean {
-    return true;
+    return window.innerHeight > window.innerWidth || window.innerWidth < 900 ? false : true;
   }
 
   /* Clear styles that are added for transition to image modal */
