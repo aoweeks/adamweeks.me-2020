@@ -127,7 +127,9 @@
   <div id="selected-image-main">
     <div id="image-panel">
       <img  id="selected-image"
-            [ngClass]="{'not-initial-image': notInitialImage}"
+            [ngClass]="{'not-initial-image': notInitialImage,
+                        'landscape-image': artService.isSelectedImageLandscape(),
+                        'landscape-viewport': isViewportLandscape() }"
             [src]="artService.getSelectedImage()?.getImageURL()"
             #selectedImageFrame>
     </div>

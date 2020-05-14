@@ -51,7 +51,10 @@ export class ArtService {
     this.currentSelectedImage = artListIndex;
 
     this.selectedImageIsLandscape = this.calculateIfLandscape(this.getSelectedImage());
-    console.log(this.selectedImageIsLandscape);
+  }
+
+  isSelectedImageLandscape(): boolean {
+    return this.selectedImageIsLandscape;
   }
 
   private calculateIfLandscape(artwork): boolean {

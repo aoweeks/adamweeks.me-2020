@@ -5,6 +5,7 @@ import { trigger, transition, query, animate, style, state, stagger, animateChil
 import { ArtService } from 'src/app/services/art.service';
 import { Title } from '@angular/platform-browser';
 import { Artwork } from 'src/app/models/artwork';
+import { templateJitUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-art-gallery',
@@ -200,6 +201,10 @@ export class ArtGalleryComponent
 
   }
 
+  isViewportLandscape(): boolean {
+    return true;
+  }
+
   /* Clear styles that are added for transition to image modal */
   resetSelectedImageStyles(image: HTMLElement, imageWrapper: HTMLElement = null): void {
 
@@ -249,7 +254,6 @@ export class ArtGalleryComponent
   nextOrPrevImage(increment: number): void {
     this.artService.setSelectedImageIndex(this.artService.getSelectedImageIndex() + increment);
     this.notInitialImage = true;
-    console.log(this.notInitialImage);
     this.resetSelectedImageStyles(this.selectedImageElement, this.selectedImageWrapper);
   }
 
