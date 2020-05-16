@@ -6,4 +6,16 @@ export class Code extends Base{
 
   // }
 
+  private platforms: string[] = [];
+  private technologies: string[] = [];
+
+  getPlatforms(): string[] {
+    return this.platforms;
+  }
+
+
+  getTechnologies(): string[] {
+    return this.technologies;
+  }
+
 }
