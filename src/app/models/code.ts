@@ -18,4 +18,17 @@ export class Code extends Base{
     return this.technologies;
   }
 
+  hasPlatform(platform: string): boolean {
+
+    // this.platforms.find("hi");
+    return true;
+  }
+
+  hasTechnology(technology: string): boolean {
+
+    // const containsItem: boolean = this.checkListForItem(this.platforms, technology);
+    return true;
+  }
+
+
 }
