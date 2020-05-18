@@ -20,14 +20,14 @@ export class Code extends Base{
 
   hasPlatform(platform: string): boolean {
 
-    // this.platforms.find("hi");
-    return true;
+    const indexOfFind = this.platforms.find(item => item == platform);
+    return indexOfFind !== undefined ? true : false;
   }
 
   hasTechnology(technology: string): boolean {
 
-    // const containsItem: boolean = this.checkListForItem(this.platforms, technology);
-    return true;
+    const indexOfFind = this.technologies.find(item => item == technology);
+    return indexOfFind !== undefined ? true : false;
   }
 
 
