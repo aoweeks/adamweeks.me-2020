@@ -7,7 +7,7 @@ import { BasePageComponent} from '../base-page.component';
 @Component({
   selector: 'aw-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss'],
+  styleUrls: ['./home-page.component.scss', '../pages.scss'],
   animations: [
     trigger(
       'moveUpAnimation', [

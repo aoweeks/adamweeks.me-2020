@@ -22,11 +22,35 @@
   }
 }
 
-@keyframes slide-down {
+@keyframes slide-down-art {
+  0% {
+    top: -5rem;
+  } 100% {
+    top: .5rem;
+  }
+}
+
+@keyframes slide-down-plus {
+  0% {
+    top: -5rem;
+  } 100% {
+    top: -.25rem;
+  }
+}
+
+@keyframes slide-down-code {
   0% {
     top: -5rem;
   } 100% {
     top: 0rem;
+  }
+}
+
+@keyframes fade-in {
+  0%{
+    opacity: 0;
+  } 100% {
+    opacity: 1;
   }
 }
 
@@ -45,7 +69,7 @@
 
 .page-section {
   width: 100%;
-  height: calc(100vh - var(--header-height) );
+  height: calc(100vh - var(--header-height) - 4rem );
 }
 
 #splash-section {
@@ -125,7 +149,7 @@
 
     #art-plus-code{
       position: relative;
-      height: 2.5rem;
+      height: 3.5rem;
       top: 1.5rem;
 
       overflow: hidden;
@@ -137,41 +161,51 @@
         left: 0rem;
       }
       #art{
-        animation: slide-down 500ms ease-out 500ms both;
+        animation: slide-down-art 500ms ease-out 500ms both;
+        margin-right: 1rem;
+        fill: var(--aw-white);
       }
 
       #plus{
-        animation: slide-down 500ms ease-out 625ms both;
+        color: var(--aw-accent);
+        animation: slide-down-plus 500ms ease-out 625ms both;
       }
 
       #code{
-        animation: slide-down 500ms ease-out 750ms both;
+        animation: slide-down-code 500ms ease-out 750ms both;
+        margin-left: .25rem;
+        fill: var(--aw-white);
       }
     }
   }
 
 
+  #arrow-container {
 
-  #arrow-button{
-    height: 2.5rem;
-    width: auto;
+    animation: fade-in 750ms both 1.5s;
 
-    animation: bounce 1.75s ease-in-out infinite;
-    // -webkit-backface-visibility: hidden;
-    cursor: pointer;
+    #arrow-button {
+      height: 2.5rem;
+      width: auto;
+
+      animation: bounce 1.75s ease-in-out infinite;
+      // -webkit-backface-visibility: hidden;
+      cursor: pointer;
 
 
-    #arrow-path{
-      fill:var(--aw-white);
-    }
-  }
+      #arrow-path {
+        fill:var(--aw-white);
+      }
 
-  #arrow-button:hover{
+      &:hover {
 
-    animation-play-state: paused;
+        animation-play-state: paused;
 
-    #arrow-path{
-      fill: var(--aw-accent);
+        #arrow-path{
+          fill: var(--aw-accent);
+        }
+
+      }
     }
 
   }
