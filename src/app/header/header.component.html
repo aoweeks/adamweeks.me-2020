@@ -1,7 +1,9 @@
-<a    [routerLink]="['/']"
-      id="logo"
-      #logo
-      (click)="blurLogo()">
+<a
+  [routerLink]="['/']"
+  id="logo"
+  #logo
+  (click)="blurLogo()"
+>
   <svg  height="50px" width="133.333px" viewBox="0 0 320 120">
       <path id="triangle-1"
             class="triangle"
@@ -16,28 +18,28 @@
 </a>
 
 
-<a  class="nav-hamburger-menu"
-    role="button"
-    aria-label="menu"
-    [attr.aria-pressed]="mobileMenuActive"
-    (click)="toggleMobileMenuActive()"
-    [ngClass]="{'mobile-menu-active': mobileMenuActive}">
-      <svg  height="50px" width="50px" viewBox="0 0 50 50" version="1.1"
-            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            xml:space="preserve" xmlns:serif="http://www.serif.com/">
-            <line id="hamburger-line-1"
-                  class="hamburger-line"
-                  x1="5" y1="14"
-                  x2="45" y2="14"/>
-            <line id="hamburger-line-2"
-                  class="hamburger-line"
-                  x1="5" y1="25"
-                  x2="45" y2="25"/>
-            <line id="hamburger-line-3"
-                  class="hamburger-line"
-                  x1="5" y1="36"
-                  x2="45" y2="36"/>
-      </svg>
+<a
+  class="nav-hamburger-menu"
+  role="button"
+  aria-label="menu"
+  [attr.aria-pressed]="mobileMenuActive"
+  (click)="toggleMobileMenuActive()"
+  [ngClass]="{'mobile-menu-active': mobileMenuActive}"
+>
+  <svg  height="50px" width="50px" viewBox="0 0 50 50">
+    <line id="hamburger-line-1"
+          class="hamburger-line"
+          x1="5" y1="14"
+          x2="45" y2="14"/>
+    <line id="hamburger-line-2"
+          class="hamburger-line"
+          x1="5" y1="25"
+          x2="45" y2="25"/>
+    <line id="hamburger-line-3"
+          class="hamburger-line"
+          x1="5" y1="36"
+          x2="45" y2="36"/>
+  </svg>
 </a>
 
 

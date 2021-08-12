@@ -10,7 +10,7 @@ a:nth-last-child(1) {
 }
 
 :host-context(.scrollbar-active) a:nth-last-child(1) {
-    margin-right: calc(1rem - var(--scrollbar-width));
+    margin-right: calc(3rem - var(--scrollbar-width));
 }
 
 
@@ -23,25 +23,27 @@ a:nth-last-child(1) {
   fill: var(--aw-accent);
 }
 #triangle-2{
-  transform: translateX(114.7px) translateY(46.7px) rotate(60deg) ;
+  transform: translateX(114.7px) translateY(46.7px) rotate(60deg);
 }
 
 #triangle-3{
   transform: translateX(144.7px) translateY(46.7px) rotate(60deg) ;
 }
+#logo {
+  margin-left: 2rem;
+  &:hover,
+  &:focus {
+    .triangle{
+      fill: var(--aw-white);
+    }
 
-#logo:hover,
-#logo:focus{
-  .triangle{
-    fill: var(--aw-white);
-  }
+    #triangle-2{
+      transform: translateX(161px) translateY(73.3px) rotate(120deg) ;
+    }
 
-  #triangle-2{
-    transform: translateX(161px) translateY(73.3px) rotate(120deg) ;
-  }
-
-  #triangle-3{
-    transform: translateX(272px) translateY(73.3px) rotate(240deg) ;
+    #triangle-3{
+      transform: translateX(272px) translateY(73.3px) rotate(240deg) ;
+    }
   }
 }
 

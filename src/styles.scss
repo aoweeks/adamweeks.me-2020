@@ -46,7 +46,7 @@
 ===================*/
 
 html{
-  background-color: hsl( 0, 0, 15%);
+  background-color: hsl( 0deg, 0%, 15% );
   background-image: url('./assets/images/background.svg');
   background-attachment: fixed;
   font-size: 20px;
@@ -103,11 +103,11 @@ body{
       left: 50%;
       right: 50%;
       pointer-events: none;
-      border-bottom: 1px solid var(--aw-accent);
+      border-bottom: .15ch solid var(--aw-accent);
       width: inherit;
       content: "";
 
-      transition: var(--t1);
+      transition: var(--t2);
     }
 
     a:hover::before,
