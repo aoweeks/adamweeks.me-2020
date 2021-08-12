@@ -1,5 +1,6 @@
-import { ElementRef } from '@angular/core';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { trigger, transition, style, animate } from '@angular/animations';
+import { HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { BasePageComponent} from '../base-page.component';
 
@@ -7,12 +8,34 @@ import { BasePageComponent} from '../base-page.component';
   selector: 'aw-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
-  animations: []
+  animations: [
+    trigger(
+      'moveUpAnimation', [
+        transition(':enter', [
+          style( { top: '100%', position: 'absolute' } ),
+          animate('800ms ease-in-out',
+            style( { top: 0, position: 'absolute' } )
+          )
+        ]),
+        transition(':leave', [
+          style( { top: 0, position: 'absolute'  } ),
+          animate('800ms ease-in-out',
+            style( { top: '-100%', position: 'absolute'  } )
+          )
+        ])
+      ]
+    )
+  ],
 })
 export class HomePageComponent
   extends BasePageComponent implements OnInit {
 
-  @ViewChild('scrollContainer') private scrollContainer: ElementRef;
+  @HostListener('window:keydown',  ['$event'])
+  private onKeyDown( event: KeyboardEvent) {
+    if( event.key === 'ArrowDown' ){
+      this.moreSectionVisible = true;
+    }
+  }
 
   public moreSectionVisible = false;
 

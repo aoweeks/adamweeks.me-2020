@@ -1,29 +1,35 @@
 
-<div  id="splash-section"
-      class="page-section"
-      *ngIf="!moreSectionVisible">
-      <div id="splash-image-container">
+<div
+  id="splash-section"
+  class="page-section"
+  *ngIf="!moreSectionVisible"
+  @moveUpAnimation
+>
+  <div id="splash-image-container">
 
-      </div>
-      <div id="arrow-container">
-        <button id="arrow-button"
-          (click)="showMoreSection()"
-        >
-          <svg  id="down-arrow" width="100%" height="100%" viewBox="0 0 94 80" version="1.1"
-              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-              xml:space="preserve" xmlns:serif="http://www.serif.com/"
-              style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-            <g transform="matrix(0.100213,0,0,0.191847,0,0)">
-                <g transform="matrix(-32.2545,2.06334e-15,-3.95003e-15,-16.8485,2001.09,686.576)">
-                    <path id="arrow-path"
-                          d="M47.5,16L61.789,40.75L33.211,40.75L47.5,16ZM55.359,37.037L47.5,23.425L39.641,37.038L55.359,37.037Z"/>
-                </g>
+  </div>
+  <div id="arrow-container">
+    <button id="arrow-button"
+      (click)="showMoreSection()"
+    >
+      <svg  id="down-arrow" width="100%" height="100%" viewBox="0 0 94 80"
+          style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+        <g transform="matrix(0.100213,0,0,0.191847,0,0)">
+            <g transform="matrix(-32.2545,2.06334e-15,-3.95003e-15,-16.8485,2001.09,686.576)">
+                <path id="arrow-path"
+                      d="M47.5,16L61.789,40.75L33.211,40.75L47.5,16ZM55.359,37.037L47.5,23.425L39.641,37.038L55.359,37.037Z"/>
             </g>
-          </svg>
-        </button>
-      </div>
+        </g>
+      </svg>
+    </button>
+  </div>
 </div>
-<div  id="more-section"
-      class="page-section"
-      *ngIf="moreSectionVisible">
+
+<div
+  id="more-section"
+  class="page-section"
+  *ngIf="moreSectionVisible"
+  @moveUpAnimation
+>
+  Sample text
 </div>
