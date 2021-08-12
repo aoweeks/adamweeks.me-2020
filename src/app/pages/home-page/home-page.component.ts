@@ -13,13 +13,13 @@ import { BasePageComponent} from '../base-page.component';
       'moveUpAnimation', [
         transition(':enter', [
           style( { top: '100%', position: 'absolute' } ),
-          animate('800ms ease-in-out',
+          animate('1.25s ease-in-out',
             style( { top: 0, position: 'absolute' } )
           )
         ]),
         transition(':leave', [
           style( { top: 0, position: 'absolute'  } ),
-          animate('800ms ease-in-out',
+          animate('1.25s ease-in-out',
             style( { top: '-100%', position: 'absolute'  } )
           )
         ])

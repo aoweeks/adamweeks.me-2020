@@ -6,8 +6,29 @@
   @moveUpAnimation
 >
   <div id="splash-image-container">
-
+    <div id="splash-full-name">
+      <span id="splash-first-name">
+        <svg class="name-triangle" viewBox="0 0 38.5 33.3">
+          <path d="M19.2,0l19.2,33.3H0C0,33.3,19.2,0,19.2,0z M8.7,28.3h21.2L19.2,10L8.7,28.3z"/>
+        </svg>
+        <span class="invisible-letter">A</span>DAM
+      </span>
+      <span id="splash-second-name">
+        <svg class="name-triangle" viewBox="0 0 51.5 33.3">
+          <path d="M19.2,33.3L0,0l38.5,0C38.5,0,19.2,33.3,19.2,33.3z M29.8,5H8.7l10.6,18.3L29.8,5z"/>
+          <path d="M32.2,33.3L13,0l38.5,0C51.5,0,32.2,33.3,32.2,33.3z M42.8,5H21.7l10.6,18.3L42.8,5z"/>
+        </svg>
+        <span class="invisible-letter">W</span>EEKS
+      </span>
+    </div>
+    <hr id="splash-horizontal-divider" />
+      <span id="art-plus-code">
+        <span id="art">art</span>
+        <span id="plus">+</span>
+        <span id="code">code</span>
+      </span>
   </div>
+
   <div id="arrow-container">
     <button id="arrow-button"
       (click)="showMoreSection()"
