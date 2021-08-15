@@ -69,7 +69,7 @@
 
 .page-section {
   width: 100%;
-  height: calc(100vh - var(--header-height) - 4rem );
+  min-height: calc(100vh - var(--header-height) - 4rem );
 }
 
 #splash-section {
