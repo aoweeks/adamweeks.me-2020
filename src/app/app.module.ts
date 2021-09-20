@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
@@ -38,6 +38,7 @@ import { CheckboxComponent } from './ui-components/checkbox/checkbox.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     DeviceDetectorModule.forRoot(),
+    HammerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
