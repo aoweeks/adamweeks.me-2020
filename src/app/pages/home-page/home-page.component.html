@@ -3,7 +3,7 @@
   id="splash-section"
   class="page-section"
   *ngIf="!moreSectionVisible"
-  @moveUpAnimation
+  @leaveAnimation
 >
   <div id="splash-image-container">
     <h1 id="splash-full-name">
@@ -134,7 +134,7 @@
   id="more-section"
   class="page-section"
   *ngIf="moreSectionVisible"
-  @moveUpAnimation
+  @enterAnimation
 >
   <p>Hi, I'm Adam.</p>
   <p>I enjoy making things. This site is a place to put those things.</p>

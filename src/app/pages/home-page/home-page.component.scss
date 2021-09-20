@@ -68,6 +68,8 @@
 // }
 
 .page-section {
+  position: absolute;
+
   width: 100%;
   min-height: calc(100vh - var(--header-height) - 4rem );
 }

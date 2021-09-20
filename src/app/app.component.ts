@@ -10,7 +10,7 @@ import {  fadePageInOut } from '../route-animations';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [fadePageInOut]
+  //animations: [fadePageInOut]
   // , fadeFromToRight, fadeFromToBottom]
 })
 export class AppComponent implements OnInit {

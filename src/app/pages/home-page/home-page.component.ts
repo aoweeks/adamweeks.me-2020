@@ -10,15 +10,18 @@ import { BasePageComponent} from '../base-page.component';
   styleUrls: ['./home-page.component.scss', '../pages.scss'],
   animations: [
     trigger(
-      'moveUpAnimation', [
+      'enterAnimation', [
         transition(':enter', [
           style( { top: '100%', position: 'absolute' } ),
           animate('1.25s ease-in-out',
-            style( { top: 0, position: 'absolute' } )
+            style( { top: '2rem', position: 'absolute' } )
           )
-        ]),
+        ])
+      ]),
+    trigger(
+      'leaveAnimation', [
         transition(':leave', [
-          style( { top: 0, position: 'absolute'  } ),
+          style( { top: '2rem', position: 'absolute'  } ),
           animate('1.25s ease-in-out',
             style( { top: '-100%', position: 'absolute'  } )
           )
